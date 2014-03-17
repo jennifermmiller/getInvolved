@@ -28,51 +28,65 @@
 
 
         <div class="container">
-            <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <h3 class="text-muted">final project</h3>
-            </div>
-
-            <div class="jumbotron">
-                <h1>'Allo, 'Allo!</h1>
-                <p class="lead">Always a pleasure scaffolding your apps.</p>
-                <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
-            </div>
-
-            <div class="row marketing">
-                <div class="col-lg-6">
-                    <h4>HTML5 Boilerplate</h4>
-                    <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-                    <h4>Sass with Compass</h4>
-                    <p>Compass is an open-source CSS Authoring Framework that uses Sass.</p>
-
-
-                    <h4>Bootstrap</h4>
-                    <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-
-                    <h4>Modernizr</h4>
-                    <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
-
-                </div>
-            </div>
-
-            <div class="footer">
-                <p>♥ from the Yeoman team</p>
-            </div>
+            
 
         </div>
+
+        <!-- Start of Templates: -->
+
+        <!-- Header Template: -->
+        <script type="text/template" id="header-template">
+            <div class="header"> <!--Put this div in a header tag in view template?-->
+                <ul class="nav nav-pills pull-right">
+                    <li class="active"><a href="">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#getHelp">Get Help</a></li>
+                    <li><a href="#helpOut">Help Out</a></li>
+                </ul>
+                <h3 class="text-muted">getInvolved</h3>
+            </div>
+        </script>
+
+        <!-- Footer Template: -->
+        <script type="text/template" id="footer-template">
+            <span>&copy 2014 getInvolved. Designed &amp Developed by <a href="#">Jennifer Miller</a></span>
+        </script>
+
+        <!-- Home Template: -->
+        <script type="text/template" id="home-template"> 
+            <div class="home-welcome">
+                <h1>People Coming Together to Make a Differnce</h1>
+                <div class="start-btns">
+                    <a href="/getHelp"><button>Get Help</button></a>
+                    <a href="/HelpOut"><button>Help Out</button></a>
+                </div>
+            </div>
+            <div class="upcoming-events">
+                <h3>Upcoming Volunteer Opportunities</h3>
+                <div class="home-thumbnails">
+                    <p>Insert top three, newest, or closest to current date thumbnails</p>
+                    <img src="http://lorempixel.com/g/300/300/"/>
+                    <img src="http://lorempixel.com/g/300/300/"/>
+                    <img src="http://lorempixel.com/g/300/300/"/>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/template" id="about-template">
+            <h3>Mission Statement:</h3>
+            <p>Letterpress Austin fingerstache, tote bag put a bird on it Vice Neutra. Wayfarers swag Truffaut, 3 wolf moon seitan quinoa roof party pop-up. Dreamcatcher Truffaut ethnic tofu, wayfarers you probably haven't heard of them art party tousled fingerstache beard Vice. Artisan try-hard bicycle rights, dreamcatcher DIY pop-up quinoa single-origin coffee Bushwick keffiyeh squid hoodie irony. Scenester pug Odd Future Godard, twee pour-over tofu. Swag Vice semiotics ugh mlkshk. Normcore Tonx seitan, raw denim Etsy selfies Marfa post-ironic meggings plaid typewriter.</p>
+            <p>Locavore cray small batch, biodiesel twee Bushwick seitan pour-over asymmetrical hoodie gastropub fingerstache viral kitsch. Helvetica cornhole vinyl Thundercats Tumblr, normcore post-ironic. Neutra Portland normcore sriracha, single-origin coffee lo-fi literally umami. Wayfarers kogi irony you probably haven't heard of them. Kogi pug mustache cray irony Portland, whatever fanny pack vegan bitters High Life. Forage single-origin coffee cred, actually food truck mumblecore ethical keffiyeh art party pickled. Kogi ethnic gentrify kitsch, Neutra forage jean shorts brunch gastropub pop-up.</p>
+        </script>
 
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
+        <script src="//www.parsecdn.com/js/parse-1.2.17.min.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -100,6 +114,9 @@
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/models.js"></script>
+        <script src="scripts/router.js"></script>
+        <script src="scripts/views/header-view.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
