@@ -65,18 +65,107 @@
                 <h3>Upcoming Volunteer Opportunities</h3>
                 <div class="home-thumbnails">
                     <p>Insert top three, newest, or closest to current date thumbnails</p>
-                    <img src="http://lorempixel.com/g/300/300/"/>
-                    <img src="http://lorempixel.com/g/300/300/"/>
-                    <img src="http://lorempixel.com/g/300/300/"/>
+                    <div>
+                        <span>Date of event</span>
+                        <img src="http://lorempixel.com/g/300/300/"/>
+                        <div class="event-info">
+                            <h4>Event Name</h4>
+                            <span>Location</span>
+                            <span># of Volunteers needed</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span>Date of event</span>
+                        <img src="http://lorempixel.com/g/300/300/"/>
+                        <div class="event-info">
+                            <h4>Event Name</h4>
+                            <span>Location</span>
+                            <span># of Volunteers needed</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span>Date of event</span>
+                        <img src="http://lorempixel.com/g/300/300/"/>
+                        <div class="event-info">
+                            <h4>Event Name</h4>
+                            <span>Location</span>
+                            <span># of Volunteers needed</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </script>
 
+        <!-- Add Large btns for getHelp and helpOut? Also, maybe some stock pics of ppl helping out? -->
         <script type="text/template" id="about-template">
             <h3>Mission Statement:</h3>
             <p>Letterpress Austin fingerstache, tote bag put a bird on it Vice Neutra. Wayfarers swag Truffaut, 3 wolf moon seitan quinoa roof party pop-up. Dreamcatcher Truffaut ethnic tofu, wayfarers you probably haven't heard of them art party tousled fingerstache beard Vice. Artisan try-hard bicycle rights, dreamcatcher DIY pop-up quinoa single-origin coffee Bushwick keffiyeh squid hoodie irony. Scenester pug Odd Future Godard, twee pour-over tofu. Swag Vice semiotics ugh mlkshk. Normcore Tonx seitan, raw denim Etsy selfies Marfa post-ironic meggings plaid typewriter.</p>
             <p>Locavore cray small batch, biodiesel twee Bushwick seitan pour-over asymmetrical hoodie gastropub fingerstache viral kitsch. Helvetica cornhole vinyl Thundercats Tumblr, normcore post-ironic. Neutra Portland normcore sriracha, single-origin coffee lo-fi literally umami. Wayfarers kogi irony you probably haven't heard of them. Kogi pug mustache cray irony Portland, whatever fanny pack vegan bitters High Life. Forage single-origin coffee cred, actually food truck mumblecore ethical keffiyeh art party pickled. Kogi ethnic gentrify kitsch, Neutra forage jean shorts brunch gastropub pop-up.</p>
         </script>
+
+        <script type="text/template" id="get-help-template">
+            <h3>Sign up to get some help:</h3>
+            <form>
+                <div class="form-left-side">
+                    <div>
+                        <label for="org-name">Name:</label>
+                        <input type="text" id="org-name" placeholder="Your name/organization's name..."/>
+                    </div>
+                    <div>
+                        <label for="org-description">Description:</label>
+                        <textarea type="text" id="org-description" placeholder="A brief description of what you do..."></textarea>
+                    </div>
+                    <div>
+                        <label for="event-date">Date:</label>
+                        <input type="date" id="event-date"/>
+                    </div>
+                    <div>
+                        <label for="start-event">Starts:</label>
+                        <input type="time" id="start-event"/>
+                    </div>
+                    <div>
+                        <label for="end-event">Ends:</label>
+                        <input type="time" id="end-event"/>
+                    </div>
+                    <div>
+                        <label for="org-email">Email:</label>
+                        <input type="email" id="org-email" placeholder="me@example.com">
+                    </div>
+                    <div>    
+                        <label for="org-photo">Photo:</label>
+                        <input type="file" style="display: inline-block" id="org-photo"/>
+                    </div>
+                </div>
+                <div class="form-right-side">
+                    <span>Location:</span>
+                    <div>
+                        <label for="org-street">Street:</label>
+                        <input type="text" id="org-street" placeholder="Street address">
+                    </div>
+                    <div>
+                        <label for="org-town">Town:</label>
+                        <input type="text" id="org-town" placeholder="Town">
+                    </div>
+                    <div>
+                        <label for="org-state">State:</label>
+                        <input type="text" id="org-state" placeholder="">
+                    </div> 
+                    <div>
+                        <label for="org-zip">Zip Code:</label>
+                        <input type="text" id="org-zip" placeholder="zip code">
+                    </div>     
+                </div>     
+            </form>
+            <div>
+                <input type="checkbox" id="org-pledge"/>
+                <label id="org-pledge">I plegde this is a genuine volunteer opportunity</label>
+            </div>
+            <button id="submit-help-form">Submit</button>
+        </script>
+
+        <script type="text/template" id="help-out-template"></script>
+        
+        <script type="text/template" id="event-info-template"></script>
 
 
         <!-- build:js scripts/vendor.js -->
@@ -117,6 +206,10 @@
         <script src="scripts/models.js"></script>
         <script src="scripts/router.js"></script>
         <script src="scripts/views/header-view.js"></script>
+        <script src="scripts/views/footer-view.js"></script>
+        <script src="scripts/views/home-view.js"></script>
+        <script src="scripts/views/about-view.js"></script>
+        <script src="scripts/views/get-help-view.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

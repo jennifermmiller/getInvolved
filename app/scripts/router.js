@@ -29,6 +29,7 @@ var Router = Backbone.Router.extend({
 	getHelpPage: function() {
 		$('body').empty();
 		new HeaderView();
+		new GetHelpView();
 		new FooterView();
 	},
 
