@@ -1,6 +1,7 @@
 //Things to be fixed down the road:
 	//would like to have {pushState: true} working (vs hashtags)
 	//add to about page (see comment above template)
+	//Add type to event form (need to find a database)
 	//Geolocate option for get help location? practical? Or...autopopulate town and state on input of zip. Also, list of states vs typing it in?
 
 console.log('Get awesome ascii art?');

@@ -65,38 +65,14 @@
                 <h3>Upcoming Volunteer Opportunities</h3>
                 <div class="home-thumbnails">
                     <p>Insert top three, newest, or closest to current date thumbnails</p>
-                    <div>
-                        <span>Date of event</span>
-                        <img src="http://lorempixel.com/g/300/300/"/>
-                        <div class="event-info">
-                            <h4>Event Name</h4>
-                            <span>Location</span>
-                            <span># of Volunteers needed</span>
-                        </div>
-                    </div>
-                    <div>
-                        <span>Date of event</span>
-                        <img src="http://lorempixel.com/g/300/300/"/>
-                        <div class="event-info">
-                            <h4>Event Name</h4>
-                            <span>Location</span>
-                            <span># of Volunteers needed</span>
-                        </div>
-                    </div>
-                    <div>
-                        <span>Date of event</span>
-                        <img src="http://lorempixel.com/g/300/300/"/>
-                        <div class="event-info">
-                            <h4>Event Name</h4>
-                            <span>Location</span>
-                            <span># of Volunteers needed</span>
-                        </div>
+                    <div class="upcoming">
+                      <!--Append upcoming thumbnails here-->
                     </div>
                 </div>
             </div>
         </script>
 
-        <!-- Add Large btns for getHelp and helpOut? Also, maybe some stock pics of ppl helping out? -->
+        <!-- Add Large btns for getHelp and helpOut? Also, maybe some stock pics of ppl volunteering? -->
         <script type="text/template" id="about-template">
             <h3>Mission Statement:</h3>
             <p>Letterpress Austin fingerstache, tote bag put a bird on it Vice Neutra. Wayfarers swag Truffaut, 3 wolf moon seitan quinoa roof party pop-up. Dreamcatcher Truffaut ethnic tofu, wayfarers you probably haven't heard of them art party tousled fingerstache beard Vice. Artisan try-hard bicycle rights, dreamcatcher DIY pop-up quinoa single-origin coffee Bushwick keffiyeh squid hoodie irony. Scenester pug Odd Future Godard, twee pour-over tofu. Swag Vice semiotics ugh mlkshk. Normcore Tonx seitan, raw denim Etsy selfies Marfa post-ironic meggings plaid typewriter.</p>
@@ -108,12 +84,12 @@
             <form>
                 <div class="form-left-side">
                     <div>
-                        <label for="org-name">Name:</label>
-                        <input type="text" id="org-name" placeholder="Your name/organization's name..."/>
+                        <label for="event-name">Name:</label>
+                        <input type="text" id="event-name" placeholder="Name of event..."/>
                     </div>
                     <div>
-                        <label for="org-description">Description:</label>
-                        <textarea type="text" id="org-description" placeholder="A brief description of what you do..."></textarea>
+                        <label for="event-description">Description:</label>
+                        <textarea type="text" id="event-description" placeholder="A brief description of event..."></textarea>
                     </div>
                     <div>
                         <label for="event-date">Date:</label>
@@ -128,16 +104,24 @@
                         <input type="time" id="end-event"/>
                     </div>
                     <div>
-                        <label for="org-email">Email:</label>
-                        <input type="email" id="org-email" placeholder="me@example.com">
+                        <label for="volunteers-needed">How many needed?</label>
+                        <input type="text" id="volunteers-needed"/>
+                    </div>
+                    <div>
+                        <label for="event-sponsor">Sponsor:</label>
+                        <input type="text" id="event-sponsor"/>
+                    </div>
+                    <div>
+                        <label for="sponsor-email">Sponsors Email:</label>
+                        <input type="email" id="sponsor-email" placeholder="me@example.com">
                     </div>
                     <div>    
-                        <label for="org-photo">Photo:</label>
-                        <input type="file" style="display: inline-block" id="org-photo"/>
+                        <label for="event-photo">Photo:</label>
+                        <input type="file" style="display: inline-block" id="event-photo"/>
                     </div>
                 </div>
                 <div class="form-right-side">
-                    <span>Location:</span>
+                    <span>Event Location:</span>
                     <div>
                         <label for="org-street">Street:</label>
                         <input type="text" id="org-street" placeholder="Street address">
@@ -163,10 +147,50 @@
             <button id="submit-help-form">Submit</button>
         </script>
 
-        <script type="text/template" id="help-out-template"></script>
-        
+        <script type="text/template" id="help-out-template">
+            <h3>Search for the right opportunity:</h3>
+            <div class="search-location">By Location
+                <div class="expand-search">
+                    <input type="text" id="desired-location" placeholder="Search for a city..."/>
+                    <a href="#helpOut/byLocation"><button class="search-btn">Search</button></a>
+                </div>
+            </div>
+            <div class="search-type">By type:
+                <div class="expand-search">
+                    <!-- Need to find database-->
+                    <a href="#helpOut/byType"><button class="search-btn">Search</button></a>
+                </div>
+            </div>
+            <div class="search-date">By Date:
+                <div class="expand-search">
+                    <input type="date" id="desired-date"/>
+                    <a href="#helpOut/byDate"><button class="search-btn">Search</button></a>
+                </div>
+            </div>
+            <div class="search-time">By Amount of Time:
+                <div class="expand-search">
+                    <!--List of three or four checkbox inputs and on search find the one thats true?-->
+                    <a href="#helpOut/byTime"><button class="search-btn">Search</button></a>
+                </div>
+            </div>
+            <h3>All Volunteer Opportunities:</h3>
+                    <!--Grid of thumbnail event opportunities-->
+        </script>
+                    
         <script type="text/template" id="event-info-template"></script>
 
+        <!-- wrap each thumbnail-template in a a-tag that goes to expanded view of event -->
+        <script type="text/template" id="thumbnail-template">
+            <img src="<%=model.get('eventPhoto').url()%>"/>
+            <div class="thumbnail-header">
+                <span><%=model.get('eventDate')%></span>
+                <span><%=model.get('eventLocation')%></span>
+            </div>
+            <div class="thumbnail-footer">
+                <h5><%=model.get('eventName')%></h5>
+                <span><%=model.get('volunteersNeded')%></span>
+            </div>
+        </script>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
@@ -208,8 +232,10 @@
         <script src="scripts/views/header-view.js"></script>
         <script src="scripts/views/footer-view.js"></script>
         <script src="scripts/views/home-view.js"></script>
+        <script src="scripts/views/thumbnail-view.js"></script>
         <script src="scripts/views/about-view.js"></script>
         <script src="scripts/views/get-help-view.js"></script>
+        <script src="scripts/views/help-out-view.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

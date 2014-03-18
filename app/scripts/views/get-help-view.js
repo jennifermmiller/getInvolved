@@ -22,28 +22,31 @@ var GetHelpView = Backbone.View.extend({
 		//clear form on success
 		var newEvent = new EventClass();
 
-		newEvent.save({
-			organization: $('#org-name').val(),
-			description: $('#org-description').val(),
-			email: $('#org-email').val(),
-			eventDate: $('#event-date').val(),
-			eventStart: $('#start-event').val(),
-			eventEnd: $('#end-event').val(),
-		});
-
-		var fileUploadControl = $('#org-photo')[0];	
-		
+		var fileUploadControl = $("#event-photo")[0];
 		if (fileUploadControl.files.length > 0) {
-		  var file = fileUploadControl.files[0];
-		  var name = 'photo.jpg';
+		  	var file = fileUploadControl.files[0];
+		  	var name = "photo.jpg";
 		 
-		  var parseFile = new Parse.File(name, file);
+		  	var parseFile = new Parse.File(name, file);
 		}
 
 		parseFile.save().then(function() {
-			event.set("eventPhoto", parseFile);
-		  	console.log("Yay! Your photo has been saved!");
+		  console.log("Youre awesome pic has been saved");
+		}, function(error) {
+		  console.log("Oops! Couldnt save your photo");
 		});
+
+		newEvent.set("eventPhoto", parseFile);
+        newEvent.set('eventName', $('#event-name').val());
+        newEvent.set('eventDescription', $('#event-description').val());
+        newEvent.set('eventDate', $('#event-date').val());
+        newEvent.set('eventStart', $('#start-event').val());
+        newEvent.set('eventEnd', $('#end-event').val());
+        newEvent.set('volunteersNeeded', $('#volunteers-needed').val());
+        newEvent.set('eventSponsor', $('#event-sponsor').val());
+        newEvent.set('email', $('#sponsor-email').val());
+        
+        newEvent.save();
 
 		router.events.add(newEvent);
 	}

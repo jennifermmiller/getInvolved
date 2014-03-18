@@ -4,7 +4,7 @@ var Router = Backbone.Router.extend({
 		'about': 'aboutPage',
 		'getHelp': 'getHelpPage',
 		'helpOut': 'helpOutPage',
-		'helpOut/:search': 'sortEvents' //this will need to be fixed
+		'helpOut/:sort': 'sortEvents' //this will need to be fixed
 	},
 
 	initialize: function() {
@@ -14,9 +14,26 @@ var Router = Backbone.Router.extend({
 
 	home: function() {
 		$('body').empty();
+		
 		new HeaderView();
 		new HomeView();
-		new FooterView();
+		
+
+		var query = new Parse.Query(EventClass);
+		query.limit(3);
+		query.ascending('eventDate');
+		query.find({
+			success: function(events){
+				for(var i=0; i < events.length; i++){
+					new ThumbnailView({model: events[i]});
+				}
+				new FooterView();
+			},
+			error: function(){
+				console.log('not so fast!');
+			}
+		});
+		
 	},
 
 	aboutPage: function() {
@@ -33,12 +50,15 @@ var Router = Backbone.Router.extend({
 		new FooterView();
 	},
 
-	helpOutPage: function() {
+	helpOutPage: function(sort) {
 		$('body').empty();
 		new HeaderView();
+		new HelpOutView();
 		new FooterView();
 	}
 
 
 
 });
+
+

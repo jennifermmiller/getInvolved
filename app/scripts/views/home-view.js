@@ -6,6 +6,7 @@ var HomeView = Backbone.View.extend({
 
 	initialize: function(){
 		$('body').append(this.el);
+		
 		this.render();
 	},
 
@@ -13,3 +14,4 @@ var HomeView = Backbone.View.extend({
 		this.$el.html(this.createTemplate());
 	}
 });
+
