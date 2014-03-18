@@ -65,13 +65,12 @@ var Router = Backbone.Router.extend({
 		query.equalTo("objectId", eventId);
 		query.find({
 			success: function(result){
-				new EventView({model: result});
+				new EventView({model: result[0]});
 				new FooterView();
 			},error: function(){
 				console.log('sucking hard!')
 			}
 		});
-		
 	}
 
 

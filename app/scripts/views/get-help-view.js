@@ -17,7 +17,7 @@ var GetHelpView = Backbone.View.extend({
 	},
 
 	submit:function(){
-		//need to validate form info...also a placeholder pic in event of photo not uploaded
+		//need to validate form info...also a placeholder pic in event user doesnt uploaded one
 		//model: error if not correct, success message if form saved
 		//clear form on success
 		var newEvent = new EventClass();
@@ -46,7 +46,7 @@ var GetHelpView = Backbone.View.extend({
         newEvent.set('eventSponsor', $('#event-sponsor').val());
         newEvent.set('email', $('#sponsor-email').val());
         newEvent.set('eventLocation', $('#event-city').val() + ', ' + $('#event-state').val());
-        //set address?
+        //set address? and/or lat and long for map and directions
         
         newEvent.save();
 

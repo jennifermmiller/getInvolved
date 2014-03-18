@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>final project</title>
+        <title>getInvolved</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -27,10 +27,10 @@
         <![endif]-->
 
 
-        <div class="container">
-            
 
-        </div>
+        <div class="container"></div>
+
+
 
         <!-- Start of Templates: -->
 
@@ -55,7 +55,7 @@
         <!-- Home Template: -->
         <script type="text/template" id="home-template"> 
             <div class="home-welcome">
-                <h1>People Coming Together to Make a Differnce</h1>
+                <h1>People Coming Together to Make a Difference</h1>
                 <div class="start-btns">
                     <a href="#getHelp"><button>Get Help</button></a>
                     <a href="#helpOut"><button>Help Out</button></a>
@@ -65,7 +65,7 @@
                 <h3>Upcoming Volunteer Opportunities</h3>
                 <div class="home-thumbnails">
                     <p>Insert top three, newest, or closest to current date thumbnails</p>
-                    <div class="upcoming">
+                    <div class="opportunities">
                       <!--Append upcoming thumbnails here-->
                     </div>
                 </div>
@@ -176,7 +176,8 @@
                 </div>
             </div>
             <h3>All Volunteer Opportunities:</h3>
-                    <!--Grid of thumbnail event opportunities-->
+                <!--Grid of thumbnail event opportunities-->
+                <div class="opportunities"></div>
         </script>
         
         <!-- Expanded Event Template -->
@@ -194,7 +195,10 @@
                 <div>MAP HERE plus btn for directions</div>
                 <!-- a way to put this into one variable? or call each part of location? span><%=model.get('eventLocation')%></span> -->
             </div>
-            <button id="volunteer">Sign me up!</button>
+            <!-- Button trigger modal -->
+            <button class="btn btn-primary btn-lg" id="volunteer" data-toggle="modal" data-target="#myModal">
+              Sign me up!
+            </button>
             <div>Comment: .....</div>
             <div>List of previous comments</div>
         </script>
@@ -210,6 +214,30 @@
                 <h5><%=model.get('eventName')%></h5>
                 <span><%=model.get('volunteersNeded')%></span>
             </div>
+        </script>
+
+        <!-- Signup Template -->
+        <script type="text/template" id="signup-template">
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" id="volunteer-name" placeholder="Name"/>
+                            <input type="email" id="volunteer-email" placeholder="Email"/>
+                            <textarea type="text" id="volunteer-extra" placeholde="Any conerns and/or limitations?"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>  
         </script>
 
         <!-- build:js scripts/vendor.js -->

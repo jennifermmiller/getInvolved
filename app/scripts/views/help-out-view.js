@@ -10,6 +10,15 @@ var HelpOutView = Backbone.View.extend({
 
 	initialize: function(){
 		$('body').append(this.el);
+
+		router.events.fetch({
+			success: function(){
+				router.events.each(function(event){
+					new ThumbnailView({model: event});
+				});
+			}
+		});
+
 		this.render();
 	},
 
@@ -17,3 +26,9 @@ var HelpOutView = Backbone.View.extend({
 		this.$el.html(this.createTemplate());
 	}
 });
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-//Displays events as thumbnails
+//Displays events as thumbnails and sets them as a-tags that link to more information
 var ThumbnailView = Backbone.View.extend({
 	tagName: 'a',
 
@@ -6,10 +6,8 @@ var ThumbnailView = Backbone.View.extend({
 
 	createTemplate: _.template($('#thumbnail-template').text()),
 
-	//Thinking this will need to be changed in order to put thumbnails elsewhere in project
-	//Unless, use same class name in different templates?
 	initialize: function(){
-		$('.upcoming').append(this.el);
+		$('.opportunities').append(this.el);
 
 		this.setHrefAttr();
 		this.render();
