@@ -17,26 +17,26 @@ var GetHelpView = Backbone.View.extend({
 	},
 
 	submit:function(){
-		//need to validate form info
+		//need to validate form info...also a placeholder pic in event of photo not uploaded
 		//model: error if not correct, success message if form saved
 		//clear form on success
 		var newEvent = new EventClass();
 
-		var fileUploadControl = $("#event-photo")[0];
+		var fileUploadControl = $('#event-photo')[0];
 		if (fileUploadControl.files.length > 0) {
 		  	var file = fileUploadControl.files[0];
-		  	var name = "photo.jpg";
+		  	var name = 'photo.jpg';
 		 
 		  	var parseFile = new Parse.File(name, file);
 		}
 
 		parseFile.save().then(function() {
-		  console.log("Youre awesome pic has been saved");
+		  console.log('Youre awesome pic has been saved');
 		}, function(error) {
-		  console.log("Oops! Couldnt save your photo");
+		  console.log('Oops! Couldnt save your photo');
 		});
 
-		newEvent.set("eventPhoto", parseFile);
+		newEvent.set('eventPhoto', parseFile); //Put this in first function in save and placeholder in second function?
         newEvent.set('eventName', $('#event-name').val());
         newEvent.set('eventDescription', $('#event-description').val());
         newEvent.set('eventDate', $('#event-date').val());
@@ -45,6 +45,8 @@ var GetHelpView = Backbone.View.extend({
         newEvent.set('volunteersNeeded', $('#volunteers-needed').val());
         newEvent.set('eventSponsor', $('#event-sponsor').val());
         newEvent.set('email', $('#sponsor-email').val());
+        newEvent.set('eventLocation', $('#event-city').val() + ', ' + $('#event-state').val());
+        //set address?
         
         newEvent.save();
 

@@ -124,26 +124,26 @@
                 <div class="form-right-side">
                     <span>Event Location:</span>
                     <div>
-                        <label for="org-street">Street:</label>
-                        <input type="text" id="org-street" placeholder="Street address">
+                        <label for="event-street">Street:</label>
+                        <input type="text" id="event-street" placeholder="Street address">
                     </div>
                     <div>
-                        <label for="org-town">Town:</label>
-                        <input type="text" id="org-town" placeholder="Town">
+                        <label for="event-town">Town:</label>
+                        <input type="text" id="event-town" placeholder="Town">
                     </div>
                     <div>
-                        <label for="org-state">State:</label>
-                        <input type="text" id="org-state" placeholder="">
+                        <label for="event-state">State:</label>
+                        <input type="text" id="event-state" placeholder="">
                     </div> 
                     <div>
-                        <label for="org-zip">Zip Code:</label>
-                        <input type="text" id="org-zip" placeholder="zip code">
+                        <label for="event-zip">Zip Code:</label>
+                        <input type="text" id="event-zip" placeholder="zip code">
                     </div>     
                 </div>     
             </form>
             <div>
-                <input type="checkbox" id="org-pledge"/>
-                <label id="org-pledge">I plegde this is a genuine volunteer opportunity</label>
+                <input type="checkbox" id="event-pledge"/>
+                <label id="event-pledge">I plegde this is a genuine volunteer opportunity</label>
             </div>
             <button id="submit-help-form">Submit</button>
         </script>
@@ -180,8 +180,24 @@
         </script>
         
         <!-- Expanded Event Template -->
-        <script type="text/template" id="event-info-template"></script>
-            
+        <script type="text/template" id="event-template">
+            <div class="event-header">
+                <h3><%=model.get('eventName')%></h3>
+                <span><%=model.get('eventDescription')%></span>
+            </div>
+            <div class="event-left">
+                <img src="<%=model.get('eventPhoto').url()%>"/>
+                <span><%=model.get('eventDate')%></span>
+                <span><%=model.get('volunteersNeded')%></span>
+            </div>
+            <div class="event-right">
+                <div>MAP HERE plus btn for directions</div>
+                <!-- a way to put this into one variable? or call each part of location? span><%=model.get('eventLocation')%></span> -->
+            </div>
+            <button id="volunteer">Sign me up!</button>
+            <div>Comment: .....</div>
+            <div>List of previous comments</div>
+        </script>
 
         <!-- Thumbnail Template -->
         <script type="text/template" id="thumbnail-template">
@@ -240,6 +256,7 @@
         <script src="scripts/views/about-view.js"></script>
         <script src="scripts/views/get-help-view.js"></script>
         <script src="scripts/views/help-out-view.js"></script>
+        <script src="scripts/views/event-view.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

@@ -5,7 +5,7 @@ var Router = Backbone.Router.extend({
 		'getHelp': 'getHelpPage',
 		'helpOut': 'helpOutPage',
 		'helpOut/:sort': 'sortEvents',
-		'helpOut/events/:id': 'eventDetails'
+		'helpOut/events/:eventId': 'eventDetails'
 	},
 
 	initialize: function() {
@@ -24,6 +24,7 @@ var Router = Backbone.Router.extend({
 		query.ascending('eventDate');
 		query.find({
 			success: function(events){
+				//Clean this up so not using for loop?
 				for(var i=0; i < events.length; i++){
 					new ThumbnailView({model: events[i]});
 				}
@@ -56,11 +57,21 @@ var Router = Backbone.Router.extend({
 		new FooterView();
 	},
 
-	eventDetails: function(id){
+	eventDetails: function(eventId){
 		$('body').empty();
 		new HeaderView();
 
-		new FooterView();
+		var query = new Parse.Query(EventClass);
+		query.equalTo("objectId", eventId);
+		query.find({
+			success: function(result){
+				new EventView({model: result});
+				new FooterView();
+			},error: function(){
+				console.log('sucking hard!')
+			}
+		});
+		
 	}
 
 
