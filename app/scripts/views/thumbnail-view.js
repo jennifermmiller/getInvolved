@@ -6,6 +6,8 @@ var ThumbnailView = Backbone.View.extend({
 
 	createTemplate: _.template($('#thumbnail-template').text()),
 
+	//Thinking this will need to be changed in order to put thumbnails elsewhere in project
+	//Unless, use same class name in different templates?
 	initialize: function(){
 		$('.upcoming').append(this.el);
 
@@ -18,6 +20,8 @@ var ThumbnailView = Backbone.View.extend({
 	},
 
 	setHrefAttr: function(){
-		//var id = this.model.get()
+		var id = this.model.id;
+		var link  = '#/helpOut/events/' + id;
+		this.$el.attr({href: link});
 	}
 });

@@ -57,8 +57,8 @@
             <div class="home-welcome">
                 <h1>People Coming Together to Make a Differnce</h1>
                 <div class="start-btns">
-                    <a href="/getHelp"><button>Get Help</button></a>
-                    <a href="/HelpOut"><button>Help Out</button></a>
+                    <a href="#getHelp"><button>Get Help</button></a>
+                    <a href="#helpOut"><button>Help Out</button></a>
                 </div>
             </div>
             <div class="upcoming-events">
@@ -79,6 +79,7 @@
             <p>Locavore cray small batch, biodiesel twee Bushwick seitan pour-over asymmetrical hoodie gastropub fingerstache viral kitsch. Helvetica cornhole vinyl Thundercats Tumblr, normcore post-ironic. Neutra Portland normcore sriracha, single-origin coffee lo-fi literally umami. Wayfarers kogi irony you probably haven't heard of them. Kogi pug mustache cray irony Portland, whatever fanny pack vegan bitters High Life. Forage single-origin coffee cred, actually food truck mumblecore ethical keffiyeh art party pickled. Kogi ethnic gentrify kitsch, Neutra forage jean shorts brunch gastropub pop-up.</p>
         </script>
 
+        <!-- GetHelp Template: -->
         <script type="text/template" id="get-help-template">
             <h3>Sign up to get some help:</h3>
             <form>
@@ -147,39 +148,42 @@
             <button id="submit-help-form">Submit</button>
         </script>
 
+        <!-- HelpOut Template -->
         <script type="text/template" id="help-out-template">
             <h3>Search for the right opportunity:</h3>
             <div class="search-location">By Location
                 <div class="expand-search">
                     <input type="text" id="desired-location" placeholder="Search for a city..."/>
-                    <a href="#helpOut/byLocation"><button class="search-btn">Search</button></a>
+                    <a href="#helpOut/events/byLocation"><button class="search-btn">Search</button></a>
                 </div>
             </div>
             <div class="search-type">By type:
                 <div class="expand-search">
                     <!-- Need to find database-->
-                    <a href="#helpOut/byType"><button class="search-btn">Search</button></a>
+                    <a href="#helpOut/events/byType"><button class="search-btn">Search</button></a>
                 </div>
             </div>
             <div class="search-date">By Date:
                 <div class="expand-search">
                     <input type="date" id="desired-date"/>
-                    <a href="#helpOut/byDate"><button class="search-btn">Search</button></a>
+                    <a href="#helpOut/events/byDate"><button class="search-btn">Search</button></a>
                 </div>
             </div>
             <div class="search-time">By Amount of Time:
                 <div class="expand-search">
                     <!--List of three or four checkbox inputs and on search find the one thats true?-->
-                    <a href="#helpOut/byTime"><button class="search-btn">Search</button></a>
+                    <a href="#helpOut/events/byTime"><button class="search-btn">Search</button></a>
                 </div>
             </div>
             <h3>All Volunteer Opportunities:</h3>
                     <!--Grid of thumbnail event opportunities-->
         </script>
-                    
+        
+        <!-- Expanded Event Template -->
         <script type="text/template" id="event-info-template"></script>
+            
 
-        <!-- wrap each thumbnail-template in a a-tag that goes to expanded view of event -->
+        <!-- Thumbnail Template -->
         <script type="text/template" id="thumbnail-template">
             <img src="<%=model.get('eventPhoto').url()%>"/>
             <div class="thumbnail-header">

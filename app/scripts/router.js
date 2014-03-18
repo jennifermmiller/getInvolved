@@ -4,7 +4,8 @@ var Router = Backbone.Router.extend({
 		'about': 'aboutPage',
 		'getHelp': 'getHelpPage',
 		'helpOut': 'helpOutPage',
-		'helpOut/:sort': 'sortEvents' //this will need to be fixed
+		'helpOut/:sort': 'sortEvents',
+		'helpOut/events/:id': 'eventDetails'
 	},
 
 	initialize: function() {
@@ -17,7 +18,6 @@ var Router = Backbone.Router.extend({
 		
 		new HeaderView();
 		new HomeView();
-		
 
 		var query = new Parse.Query(EventClass);
 		query.limit(3);
@@ -33,7 +33,6 @@ var Router = Backbone.Router.extend({
 				console.log('not so fast!');
 			}
 		});
-		
 	},
 
 	aboutPage: function() {
@@ -54,6 +53,13 @@ var Router = Backbone.Router.extend({
 		$('body').empty();
 		new HeaderView();
 		new HelpOutView();
+		new FooterView();
+	},
+
+	eventDetails: function(id){
+		$('body').empty();
+		new HeaderView();
+
 		new FooterView();
 	}
 
