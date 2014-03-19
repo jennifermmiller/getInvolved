@@ -2,6 +2,8 @@
 var FooterView = Backbone.View.extend({
 	tagName: 'footer',
 
+	className: 'footer',
+
 	createTemplate: _.template($('#footer-template').text()),
 
 	initialize: function(){

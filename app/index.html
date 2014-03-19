@@ -49,7 +49,7 @@
 
         <!-- Footer Template: -->
         <script type="text/template" id="footer-template">
-            <span>&copy 2014 getInvolved. Designed &amp Developed by <a href="#">Jennifer Miller</a></span>
+            <h5>&copy 2014 getInvolved. Designed &amp Developed by <a href="#">Jennifer Miller</a></h5>
         </script>
 
         <!-- Home Template: -->
@@ -74,14 +74,14 @@
 
         <!-- Thumbnail Template -->
         <script type="text/template" id="thumbnail-template">
-            <img src="<%=model.get('eventPhoto').url()%>"/>
             <div class="thumbnail-header">
                 <span><%=model.get('eventDate')%></span>
                 <span><%=model.get('eventLocation')%></span>
             </div>
+            <img src="<%=model.get('eventPhoto').url()%>"/>
             <div class="thumbnail-footer">
-                <h5><%=model.get('eventName')%></h5>
-                <span><%=model.get('volunteersNeded')%></span>
+                <h4><%=model.get('eventName')%></h4>
+                <span> Volunteers needed: <%=model.get('volunteersNeeded')%></span>
             </div>
         </script>
 
@@ -203,8 +203,8 @@
             </button>
             <div class="comment-section">
                 <div class="add-comment">
-                    <textarea type="text" id="new-comment" placeholder="Share your experience"></textarea>
-                    <input type="text" id="comment-by" placeholder="Name is optional">
+                    <textarea type="text" id="new-comment" placeholder="Share your experience" required></textarea>
+                    <input type="text" id="comment-by" placeholder="Name (optional)">
                     <button type="button" id="add-comment">Add Comment</button>
                 </div>
                 <h3>What people are saying about this event</h3>
@@ -234,7 +234,7 @@
                             <!--<div class="signup-extras">
                                 <input type="checkbox" id="email-signup"/>
                                 <label id="email-signup">I would like to receive notifications about events near me!</label>
-                                Have location appear when checkbox gets checked:
+                                Have location appear when checkbox gets checkedkey: "value", 
                                 <input type="text" id="volunteer-location" placeholder="City, State">
                             </div>-->
                         </div>

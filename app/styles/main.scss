@@ -11,8 +11,8 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 /* Space out content a bit */
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -34,13 +34,6 @@ body {
         line-height: 40px;
         padding-bottom: 19px;
     }
-}
-
-/* Custom page footer */
-.footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
 }
 
 .container-narrow > hr {
@@ -90,13 +83,84 @@ body {
     }
 }
 
-.thumbnail-css{
+// >>>>>>>>>>>>>>>> Start of Jen's Styles >>>>>>>>>>>>>>>
+
+//**************Styles used on multiple pages*************************
+//Footer's sytles
+.footer{
+    height: 60px;
+    background: lightblue;
+    margin: 60px 0 0 0;
+    text-align: center;
+    padding-top: 15px;
+}
+
+
+// Basic tumbnail looks:
+.thumbnails {
+    display: inline-block;
+    text-decoration: none;
+    
     img{
         width: 300px;
         height: 250px;
     }
+
+    .thumbnail-header{
+        background: rgba(3, 3, 3, 0.6);
+        color: white;
+        position: absolute;
+        height: 35px;
+        width: 300px;
+        text-align: left;
+        padding: 9px 5px;
+
+        span:nth-child(2){
+            float: right;
+        }
+    }
+
+    .thumbnail-footer{
+        text-align: left;
+        background: oldlace;
+        padding: 5px;
+
+        h4 {
+            margin-top: 0;
+        }
+    }
 }
 
-#volunteer-location{
-    display: none;
+
+
+//***********************End of re-used styles****************************
+//Homepage styles:
+.homepage-guts{
+    text-align: center;
+    
+    .home-welcome{
+        width: 100%;
+        background: rgb(210, 210, 236);
+        height: 400px;
+
+        h1{
+            line-height: 300px;//Fix!!! not going to work with smaller screens
+        }
+
+        //Design a button mixin?
+        button{
+            width: 90px;
+            height: 45px;
+        }
+    }
+
+    .upcoming-events{
+
+        .thumbnails {
+            margin: 10px; 
+        }
+    }
 }
+
+
+

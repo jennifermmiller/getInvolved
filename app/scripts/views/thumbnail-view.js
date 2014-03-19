@@ -2,7 +2,7 @@
 var ThumbnailView = Backbone.View.extend({
 	tagName: 'a',
 
-	className: 'thumbnail-css',
+	className: 'thumbnails',
 
 	createTemplate: _.template($('#thumbnail-template').text()),
 

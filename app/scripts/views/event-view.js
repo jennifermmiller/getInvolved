@@ -47,6 +47,7 @@ var EventView = Backbone.View.extend({
 				new CommentView({model: result});
 
 				//Target both input fields and clear at once?
+				//Maybe just a cleay function that can be run in any form to clear
 				$('#new-comment').val(''); 
 				$('#comment-by').val('');
 			},
@@ -84,7 +85,7 @@ var SignupView = Backbone.View.extend({
 		var volunteerEmail = $('#volunteer-email').val();
 		var volunteerExtra = $('#volunteer-extra').val();
 
-		//For now, this is extra.
+		//For now, this is extra...get back to this:
 		// if($('#email-signup').attr('checked')) {
 		// 	console.log('here');
 		//     $('#volunteer-location').show();
@@ -104,15 +105,15 @@ var SignupView = Backbone.View.extend({
 
 		volunteer.save(null, {
 			success: function(){
-
+				//Success/error message...if success, model clear
+				//Email confirmation to volunteer and event sponsor
+				//Decrease volunteers needed by one
 			},
 			error: function() {
-
+				console.log('what?! what!')
 			}
 		});
-		//Success/error message
-		//Email confirmation to volunteer and event sponsor
-		//Decrease volunteers needed by one
+		
 	}
 });
 
