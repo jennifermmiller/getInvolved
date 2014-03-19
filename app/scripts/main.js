@@ -1,11 +1,12 @@
 //Things to be fixed down the road:
 	//would like to have {pushState: true} working (vs hashtags)
 	//add to about page (see comment above template)
-	//Add type to event form (need to find a database)
-	//Geolocate option for get help location? practical? Or...autopopulate town and state on input of zip. Also, list of states vs typing it in?
+	//Add type to event form (need to find a database for options)
+	//Or...autopopulate town and state on input of zip? Also, list of states vs typing it in?
 	//Have past event stay up for a week or something?
 		//Maybe have upcoming events and past events for people to connect post event?
-	//Look into Bootstrap form validation error ... adds/removes warning class 
+	//Look into Bootstrap form validation... add/remove warning class
+	//Fix how comments look, thinking fixed height div where comments are appended and add comment beneath that or at least beneath title?
 console.log('yo!');
 
 $(document).ready(function(){

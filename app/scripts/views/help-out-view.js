@@ -28,9 +28,3 @@ var HelpOutView = Backbone.View.extend({
 	}
 });
 
-//Working on dividing events:
-// var now = moment();
-// var query = new Parse.Query(EventClass);
-// var 
-
-

@@ -26,14 +26,14 @@ var EventView = Backbone.View.extend({
 	addComment: function(){
 		var comment = new CommentClass();
 
-		var commentText = $('#new-comment').val();
-		var commentAuthor = $('#comment-by').val(); 
-		var timeStamp = moment().format('MMM Do YYYY, h:mm a');
+		var commentText = $('#new-comment').val(); 
+		var timeStamp = moment().format('MMM Do YYYY, h:mm a'); //Doing extra work? Just use creaatedAt?
 
 		comment.set('commentContent', commentText);
 		
-		//Clean this up!
+		//Clean this up! Put in with validation of commentText?
 		if ($('#comment-by').val() !== '') {
+			var commentAuthor = $('#comment-by').val();
 			comment.set('commentBy', commentAuthor);
 		}
 
@@ -78,6 +78,38 @@ var SignupView = Backbone.View.extend({
 	},
 
 	confirmSignup: function(){
+		var volunteer = new VolunteerClass();
+
+		var volunteerName = $('#volunteer-name').val();
+		var volunteerEmail = $('#volunteer-email').val();
+		var volunteerExtra = $('#volunteer-extra').val();
+
+		//For now, this is extra.
+		// if($('#email-signup').attr('checked')) {
+		// 	console.log('here');
+		//     $('#volunteer-location').show();
+		//     var volunteerLocation = $('#volunteer-location').val();
+		// } else {
+		//     $('#volunteer-location').hide();
+		// }
+
+		volunteer.set('name', volunteerName);
+		volunteer.set('email', volunteerEmail);
+		volunteer.set('extraInfo', volunteerExtra);
+		volunteer.set('parent', this.model);
+		
+		//volunteer.set('location', volunteerLocation);
+
+		router.volunteers.add(volunteer);
+
+		volunteer.save(null, {
+			success: function(){
+
+			},
+			error: function() {
+
+			}
+		});
 		//Success/error message
 		//Email confirmation to volunteer and event sponsor
 		//Decrease volunteers needed by one

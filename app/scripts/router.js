@@ -11,6 +11,7 @@ var Router = Backbone.Router.extend({
 	initialize: function() {
 		this.events = new EventsCollection();
 		this.comments = new CommentsCollection();
+		this.volunteers = new VolunteersCollection();
 	},
 
 	home: function() {
@@ -61,8 +62,9 @@ var Router = Backbone.Router.extend({
 		$('body').empty();
 		new HeaderView();
 
+		//Still need to add map for directions
+		
 		var that = this;
-
 		this.events.fetch({
 			success: function(){
 				var eventInFocus = that.events.get(eventId)
@@ -73,21 +75,20 @@ var Router = Backbone.Router.extend({
 				query.ascending('createdAt');
 				query.find({
 				  	success: function(comments) {
+				  		$('#no-comments').hide(); //Somehow need to count repsonses and only hide if greater than 0?
 				  		_.each(comments, function(comment){
 				  			new CommentView({model: comment});
 				  		});
 				  	},
 				  	error: function(){
-				  		console.log('Still sucking hard!')
+				  		console.log('Sucking hard!')
 				  	}
-				}); 
+				});			
 			},
 			error: function(){
-				console.log('sucking hard!') //Should probably turn this into a helpful comment!
+				console.log('Still sucking hard!') //Should probably turn this into a helpful comment!
 			}
-		});
-
-			//Fetch any comments, if comments == 0, "Be the first to talk about this"	 
+		});	 
 	}
 
 

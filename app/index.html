@@ -96,14 +96,14 @@
         <script type="text/template" id="get-help-template">
             <h3>Sign up to get some help:</h3>
             <form>
-                <div class="form-left-side">
+                <div class="form-important-info">
                     <div>
                         <label for="event-name">Name:</label>
                         <input type="text" id="event-name" placeholder="Name of event..."/>
                     </div>
                     <div>
-                        <label for="event-description">Description:</label>
-                        <textarea type="text" id="event-description" placeholder="A brief description of event..."></textarea>
+                        <label for="event-address">Street:</label>
+                        <input type="text" id="event-address" placeholder="Street Address, City, State, Zip Code"/>
                     </div>
                     <div>
                         <label for="event-date">Date:</label>
@@ -118,46 +118,35 @@
                         <input type="time" id="end-event"/>
                     </div>
                     <div>
-                        <label for="volunteers-needed">How many needed?</label>
-                        <input type="text" id="volunteers-needed"/>
+                        <label for="event-description">Description:</label>
+                        <textarea type="text" id="event-description" placeholder="A brief description of event..."></textarea>
                     </div>
+                </div>
+                <div class="form-extra-info"
                     <div>
-                        <label for="event-sponsor">Sponsor:</label>
-                        <input type="text" id="event-sponsor"/>
-                    </div>
-                    <div>
-                        <label for="sponsor-email">Sponsors Email:</label>
-                        <input type="email" id="sponsor-email" placeholder="me@example.com">
+                        <label for="volunteers-needed">Desired number of volunteers?</label>
+                        <input type="number" id="volunteers-needed"/>
                     </div>
                     <div>    
                         <label for="event-photo">Photo:</label>
                         <input type="file" style="display: inline-block" id="event-photo"/>
                     </div>
                 </div>
-                <div class="form-right-side">
-                    <span>Event Location:</span>
+                <div class="form-sponsor-info">
                     <div>
-                        <label for="event-street">Street:</label>
-                        <input type="text" id="event-street" placeholder="Street address">
+                        <label for="event-sponsor">Sponsor:</label>
+                        <input type="text" id="event-sponsor" placeholder="This event is sponsored by..."/>
                     </div>
                     <div>
-                        <label for="event-town">Town:</label>
-                        <input type="text" id="event-town" placeholder="Town">
+                        <label for="sponsor-email">Sponsors Email:</label>
+                        <input type="email" id="sponsor-email" placeholder="me@example.com">
                     </div>
                     <div>
-                        <label for="event-state">State:</label>
-                        <input type="text" id="event-state" placeholder="">
+                        <input type="checkbox" id="event-pledge"/>
+                        <label id="event-pledge">I plegde this is a genuine volunteer opportunity</label>
                     </div> 
-                    <div>
-                        <label for="event-zip">Zip Code:</label>
-                        <input type="text" id="event-zip" placeholder="zip code">
-                    </div>     
                 </div>     
-            </form>
-            <div>
-                <input type="checkbox" id="event-pledge"/>
-                <label id="event-pledge">I plegde this is a genuine volunteer opportunity</label>
-            </div>
+            </form>         
             <button id="submit-help-form">Submit</button>
         </script>
 
@@ -219,12 +208,12 @@
                     <button type="button" id="add-comment">Add Comment</button>
                 </div>
                 <h3>What people are saying about this event</h3>
+                <div id="no-comments">Be the first to talk about this event!</div>
                 <div class="prev-comments">
                 <!--Append previous comments here, if none, have placeholder saying 'be the first to talk about this event!'-->
                 </div>
             </div>
         </script>
-
 
         <!-- Signup Template -->
         <!-- City input and checkbox "Yes I want to be emailed about local upcoming opportunities?" -->
@@ -241,6 +230,13 @@
                             <input type="text" id="volunteer-name" placeholder="Name"/>
                             <input type="email" id="volunteer-email" placeholder="Email"/>
                             <textarea type="text" id="volunteer-extra" placeholder="Any questions, concerns, and/or limitations?"></textarea>
+                            
+                            <!--<div class="signup-extras">
+                                <input type="checkbox" id="email-signup"/>
+                                <label id="email-signup">I would like to receive notifications about events near me!</label>
+                                Have location appear when checkbox gets checked:
+                                <input type="text" id="volunteer-location" placeholder="City, State">
+                            </div>-->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
