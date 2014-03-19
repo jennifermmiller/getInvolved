@@ -38,7 +38,7 @@
         <script type="text/template" id="header-template">
             <div class="header"> <!--Put this div in a header tag in view template?-->
                 <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="">Home</a></li>
+                    <li><a href="">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#getHelp">Get Help</a></li>
                     <li><a href="#helpOut">Help Out</a></li>
@@ -69,6 +69,19 @@
                       <!--Append upcoming thumbnails here-->
                     </div>
                 </div>
+            </div>
+        </script>
+
+        <!-- Thumbnail Template -->
+        <script type="text/template" id="thumbnail-template">
+            <img src="<%=model.get('eventPhoto').url()%>"/>
+            <div class="thumbnail-header">
+                <span><%=model.get('eventDate')%></span>
+                <span><%=model.get('eventLocation')%></span>
+            </div>
+            <div class="thumbnail-footer">
+                <h5><%=model.get('eventName')%></h5>
+                <span><%=model.get('volunteersNeded')%></span>
             </div>
         </script>
 
@@ -176,7 +189,7 @@
                 </div>
             </div>
             <h3>All Volunteer Opportunities:</h3>
-                <!--Grid of thumbnail event opportunities-->
+                <!--Grid of thumbnail version of opportunities...split into upcoming and previous?-->
                 <div class="opportunities"></div>
         </script>
         
@@ -192,31 +205,29 @@
                 <span><%=model.get('volunteersNeded')%></span>
             </div>
             <div class="event-right">
-                <div>MAP HERE plus btn for directions</div>
+                <div>MAP div plus btn for directions?</div>
                 <!-- a way to put this into one variable? or call each part of location? span><%=model.get('eventLocation')%></span> -->
             </div>
             <!-- Button trigger modal -->
             <button class="btn btn-primary btn-lg" id="volunteer" data-toggle="modal" data-target="#myModal">
               Sign me up!
             </button>
-            <div>Comment: .....</div>
-            <div>List of previous comments</div>
+            <div class="comment-section">
+                <div class="add-comment">
+                    <textarea type="text" id="new-comment" placeholder="Share your experience"></textarea>
+                    <input type="text" id="comment-by" placeholder="Name is optional">
+                    <button type="button" id="add-comment">Add Comment</button>
+                </div>
+                <h3>What people are saying about this event</h3>
+                <div class="prev-comments">
+                <!--Append previous comments here, if none, have placeholder saying 'be the first to talk about this event!'-->
+                </div>
+            </div>
         </script>
 
-        <!-- Thumbnail Template -->
-        <script type="text/template" id="thumbnail-template">
-            <img src="<%=model.get('eventPhoto').url()%>"/>
-            <div class="thumbnail-header">
-                <span><%=model.get('eventDate')%></span>
-                <span><%=model.get('eventLocation')%></span>
-            </div>
-            <div class="thumbnail-footer">
-                <h5><%=model.get('eventName')%></h5>
-                <span><%=model.get('volunteersNeded')%></span>
-            </div>
-        </script>
 
         <!-- Signup Template -->
+        <!-- City input and checkbox "Yes I want to be emailed about local upcoming opportunities?" -->
         <script type="text/template" id="signup-template">
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -229,15 +240,22 @@
                         <div class="modal-body">
                             <input type="text" id="volunteer-name" placeholder="Name"/>
                             <input type="email" id="volunteer-email" placeholder="Email"/>
-                            <textarea type="text" id="volunteer-extra" placeholde="Any conerns and/or limitations?"></textarea>
+                            <textarea type="text" id="volunteer-extra" placeholder="Any questions, concerns, and/or limitations?"></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-primary" id="signup" data-dismiss="modal">Im Stoked!</button>
                         </div>
                     </div>
                 </div>
             </div>  
+        </script>
+
+        <!-- Comment Template -->
+        <script type="text/template" id="comment-template">
+            <p><%=this.model.get('commentContent')%></p>
+            <span><%=this.model.get('commentBy')%></span>
+            <span><%=this.model.get('commentedAt')%></span>
         </script>
 
         <!-- build:js scripts/vendor.js -->
@@ -245,6 +263,7 @@
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
+        <script src="bower_components/momentjs/moment.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
         <script src="//www.parsecdn.com/js/parse-1.2.17.min.js"></script>

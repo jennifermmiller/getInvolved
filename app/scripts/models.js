@@ -3,7 +3,13 @@
 var EventClass = Parse.Object.extend('EventClass');
 
 //Model for getHelp event comments:
-var CommentClass = Parse.Object.extend('CommentClass');
+var CommentClass = Parse.Object.extend('CommentClass',{
+	
+	
+	defaults: {
+		'commentBy' : 'Anonymous'
+	}
+});
 
 
 //Collections:

@@ -66,6 +66,9 @@ var Router = Backbone.Router.extend({
 		query.find({
 			success: function(result){
 				new EventView({model: result[0]});
+
+				//Fetch any comments, if comments == 0, "Be the first to talk about this"
+
 				new FooterView();
 			},error: function(){
 				console.log('sucking hard!')

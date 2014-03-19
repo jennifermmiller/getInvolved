@@ -11,6 +11,7 @@ var HelpOutView = Backbone.View.extend({
 	initialize: function(){
 		$('body').append(this.el);
 
+		//Instead of fetching all, query and seperate upcoming and past?
 		router.events.fetch({
 			success: function(){
 				router.events.each(function(event){
@@ -27,8 +28,9 @@ var HelpOutView = Backbone.View.extend({
 	}
 });
 
-
-
-
+//Working on dividing events:
+// var now = moment();
+// var query = new Parse.Query(EventClass);
+// var 
 
 
