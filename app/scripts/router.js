@@ -61,19 +61,33 @@ var Router = Backbone.Router.extend({
 		$('body').empty();
 		new HeaderView();
 
-		var query = new Parse.Query(EventClass);
-		query.equalTo("objectId", eventId);
-		query.find({
-			success: function(result){
-				new EventView({model: result[0]});
+		var that = this;
 
-				//Fetch any comments, if comments == 0, "Be the first to talk about this"
-
-				new FooterView();
-			},error: function(){
-				console.log('sucking hard!')
+		this.events.fetch({
+			success: function(){
+				var eventInFocus = that.events.get(eventId)
+				new EventView({model: eventInFocus});
+				
+				var query = new Parse.Query(CommentClass);
+				query.equalTo('parent', eventInFocus);
+				query.ascending('createdAt');
+				query.find({
+				  	success: function(comments) {
+				  		_.each(comments, function(comment){
+				  			new CommentView({model: comment});
+				  		});
+				  	},
+				  	error: function(){
+				  		console.log('Still sucking hard!')
+				  	}
+				}); 
+			},
+			error: function(){
+				console.log('sucking hard!') //Should probably turn this into a helpful comment!
 			}
 		});
+
+			//Fetch any comments, if comments == 0, "Be the first to talk about this"	 
 	}
 
 
