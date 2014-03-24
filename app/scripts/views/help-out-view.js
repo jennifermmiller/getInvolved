@@ -3,6 +3,8 @@ var HelpOutView = Backbone.View.extend({
 
 	createTemplate: _.template($('#help-out-template').text()),
 
+	className: 'help-out-view',
+
 	//Putting this in router? i think?
 	// events:{
 	// 	'click .search-btn' : 'search'
@@ -11,7 +13,6 @@ var HelpOutView = Backbone.View.extend({
 	initialize: function(){
 		$('body').append(this.el);
 
-		//Instead of fetching all, query and seperate upcoming and past?
 		router.events.fetch({
 			success: function(){
 				router.events.each(function(event){

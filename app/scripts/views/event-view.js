@@ -1,6 +1,8 @@
 //Display for getHelp page:
 var EventView = Backbone.View.extend({
 
+	className: 'event-focus',
+
 	createTemplate: _.template($('#event-template').text()),
 
 	events:{
@@ -11,7 +13,24 @@ var EventView = Backbone.View.extend({
 	initialize: function(){
 		$('body').append(this.el);
 		this.render();
+		
 		console.log(this.model.id);
+
+		var mapOptions = {
+		    zoom: 12,
+		    center: new google.maps.LatLng(this.mode.get('latitude'), this.model.get('longitude')),
+		    mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+
+		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+		var markerOptions = {
+			position: new google.maps.LatLng(this.mode.get('latitude'), this.model.get('longitude'))
+		};
+
+		var marker = new google.maps.Marker(markerOptions);
+		marker.setMap(map);
+
 	},
 
 	render: function(){
@@ -46,6 +65,9 @@ var EventView = Backbone.View.extend({
 			success: function(result){
 				new CommentView({model: result});
 
+				//Fetch comments related to this event?
+
+
 				//Target both input fields and clear at once?
 				//Maybe just a cleay function that can be run in any form to clear
 				$('#new-comment').val(''); 
@@ -55,6 +77,7 @@ var EventView = Backbone.View.extend({
 				console.log('Ha! No one wants to hear from the peanut gallery.');
 			}
 		});
+
 	}
 });
 
@@ -86,6 +109,7 @@ var SignupView = Backbone.View.extend({
 		var volunteerExtra = $('#volunteer-extra').val();
 
 		//For now, this is extra...get back to this:
+		//
 		// if($('#email-signup').attr('checked')) {
 		// 	console.log('here');
 		//     $('#volunteer-location').show();

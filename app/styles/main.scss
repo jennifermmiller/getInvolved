@@ -102,8 +102,8 @@ body {
     text-decoration: none;
     
     img{
-        width: 300px;
-        height: 250px;
+            width: 300px;
+            height: 250px;
     }
 
     .thumbnail-header{
@@ -132,15 +132,16 @@ body {
 }
 
 
-
 //***********************End of re-used styles****************************
+
+
 //Homepage styles:
 .homepage-guts{
     text-align: center;
     
     .home-welcome{
         width: 100%;
-        background: rgb(210, 210, 236);
+        background: url(http://blogiverstravels.files.wordpress.com/2012/02/nemours-community-garden-people-1.jpg) no-repeat;
         height: 400px;
 
         h1{
@@ -162,5 +163,97 @@ body {
     }
 }
 
+//getHelp styles:
+.get-help{
+    h2{
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    //Styles shared by all parts...........use isotope or that other one
+    .form-important-info,
+    .form-sponsor-info,
+    .form-extra-info {
+        width: 45%;
+        font-size: 18px;
+        border-radius: 8px;
+        box-shadow: 1px 1px 2px;
+        padding: 10px;
 
+        h3{
+            text-align: center;
+            margin: 0 0 15px 0;
+        }
 
+        div{
+            margin: 5px;
+
+            label{
+                width: 25%;
+            }
+
+            input{
+                width: 200px; //Needs to be different per type of input
+            }
+        }    
+    }
+
+    .form-important-info,
+    .form-sponsor-info{
+        display: inline-block;
+    }
+
+    .form-important-info{
+        background: yellowgreen;   
+    }
+
+    .form-sponsor-info{
+        background: blueviolet;
+        margin-left: 50px;
+
+        label:nth-child(2){
+            width: auto;
+        }
+    }
+
+    .form-extra-info{
+        background: rgb(254, 67, 100);
+        margin: 50px 0 0 300px;
+
+    }
+}
+
+//Event View:
+.event-focus{
+    text-align: center;
+
+    .event-left,
+    .event-right{
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    .event-left{
+        img{
+            width: 600px;
+            height: 475px;
+        }
+    }
+
+    #map-canvas{
+        //position: absolute;
+        width: 500px;
+        height: 475px;
+        margin: -107px 0 0 25px;
+    }
+}
+
+//Help Out:
+.help-out-view{
+    h3{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .thumbnails{
+        margin: 20px;
+    }
+}
