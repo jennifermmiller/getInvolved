@@ -42,10 +42,18 @@ var GetHelpView = Backbone.View.extend({
 
 		// }
 
+		var eventDate = $('#event-date').val();
+		var eventDateThumbnail = moment(eventDate).format('MMM Do');
+		var eventDateFull = moment(eventDate).format('MMMM Do YYYY');
+
 		newEvent.set('eventPhoto', parseFile);
         newEvent.set('eventName', $('#event-name').val());
         newEvent.set('eventDescription', $('#event-description').val());
-        newEvent.set('eventDate', $('#event-date').val());
+        
+        newEvent.set('eventDate', eventDate);
+        newEvent.set('eventDateThumbnail', eventDateThumbnail);
+        newEvent.set('eventDateFull', eventDateFull);
+        
         newEvent.set('eventStart', $('#start-event').val());
         newEvent.set('eventEnd', $('#end-event').val());
         newEvent.set('volunteersNeeded', $('#volunteers-needed').val());
@@ -67,7 +75,7 @@ var GetHelpView = Backbone.View.extend({
 				var longitude= results[0].geometry.location.lng();
 				var latitude = results[0].geometry.location.lat();
 
-				console.log(latitude, longitude, city, cityDisplay);
+				console.log(latitude, longitude, city);
 
 				newEvent.set('longitude', longitude);
 				newEvent.set('latitude', latitude);

@@ -1,6 +1,28 @@
+//To fix with media queries:
+//    - home page header/buttons dropping below pic
+
+
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
+@import 'compass/css3';
+
+
+//Mixins:
+@mixin button-generator($width,$height,$border, $background, $border-radius,$color,$font-size){
+  width: $width;
+  height: $height;
+  line-height: $height;
+  border: $border;
+  background: $background;
+  text-align: center;
+  color: $color;
+  font-size: $font-size;
+  @include border-radius($border-radius);
+}
+
+
+
 
 .browsehappy {
     margin: 0.2em 0;
@@ -23,45 +45,15 @@ body {
     padding-right: 15px;
 }
 
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
-
-    /* Make the masthead heading the same height as the navigation */
-    h3 {
-        margin-top: 0;
-        margin-bottom: 0;
-        line-height: 40px;
-        padding-bottom: 19px;
-    }
-}
-
 .container-narrow > hr {
     margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
-    .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-    }
-}
-
-/* Supporting marketing content */
-.marketing {
-    margin: 40px 0;
-    p + h4 {
-        margin-top: 28px;
-    }
-}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
-        max-width: 730px;
+        max-width: 960px;
     }
 
     /* Remove the padding we set earlier */
@@ -86,21 +78,26 @@ body {
 // >>>>>>>>>>>>>>>> Start of Jen's Styles >>>>>>>>>>>>>>>
 
 //**************Styles used on multiple pages*************************
+//Header styles:
+
 //Footer's sytles
 .footer{
     height: 60px;
-    background: lightblue;
-    margin: 60px 0 0 0;
+    background: rgb(42, 53, 120);
     text-align: center;
     padding-top: 15px;
 }
 
+.header-bckgrd{
+    background: rgb(57, 133, 57);
+
+}
 
 // Basic tumbnail looks:
-.thumbnails {
+a.thumbnails {
     display: inline-block;
     text-decoration: none;
-    
+
     img{
             width: 300px;
             height: 250px;
@@ -113,7 +110,7 @@ body {
         height: 35px;
         width: 300px;
         text-align: left;
-        padding: 9px 5px;
+        padding: 8px 10px;
 
         span:nth-child(2){
             float: right;
@@ -122,8 +119,8 @@ body {
 
     .thumbnail-footer{
         text-align: left;
-        background: oldlace;
         padding: 5px;
+        background: white;
 
         h4 {
             margin-top: 0;
@@ -140,22 +137,50 @@ body {
     text-align: center;
     
     .home-welcome{
-        width: 100%;
-        background: url(http://blogiverstravels.files.wordpress.com/2012/02/nemours-community-garden-people-1.jpg) no-repeat;
-        height: 400px;
+        .home-sub-header{
+            padding: 25px 5px;
 
-        h1{
-            line-height: 300px;//Fix!!! not going to work with smaller screens
+            h1{
+                margin: 0;
+            }
         }
+    
+        .home-focus{
+            height: 540px;
+            background: url(../images/makeadifference2.jpg) no-repeat;
 
-        //Design a button mixin?
-        button{
-            width: 90px;
-            height: 45px;
+            .start-btns{
+                padding-top: 135px;
+
+                button{
+                    @include button-generator(200px, 60px,1px solid black, rgb(97, 25, 186), 6px, gray, 20px);
+                    //Fix these:
+                    // @include text-shadow: $text-shadow;  
+                    // @include background-color: $background-color;
+                    // @include box-shadow: $box-shadow;
+
+                    &:first-child{
+                    margin-right: 15px;
+                    }
+                }
+            }
         }
     }
+       
+    
 
     .upcoming-events{
+        background: #D48F31;
+        padding-bottom: 50px;
+
+        .upcoming-header{
+            padding-top: 30px;
+            margin-bottom: 5px;
+
+            h2{
+                margin-bottom: 5px;
+            }
+        }
 
         .thumbnails {
             margin: 10px; 

@@ -38,14 +38,16 @@
 
         <!-- Header Template: -->
         <script type="text/template" id="header-template">
-            <div class="header"> <!--Put this div in a header tag in view template?-->
-                <ul class="nav nav-pills pull-right">
-                    <li><a href="">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#getHelp">Get Help</a></li>
-                    <li><a href="#helpOut">Help Out</a></li>
-                </ul>
-                <h3 class="text-muted">getInvolved</h3>
+            <div class="container">
+                <div class="header"> <!--Put this div in a header tag in view template?-->
+                    <ul class="nav nav-pills pull-right">
+                        <li><a href="">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#getHelp">Get Help</a></li>
+                        <li><a href="#helpOut">Help Out</a></li>
+                    </ul>
+                    <h3 class="text-muted">getInvolved</h3>
+                </div>
             </div>
         </script>
 
@@ -57,27 +59,35 @@
         <!-- Home Template: -->
         <script type="text/template" id="home-template"> 
             <div class="home-welcome">
-                <h1>People Coming Together to Make a Difference</h1>
-                <div class="start-btns">
-                    <a href="#getHelp"><button>Get Help</button></a>
-                    <a href="#helpOut"><button>Help Out</button></a>
+                <div class="container">
+                    <div class="home-sub-header">
+                        <h1>People Coming Together to Make a Difference</h1>
+                    </div>
+                </div>
+                <div class="home-focus">
+                    <div class="start-btns">
+                        <a href="#getHelp"><button>Get Help</button></a>
+                        <a href="#helpOut"><button>Help Out</button></a>
+                    </div>
                 </div>
             </div>
             <div class="upcoming-events">
-                <h3>Upcoming Volunteer Opportunities</h3>
-                <div class="home-thumbnails">
-                    <p>Want to get involved now? These events are quickly approaching!</p>
-                    <div class="opportunities">
-                      <!--Append upcoming thumbnails here-->
+                <div class="conatiner">
+                    <div class="upcoming-header">
+                        <h2>Upcoming Volunteer Opportunities</h2>
+                        <span>Want to get involved now? These events are quickly approaching!</span>
                     </div>
-                </div>
+                    <div class="home-thumbnails">
+                        <div class="opportunities"><!--Append upcoming thumbnails here--></div>
+                    </div>
+                </div>    
             </div>
         </script>
 
         <!-- Thumbnail Template -->
         <script type="text/template" id="thumbnail-template">
             <div class="thumbnail-header">
-                <span><%=model.get('eventDate')%></span>
+                <span><%=model.get('eventDateThumbnail')%></span>
                 <span><%=model.get('eventLocation')%></span>
             </div>
             <img src="<%=model.get('eventPhoto').url()%>"/>
@@ -112,15 +122,18 @@
                         <label for="event-description">Description:</label>
                         <textarea type="text" id="event-description" placeholder="Brief description of event..."></textarea>
                     </div>
-                    <div class="date">
+                    <div>
                         <label for="event-date">Date:</label>
                         <input type="date" id="event-date"/>
                     </div>
-                    <div class="time">
+                    <div>
                         <label for="start-event">Starts at:</label>
                         <input type="time" id="start-event"/>
-                        <label for="end-event">Ends at:</label>
-                        <input type="time" id="end-event"/>
+                    </div>
+                    <div>
+                        <label for="end-event">Duration:</label>
+                        <input type="number" id="end-event"/>
+                        <span>hours</span>
                     </div>
                 </div>
                 <div class="form-sponsor-info">
@@ -204,7 +217,7 @@
                 </div>
                 <span><%=model.get('eventAddress')%></span>
             </div>
-            <span><%=model.get('eventDate')%></span>
+            <span><%=model.get('eventDateFull')%></span>
             <span><%=model.get('volunteersNeded')%></span>
             <!-- Button trigger modal -->
             <button class="btn btn-primary btn-lg" id="volunteer" data-toggle="modal" data-target="#myModal">
@@ -239,7 +252,7 @@
             </div>  
 
 
-            
+
             <div class="comment-section">
                 <h3>What people are saying about this event</h3>
                 <div class="add-comment">
@@ -314,6 +327,7 @@
         <script src="scripts/views/get-help-view.js"></script>
         <script src="scripts/views/help-out-view.js"></script>
         <script src="scripts/views/event-view.js"></script>
+        <script src="scripts/views/comment-view.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

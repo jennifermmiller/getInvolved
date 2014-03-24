@@ -2,6 +2,8 @@
 var HeaderView = Backbone.View.extend({
 	tagName: 'header',
 
+	className: 'header-bckgrd',
+
 	createTemplate: _.template($('#header-template').text()),
 
 	initialize: function(){

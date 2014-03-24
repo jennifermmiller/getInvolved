@@ -6,7 +6,7 @@ var EventView = Backbone.View.extend({
 	createTemplate: _.template($('#event-template').text()),
 
 	events:{
-		'click #signup': 'confirmSignup',
+		'click #signup': 'signMeUp',
 		'click #add-comment': 'addComment'
 	},
 
@@ -41,7 +41,7 @@ var EventView = Backbone.View.extend({
 		this.$el.html(this.createTemplate({model: this.model}));
 	},
 
-	confirmSignup: function(){
+	signMeUp: function(){
 		var volunteer = new VolunteerClass();
 
 		var volunteerName = $('#volunteer-name').val();
@@ -77,6 +77,8 @@ var EventView = Backbone.View.extend({
 				console.log('what?! what!')
 			}
 		});
+
+		
 	},
 
 	//Again, need validation of input...must have commentText, default author to anonymous
@@ -115,26 +117,5 @@ var EventView = Backbone.View.extend({
 				console.log('Ha! No one wants to hear from the peanut gallery.');
 			}
 		});
-
-	}
-});
-
-
-
-
-//Display for comments:
-var CommentView = Backbone.View.extend({
-	tagName: 'li',
-
-	createTemplate: _.template($('#comment-template').text()),
-
-	initialize: function(){
-		$('.prev-comments').prepend(this.el);
-
-		this.render();
-	},
-
-	render: function(){
-		this.$el.html(this.createTemplate());
 	}
 });
