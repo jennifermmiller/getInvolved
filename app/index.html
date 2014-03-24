@@ -195,8 +195,14 @@
                 <img src="<%=model.get('eventPhoto').url()%>"/>
             </div>
             <div class="event-right">
-                <div id="map-canvas"</div>
-                <!-- a way to put this into one variable? or call each part of location? span><%=model.get('eventLocation')%></span> -->
+                <div id="map-canvas"></div>
+                <div id="get-directions">
+                    <form action="http://maps.google.com/maps" method="get" target="_blank">
+                       <input type="hidden" name="daddr" value="<%=model.get('eventAddress')%>"/>
+                       <input type="submit" id="get-directions-input" value="Get directions" />
+                    </form>
+                </div>
+                <span><%=model.get('eventAddress')%></span>
             </div>
             <span><%=model.get('eventDate')%></span>
             <span><%=model.get('volunteersNeded')%></span>
@@ -204,23 +210,7 @@
             <button class="btn btn-primary btn-lg" id="volunteer" data-toggle="modal" data-target="#myModal">
               Sign me up!
             </button>
-            <div class="comment-section">
-                <h3>What people are saying about this event</h3>
-                <div class="add-comment">
-                    <textarea type="text" id="new-comment" placeholder="Share your experience" required></textarea>
-                    <input type="text" id="comment-by" placeholder="Name (optional)">
-                    <button type="button" id="add-comment">Add Comment</button>
-                </div>
-                <div id="no-comments">Be the first to talk about this event!</div>
-                <div class="prev-comments">
-                <!--Append previous comments here, if none, have placeholder saying 'be the first to talk about this event!'-->
-                </div>
-            </div>
-        </script>
 
-        <!-- Signup Template -->
-        <!-- City input and checkbox "Yes I want to be emailed about local upcoming opportunities?" -->
-        <script type="text/template" id="signup-template">
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -247,6 +237,27 @@
                     </div>
                 </div>
             </div>  
+
+
+            
+            <div class="comment-section">
+                <h3>What people are saying about this event</h3>
+                <div class="add-comment">
+                    <textarea type="text" id="new-comment" placeholder="Share your experience" required></textarea>
+                    <input type="text" id="comment-by" placeholder="Name (optional)">
+                    <button type="button" id="add-comment">Add Comment</button>
+                </div>
+                <div id="no-comments">Be the first to talk about this event!</div>
+                <div class="prev-comments">
+                <!--Append previous comments here, if none, have placeholder saying 'be the first to talk about this event!'-->
+                </div>
+            </div>
+        </script>
+
+        <!-- Signup Template -->
+        <!-- City input and checkbox "Yes I want to be emailed about local upcoming opportunities?" -->
+        <script type="text/template" id="signup-template">
+            
         </script>
 
         <!-- Comment Template -->

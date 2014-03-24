@@ -73,6 +73,7 @@ var GetHelpView = Backbone.View.extend({
 				newEvent.set('latitude', latitude);
 				newEvent.set('city', city); //To search by city
 				newEvent.set('eventLocation', cityDisplay); //city, (State - maybe) for thubnail
+				newEvent.set('eventAddress', address);
 			} else {
 				console.log('The Google gods frown upon you!' + status);
 			}

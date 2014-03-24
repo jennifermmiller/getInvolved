@@ -6,7 +6,7 @@ var EventView = Backbone.View.extend({
 	createTemplate: _.template($('#event-template').text()),
 
 	events:{
-		'click #volunteer': 'signUp',
+		'click #signup': 'confirmSignup',
 		'click #add-comment': 'addComment'
 	},
 
@@ -16,16 +16,20 @@ var EventView = Backbone.View.extend({
 		
 		console.log(this.model.id);
 
+		var lat = this.model.get('latitude');
+		var lng = this.model.get('longitude');
+		var latlng = new google.maps.LatLng(lat, lng);
+
 		var mapOptions = {
-		    zoom: 12,
-		    center: new google.maps.LatLng(this.mode.get('latitude'), this.model.get('longitude')),
+		    zoom: 16,
+		    center: latlng,
 		    mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 
 		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
 		var markerOptions = {
-			position: new google.maps.LatLng(this.mode.get('latitude'), this.model.get('longitude'))
+			position: new google.maps.LatLng(lat, lng)
 		};
 
 		var marker = new google.maps.Marker(markerOptions);
@@ -37,8 +41,42 @@ var EventView = Backbone.View.extend({
 		this.$el.html(this.createTemplate({model: this.model}));
 	},
 
-	signUp: function(){
-		new SignupView();
+	confirmSignup: function(){
+		var volunteer = new VolunteerClass();
+
+		var volunteerName = $('#volunteer-name').val();
+		var volunteerEmail = $('#volunteer-email').val();
+		var volunteerExtra = $('#volunteer-extra').val();
+
+		//For now, this is extra...get back to this:
+		//
+		// if($('#email-signup').attr('checked')) {
+		// 	console.log('here');
+		//     $('#volunteer-location').show();
+		//     var volunteerLocation = $('#volunteer-location').val();
+		// } else {
+		//     $('#volunteer-location').hide();
+		// }
+
+		volunteer.set('name', volunteerName);
+		volunteer.set('email', volunteerEmail);
+		volunteer.set('extraInfo', volunteerExtra);
+		volunteer.set('parent', this.model);
+		
+		//volunteer.set('location', volunteerLocation);
+
+		router.volunteers.add(volunteer);
+
+		volunteer.save(null, {
+			success: function(){
+				//Success/error message...if success, model clear
+				//Email confirmation to volunteer and event sponsor
+				//Decrease volunteers needed by one
+			},
+			error: function() {
+				console.log('what?! what!')
+			}
+		});
 	},
 
 	//Again, need validation of input...must have commentText, default author to anonymous
@@ -82,64 +120,6 @@ var EventView = Backbone.View.extend({
 });
 
 
-//Display for Singup modal:
-var SignupView = Backbone.View.extend({
-
-	createTemplate: _.template($('#signup-template').text()),
-
-	events:{
-		'click #signup': 'confirmSignup'
-	},
-
-	initialize: function(){
-		$('body').append(this.el);
-
-		this.render();
-	},
-
-	render: function(){
-		this.$el.html(this.createTemplate());
-	},
-
-	confirmSignup: function(){
-		var volunteer = new VolunteerClass();
-
-		var volunteerName = $('#volunteer-name').val();
-		var volunteerEmail = $('#volunteer-email').val();
-		var volunteerExtra = $('#volunteer-extra').val();
-
-		//For now, this is extra...get back to this:
-		//
-		// if($('#email-signup').attr('checked')) {
-		// 	console.log('here');
-		//     $('#volunteer-location').show();
-		//     var volunteerLocation = $('#volunteer-location').val();
-		// } else {
-		//     $('#volunteer-location').hide();
-		// }
-
-		volunteer.set('name', volunteerName);
-		volunteer.set('email', volunteerEmail);
-		volunteer.set('extraInfo', volunteerExtra);
-		volunteer.set('parent', this.model);
-		
-		//volunteer.set('location', volunteerLocation);
-
-		router.volunteers.add(volunteer);
-
-		volunteer.save(null, {
-			success: function(){
-				//Success/error message...if success, model clear
-				//Email confirmation to volunteer and event sponsor
-				//Decrease volunteers needed by one
-			},
-			error: function() {
-				console.log('what?! what!')
-			}
-		});
-		
-	}
-});
 
 
 //Display for comments:
