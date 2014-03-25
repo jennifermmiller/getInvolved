@@ -60,7 +60,7 @@
         <script type="text/template" id="home-template"> 
             <div class="home-welcome">
                 <div class="container">
-                    <div class="home-sub-header">
+                    <div class="sub-header">
                         <h1>People Coming Together to Make a Difference</h1>
                     </div>
                 </div>
@@ -106,64 +106,76 @@
 
         <!-- GetHelp Template: -->
         <script type="text/template" id="get-help-template">
-            <h2>A Short Signup to get some help:</h2>
-            <form>
-                <div class="form-important-info">
-                    <h3>Important information to share with Volunteers:</h3>
-                    <div>
-                        <label for="event-name">Name of Event:</label>
-                        <input type="text" id="event-name" placeholder="Unicorn cleanup..."/>
-                    </div>
-                    <div>
-                        <label for="event-address">Location:</label>
-                        <input type="text" id="event-address" placeholder="Street Address, City, State, Zip Code"/>
-                    </div>
-                    <div>
-                        <label for="event-description">Description:</label>
-                        <textarea type="text" id="event-description" placeholder="Brief description of event..."></textarea>
-                    </div>
-                    <div>
-                        <label for="event-date">Date:</label>
-                        <input type="date" id="event-date"/>
-                    </div>
-                    <div>
-                        <label for="start-event">Starts at:</label>
-                        <input type="time" id="start-event"/>
-                    </div>
-                    <div>
-                        <label for="end-event">Duration:</label>
-                        <input type="number" id="end-event"/>
-                        <span>hours</span>
-                    </div>
-                </div>
-                <div class="form-sponsor-info">
-                    <h3>A little about you:</h3>
-                    <div>
-                        <label for="event-sponsor">Sponsor:</label>
-                        <input type="text" id="event-sponsor" placeholder="Your name/organization..."/>
-                    </div>
-                    <div>
-                        <label for="sponsor-email">Sponsors Email:</label>
-                        <input type="email" id="sponsor-email" placeholder="me@example.com">
-                    </div>
-                    <div>
-                        <input type="checkbox" id="event-pledge"/>
-                        <label id="event-pledge">I plegde this is a genuine volunteer opportunity</label>
-                    </div> 
-                </div>     
-                <div class="form-extra-info">
-                    <h3>A few extra things:</h3>
-                    <div>
-                        <label for="volunteers-needed">Desired number of volunteers?</label>
-                        <input type="number" id="volunteers-needed"/>
-                    </div>
-                    <div>    
-                        <label for="event-photo">Photo:</label>
-                        <input type="file" style="display: inline-block" id="event-photo"/>
-                    </div>
-                </div>  
-            </form>         
-            <button id="submit-help-form">Submit</button>
+            <div class="sub-header">
+                <h2>A Short Signup to get some help:</h2>
+            </div>
+            <div class="container">
+                <form id="event-details">
+                    <fieldset>
+                        <legend>Essentials</legend>
+                        <ul>
+                            <li>
+                                <label for="event-name">Name of Event</label>
+                                <input type="text" id="event-name" placeholder=" Neighborhood Street Cleanup..."/>
+                            </li>
+                            <li>
+                                <label for="event-address">Location</label>
+                                <input type="text" id="event-address" placeholder="Street Address, City, State, Zip Code"/>
+                            </li>    
+                            <li>
+                                <label for="event-date">Date</label>
+                                <input type="date" id="event-date"/>
+                            </li>
+                            <li>
+                                <label for="start-event">Starts at</label>
+                                <input type="time" id="start-event"/>
+                            </li>
+                            <li>
+                                <label for="end-event">Duration</label>
+                                <input type="number" id="end-event"/>
+                                <span>hours</span>
+                            </li>
+                            <li>
+                                <label for="event-description">Description</label>
+                                <textarea type="text" id="event-description" placeholder="Brief description of event..."></textarea>
+                            </li> 
+                        </ul>     
+                    </fieldset>
+                    <fieldset>
+                        <legend>About You</legend>
+                        <ul>
+                            <li>
+                                <label for="event-sponsor">Sponsor</label>
+                                <input type="text" id="event-sponsor" placeholder="Your name/organization..."/>
+                            </li>
+                            <li>
+                                <label for="sponsor-email">Sponsors Email</label>
+                                <input type="email" id="sponsor-email" placeholder="me@example.com">
+                            </li>
+                            <li class="special-li">
+                                <input type="checkbox" id="event-pledge"/>
+                                <label id="event-pledge">I pledge this is a genuine volunteer opportunity</label>
+                            </li>
+                        </ul>
+                    </fieldset>     
+                    <fieldset>
+                        <legend>Extra Details</legend>
+                        <ul>
+                            <li>
+                                <label id="volunteers-needed">Number of volunteers needed?</label>
+                                <input type="number" id="volunteers-needed"/>
+                            </li>
+                            <li>   
+                                <label for="event-photo">Photo</label>
+                                <input type="file" style="display: inline-block" id="event-photo"/>
+                            </li>
+                        </ul>
+                    </fieldset>
+                    <fieldset>  
+                        <button id="submit-help-form">Submit</button>
+                    </fieldset>
+                </form>         
+            </div>
         </script>
 
         <!-- HelpOut Template -->

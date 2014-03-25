@@ -21,9 +21,6 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
   @include border-radius($border-radius);
 }
 
-
-
-
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -90,7 +87,14 @@ body {
 
 .header-bckgrd{
     background: rgb(57, 133, 57);
+}
 
+.sub-header{
+    padding: 25px 5px;
+
+    h1{
+        margin: 0;
+    }
 }
 
 // Basic tumbnail looks:
@@ -127,24 +131,14 @@ a.thumbnails {
         }
     }
 }
-
-
 //***********************End of re-used styles****************************
-
 
 //Homepage styles:
 .homepage-guts{
     text-align: center;
     
     .home-welcome{
-        .home-sub-header{
-            padding: 25px 5px;
 
-            h1{
-                margin: 0;
-            }
-        }
-    
         .home-focus{
             height: 540px;
             background: url(../images/makeadifference2.jpg) no-repeat;
@@ -166,8 +160,6 @@ a.thumbnails {
             }
         }
     }
-       
-    
 
     .upcoming-events{
         background: #D48F31;
@@ -192,58 +184,134 @@ a.thumbnails {
 .get-help{
     h2{
         text-align: center;
-        margin-bottom: 25px;
+        margin: 0;
     }
-    //Styles shared by all parts...........use isotope or that other one
-    .form-important-info,
-    .form-sponsor-info,
-    .form-extra-info {
-        width: 45%;
-        font-size: 18px;
-        border-radius: 8px;
-        box-shadow: 1px 1px 2px;
-        padding: 10px;
 
-        h3{
-            text-align: center;
-            margin: 0 0 15px 0;
+    form, fieldset, legend, ul, li {
+        margin: 0;
+        padding: 0;
+    }
+
+    form#event-details {
+        background: #5F400C;
+        padding: 25px;
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 60px;
+        counter-reset: fieldsets;
+        @include border-radius(6px);
+
+        fieldset {
+            border: none;
+            margin-bottom: 10px;
+            counter-increment: fieldsets;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
         }
 
-        div{
-            margin: 5px;
+        legend {
+            color: beige;
+            font-size: 18px;
+            border: none;
+            font-weight: bold;
+            padding-bottom: 10px;
+            text-shadow: 0 1px 1px rgb(139,120,87);
 
-            label{
-                width: 25%;
+            &:before {
+                content: "Step " counter(fieldsets) ": ";
             }
-
-            input{
-                width: 200px; //Needs to be different per type of input
-            }
-        }    
-    }
-
-    .form-important-info,
-    .form-sponsor-info{
-        display: inline-block;
-    }
-
-    .form-important-info{
-        background: yellowgreen;   
-    }
-
-    .form-sponsor-info{
-        background: blueviolet;
-        margin-left: 50px;
-
-        label:nth-child(2){
-            width: auto;
         }
-    }
 
-    .form-extra-info{
-        background: rgb(254, 67, 100);
-        margin: 50px 0 0 300px;
+        ul li {
+            background: #b9cf6a;
+            background: rgba(255,255,255,.3);
+            border: 1px solid rgba(255,255,255,.6);
+            @include border-radius(5px);
+            line-height: 30px;
+            list-style: none;
+            padding: 5px 10px;
+            margin-bottom: 3px;
 
+            &.special-li{
+                height: 48px;
+            }
+
+            label {
+                float: left;
+                text-align: right;
+                margin-right: 10px;
+                font-size: 14px;
+                width: 125px;
+
+                &#event-pledge{
+                    width: 320px;
+                }
+
+                &#volunteers-needed{
+                    width: 225px;
+                }
+            }
+
+            input[type=text],
+                 [type=email]{
+                background: #ffffff;
+                border: none;
+                @include border-radius (3px);
+                outline: none;
+                padding: 5px;
+                width: 65%;
+            }
+
+            textarea{
+                height: 70px;
+                width: 65%;
+                max-width: 65%;
+                max-height: 70px;
+            }
+
+            input:not([type=submit]):focus,
+            textarea:focus {
+                background: #eaeaea;
+            }
+
+            input[type=date]{
+                width: 144px;
+            }
+            
+            input[type=time]{
+                width: 82px;
+            }
+            
+            input[type=number]{
+                width: 57px;
+            }
+
+            input[type=checkbox] {
+                float: left;
+                margin: 10px 15px 0px 108px;
+            }
+        }
+
+        button {
+            background: brown;
+            border: none;
+            @include border-radius (20px);
+            color: #ffffff;
+            display: block;
+            font: 18px;
+            letter-spacing: 1px;
+            margin: auto;
+            padding: 7px 25px;
+            text-shadow: 0 1px 1px #000000;
+            text-transform: uppercase;
+
+            &:hover {
+                background: #251306;
+                cursor: pointer;
+            }
+        }
     }
 }
 
