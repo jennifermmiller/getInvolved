@@ -7,6 +7,24 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'compass/css3';
 
+/* Space out content a bit */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/*Utilities*/
+.container{
+  position: relative;
+  margin: 0 auto;
+}
+
+//Colors:
+$beige: #d1c5b7;
+$md-brown: #856941;
+$dk-brown: #735d41;
+$lt-blue: #0193b7;
+$dk-blue: #063e53;
 
 //Mixins:
 @mixin button-generator($width,$height,$border, $background, $border-radius,$color,$font-size){
@@ -28,11 +46,6 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     padding: 0.2em 0;
 }
 
-/* Space out content a bit */
-body {
-    margin: 0;
-    padding: 0;
-}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -80,17 +93,19 @@ body {
 //Footer's sytles
 .footer{
     height: 60px;
-    background: rgb(42, 53, 120);
+    background: $dk-blue;
     text-align: center;
     padding-top: 15px;
 }
 
-.header-bckgrd{
-    background: rgb(57, 133, 57);
+header{
+    background: $lt-blue;
+    color: white;
 }
 
 .sub-header{
     padding: 25px 5px;
+    background: $dk-brown;
 
     h1{
         margin: 0;
@@ -194,7 +209,7 @@ a.thumbnails {
 
     form#event-details {
         background: #5F400C;
-        padding: 25px;
+        padding: 25px 35px;
         width: 90%;
         margin-left: 5%;
         margin-bottom: 60px;
@@ -306,6 +321,7 @@ a.thumbnails {
             padding: 7px 25px;
             text-shadow: 0 1px 1px #000000;
             text-transform: uppercase;
+            margin-top: 25px;
 
             &:hover {
                 background: #251306;
@@ -319,24 +335,30 @@ a.thumbnails {
 .event-focus{
     text-align: center;
 
-    .event-left,
-    .event-right{
+    .event-pic,
+    #map-canvas{
         display: inline-block;
         margin-top: 20px;
     }
 
-    .event-left{
+    .event-pic{
+        width: 50%;
+
         img{
-            width: 600px;
-            height: 475px;
+            width: 100%;
         }
     }
 
     #map-canvas{
-        //position: absolute;
-        width: 500px;
-        height: 475px;
-        margin: -107px 0 0 25px;
+        width: 45%;
+        height: 300px;
+        float: right;
+    }
+
+    #get-directions-input{
+        position: absolute;
+        margin: -50px 0 0 345px;
+        @include button-generator(120px, 35px, 1px solid red, pink, 6px, white, 14px)
     }
 }
 

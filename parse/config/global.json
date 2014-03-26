@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "_default": {
+            "link": "final-project"
+        }, 
+        "final-project": {
+            "applicationId": "BVqqHnDg3xhdBezKMQFxvzdjHx98lJDRJxjCJy9H", 
+            "masterKey": "rEp7CuFSnKn1l20PmaF4u6Yfz91wH5HIql5Y9MFb"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.18"
+    }
+}

@@ -17,10 +17,3 @@ window.router = new Router();
 Backbone.history.start();
 
 });
-
-
-
-function removeOldEvents(){
-	var m = moment();
-
-}
