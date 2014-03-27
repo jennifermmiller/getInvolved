@@ -56,8 +56,8 @@
         <!-- Home Template: -->
         <script type="text/template" id="home-template"> 
             <div class="home-welcome">
-                <div class="container">
-                    <div class="sub-header">
+                <div class="sub-header">
+                    <div class="container">
                         <h1>People Coming Together to Make a Difference</h1>
                     </div>
                 </div>
@@ -185,34 +185,34 @@
 
         <!-- HelpOut Template -->
         <script type="text/template" id="help-out-template">
+            <!-- Put this in a subheader container? -->
             <h3>Search for the right opportunity:</h3>
-            <div class="search-location">By Location
-                <div class="expand-search">
-                    <input type="text" id="desired-location" placeholder="Search for a city..."/>
-                    <a href="#helpOut/events/byLocation"><button class="search-btn">Search</button></a>
-                </div>
-            </div>
-            <div class="search-type">By type:
-                <div class="expand-search">
-                    <!-- Need to find database-->
-                    <a href="#helpOut/events/byType"><button class="search-btn">Search</button></a>
-                </div>
-            </div>
-            <div class="search-date">By Date:
-                <div class="expand-search">
-                    <input type="date" id="desired-date"/>
-                    <a href="#helpOut/events/byDate"><button class="search-btn">Search</button></a>
-                </div>
-            </div>
-            <div class="search-time">By Amount of Time:
-                <div class="expand-search">
-                    <!--List of three or four checkbox inputs and on search find the one thats true?-->
-                    <a href="#helpOut/events/byTime"><button class="search-btn">Search</button></a>
-                </div>
-            </div>
+            
+            <div class = "container">
+                <button class="search-options">By Location</button>
+                    <div class="expand-search">
+                        <input type="text" id="desired-location" placeholder="Search for a city..."/>
+                        <a id="search-btn">Search</a>
+                    </div>
+                
+                <button class="search-options">By Date</button>
+                    <div class="expand-search">
+                        <input type="date" id="desired-date"/>
+                        <a id="search-btn">Search</a>
+                    </div>
+                
+                <button class="search-options">By Amount of Time</button>
+                    <div class="expand-search">
+                        <!--List of three or four checkbox inputs and on search find the one thats true?-->
+                        <a id="search-btn">Search</a>
+                    </div>
+                
+            <div>
             <h3>All Volunteer Opportunities:</h3>
                 <!--Grid of thumbnail version of opportunities...split into upcoming and previous?-->
-                <div class="opportunities"></div>
+                <div class="container">
+                    <div class="opportunities"></div>
+                </div>
         </script>
 
         <!-- Expanded Event Template -->
@@ -272,9 +272,6 @@
                     </div>
                 </div>
             </div>  
-
-
-
             <div class="comment-section">
                 <h3>What people are saying about this event</h3>
                 <div class="add-comment">

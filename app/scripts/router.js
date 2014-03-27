@@ -51,18 +51,43 @@ var Router = Backbone.Router.extend({
 		new FooterView();
 	},
 
-	helpOutPage: function(sort) {
+	helpOutPage: function() {
 		$('body').empty();
 		new HeaderView();
 		new HelpOutView();
 		new FooterView();
 	},
 
+	sortEvents: function(sort){
+
+			//var city = $('#desired-location').val();
+			//var cityURL = window.location.hash.split(/\//)[3]; //change this?
+
+				var query = new Parse.Query(EventClass);
+				
+				query.equalTo('city', sort);
+
+				query.find({
+					success: function(results){
+						$('.opportunities').empty();
+						if(results.length >0){
+							for(var i=0; i < results.length; i++){
+								new ThumbnailView({model: results[i]});
+							}	
+						} else {
+							$('.opportunities').append('<h3 class="no-results">Sorry, no reults found.</h3>'); //Expand this...?
+						}
+					},
+					error:function(){
+						console.log('Bad Bad stuff!');
+					}
+				});
+			
+	},
+
 	eventDetails: function(eventId){
 		$('body').empty();
 		new HeaderView();
-
-		//Still need to add map for directions
 		
 		var that = this;
 		this.events.fetch({
@@ -81,18 +106,15 @@ var Router = Backbone.Router.extend({
 				  		});
 				  	},
 				  	error: function(){
-				  		console.log('Sucking hard!')
+				  		console.log('Cannot load comments.');
 				  	}
 				});			
 			},
 			error: function(){
-				console.log('Still sucking hard!') //Should probably turn this into a helpful comment!
+				console.log('Cannot load event.');
 			}
 		});	 
 	}
-
-
-
 });
 
 

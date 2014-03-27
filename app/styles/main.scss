@@ -8,7 +8,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import 'compass/css3';
 
 /* Space out content a bit */
-body {
+body * {
     margin: 0;
     padding: 0;
 }
@@ -20,11 +20,20 @@ body {
 }
 
 //Colors:
+
+//1st idea:
 $beige: #d1c5b7;
 $md-brown: #856941;
 $dk-brown: #735d41;
 $lt-blue: #0193b7;
 $dk-blue: #063e53;
+
+//2nd idea:
+$deep-blue: #113344;
+$md-blue: #006699;
+$lt-green: #CCCCBB;
+$md-green: #666655;
+$dk-dreen: #333322;
 
 //Mixins:
 @mixin button-generator($width,$height,$border, $background, $border-radius,$color,$font-size){
@@ -78,11 +87,7 @@ $dk-blue: #063e53;
     .header {
         margin-bottom: 30px;
     }
-    
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
+   
 }
 
 // >>>>>>>>>>>>>>>> Start of Jen's Styles >>>>>>>>>>>>>>>
@@ -99,18 +104,10 @@ $dk-blue: #063e53;
 }
 
 header{
-    background: $lt-blue;
+    background: $dk-blue;
     color: white;
 }
 
-.sub-header{
-    padding: 25px 5px;
-    background: $dk-brown;
-
-    h1{
-        margin: 0;
-    }
-}
 
 // Basic tumbnail looks:
 a.thumbnails {
@@ -153,6 +150,14 @@ a.thumbnails {
     text-align: center;
     
     .home-welcome{
+        .sub-header{
+            padding: 25px 5px;
+            background: $lt-blue;
+
+            h1{
+                margin: 0;
+            }
+        }
 
         .home-focus{
             height: 540px;
@@ -162,7 +167,8 @@ a.thumbnails {
                 padding-top: 135px;
 
                 button{
-                    @include button-generator(200px, 60px,1px solid black, rgb(97, 25, 186), 6px, gray, 20px);
+                    color: $dk-blue;
+                    @include button-generator(200px, 60px,1px solid $md-brown, $dk-brown, 6px, gray, 20px);
                     //Fix these:
                     // @include text-shadow: $text-shadow;  
                     // @include background-color: $background-color;
@@ -177,10 +183,11 @@ a.thumbnails {
     }
 
     .upcoming-events{
-        background: #D48F31;
+        background: $beige;
         padding-bottom: 50px;
 
         .upcoming-header{
+            color: $dk-brown;
             padding-top: 30px;
             margin-bottom: 5px;
 
@@ -269,12 +276,17 @@ a.thumbnails {
                 }
             }
 
-            input[type=text],
-                 [type=email]{
+            input{
                 background: #ffffff;
                 border: none;
                 @include border-radius (3px);
                 outline: none;
+                padding: 5px;
+                width: 65%;
+            }
+
+            input[type=text],
+                 [type=email]{
                 padding: 5px;
                 width: 65%;
             }
@@ -292,7 +304,7 @@ a.thumbnails {
             }
 
             input[type=date]{
-                width: 144px;
+                width: 145px;
             }
             
             input[type=time]{
@@ -368,7 +380,12 @@ a.thumbnails {
         text-align: center;
         margin-bottom: 20px;
     }
+
+    .expand-search{
+        display: none;
+    }
+
     .thumbnails{
-        margin: 20px;
+        margin: 15px 5px;;
     }
 }

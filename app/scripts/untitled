@@ -1,0 +1,7 @@
+//Removing for now: still would like to search by type, if other stuff is done
+<div class="search-type">By type:
+    <div class="expand-search">
+        <!-- Need to find database-->
+        <a href="#helpOut/events/byType"><button class="search-btn">Search</button></a>
+    </div>
+</div>
