@@ -56,7 +56,7 @@ var GetHelpView = Backbone.View.extend({
         newEvent.set('eventDateFull', eventDateFull);
         
         newEvent.set('eventStart', $('#start-event').val());
-        newEvent.set('eventDuration', $('#end-duration').val());
+        newEvent.set('eventDuration', $('#event-duration').val());
         newEvent.set('volunteersNeeded', $('#volunteers-needed').val());
         newEvent.set('eventSponsor', $('#event-sponsor').val());
         newEvent.set('email', $('#sponsor-email').val());

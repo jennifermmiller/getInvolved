@@ -18,6 +18,7 @@ Backbone.history.start();
 
 });
 
+////////Below: Practice with Mandrill, will need to be deleted
 
 // Create a function to log the response from the Mandrill API
 function log(obj) {
@@ -33,7 +34,7 @@ var params = {
         "from_email":"jmiller6128@gmail.comment",
         "to":[{"email":"jmiller6128@gmail.com"}],
         "subject": "Sending a text email from the Mandrill API",
-        "text": "I'm learning the Mandrill API at Codecademy."
+        "text": "Sweet! I'm sending myself emails!"
     }
 };
 

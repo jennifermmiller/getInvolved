@@ -104,6 +104,8 @@ var Router = Backbone.Router.extend({
 				  		_.each(comments, function(comment){
 				  			new CommentView({model: comment});
 				  		});
+
+				  		new FooterView();
 				  	},
 				  	error: function(){
 				  		console.log('Cannot load comments.');
@@ -113,7 +115,7 @@ var Router = Backbone.Router.extend({
 			error: function(){
 				console.log('Cannot load event.');
 			}
-		});	 
+		});
 	}
 });
 

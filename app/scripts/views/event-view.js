@@ -49,21 +49,16 @@ var EventView = Backbone.View.extend({
 		var volunteerExtra = $('#volunteer-extra').val();
 
 		//For now, this is extra...get back to this:
-		//
-		// if($('#email-signup').attr('checked')) {
-		// 	console.log('here');
-		//     $('#volunteer-location').show();
-		//     var volunteerLocation = $('#volunteer-location').val();
-		// } else {
-		//     $('#volunteer-location').hide();
-		// }
+		
+
+
+		
 
 		volunteer.set('name', volunteerName);
 		volunteer.set('email', volunteerEmail);
 		volunteer.set('extraInfo', volunteerExtra);
 		volunteer.set('parent', this.model);
-		
-		//volunteer.set('location', volunteerLocation);
+	
 
 		router.volunteers.add(volunteer);
 

@@ -11,6 +11,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 body * {
     margin: 0;
     padding: 0;
+    vertical-align: top;
 }
 
 /*Utilities*/
@@ -347,36 +348,131 @@ a.thumbnails {
 .event-focus{
     text-align: center;
 
-    .event-pic,
-    .event-info{
-        display: inline-block;
-        margin-top: 20px;
-    }
+    .upper-event-page{
+        .event-pic,
+        .event-info{
+            display: inline-block;
+            
+        }
 
-    .event-pic{
-        width: 50%;
+        .event-pic{
+            margin-top: 20px;
+            width: 50%;
 
-        img{
-            width: 100%;
+            img{
+                width: 100%;
+            }
+        }
+
+        .event-info{
+            width: 40%;
+            margin-left: 45px;
+            text-align: left;
+            margin-top: 35px;
+            
+            p{       
+            max-height: 200px;
+            overflow: scroll;
+            margin-top: 10px;
+            }
+
+            #volunteer{
+                margin: 30px 90px;
+                width: 200px;
+            }
         }
     }
 
-    .event-info{
-        width: 40%;
-        margin-left: 15px;
-        text-align: left;
-    }
-    
-    #map-canvas{
-        width: 45%;
-        height: 300px;
-        float: right;
+    .middle-event-page{
+        height: 450px;
+        padding: 60px 0;
+
+        .remaining-event-info{
+            text-align: left;
+            margin-top: 75px;
+            margin-left: 20px;
+
+            h4{
+                font-style: italic;
+                line-height: 1.5em;
+
+                span{
+                    margin-left: 5px;
+                    font-style: normal;
+                }
+            }
+        }
+
+        #map-canvas{
+            width: 45%;
+            height: 300px;
+            float: right;
+        }
+
+        #get-directions-input{
+            position: absolute;
+            margin: 302px 0 0 555px;
+            @include button-generator(120px, 35px, 1px solid red, pink, 6px, white, 14px)
+        }
     }
 
-    #get-directions-input{
-        position: absolute;
-        margin: -50px 0 0 345px;
-        @include button-generator(120px, 35px, 1px solid red, pink, 6px, white, 14px)
+    .comment-section{
+        font-size: 16px;
+        padding-bottom: 40px;
+
+        .add-comment{
+            text-align: center;
+            margin: 10px 0;
+
+            #new-comment{
+                width: 70%;
+                height: 73px;
+            }
+
+            #comment-by{
+                width: 30%;
+                margin-top: 10px;
+            }
+
+            #add-comment{
+                width: 125px;
+                height: 45px;
+                margin-left: 135px;
+            }
+        }
+
+        .prev-comments{
+            li{
+                list-style: none;
+                border: 1px solid black;
+                border-radius: 6px;
+                margin-top: 10px;
+                padding: 5px;
+                text-align: left;
+
+                span{
+                    margin: 5px;
+                    font-style: italic;
+
+                    &:last-child{
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+
+    //in signup model:
+    .modal-body{
+        input:not([type=checkbox]), 
+        textarea{
+            width: 45%;  
+            display: block;
+            margin-bottom:10px; 
+        }
+    }
+    #volunteer-location{
+        display: none;
     }
 }
 
