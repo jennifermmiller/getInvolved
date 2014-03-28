@@ -215,7 +215,7 @@ a.thumbnails {
     }
 
     form#event-details {
-        background: #5F400C;
+        background: $md-green;
         padding: 25px 35px;
         width: 90%;
         margin-left: 5%;
@@ -348,7 +348,7 @@ a.thumbnails {
     text-align: center;
 
     .event-pic,
-    #map-canvas{
+    .event-info{
         display: inline-block;
         margin-top: 20px;
     }
@@ -361,6 +361,12 @@ a.thumbnails {
         }
     }
 
+    .event-info{
+        width: 40%;
+        margin-left: 15px;
+        text-align: left;
+    }
+    
     #map-canvas{
         width: 45%;
         height: 300px;

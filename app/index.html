@@ -136,8 +136,8 @@
                                 <input type="time" id="start-event"/>
                             </li>
                             <li>
-                                <label for="end-event">Duration</label>
-                                <input type="number" id="end-event"/>
+                                <label for="event-duration">Duration</label>
+                                <input type="number" id="event-duration"/>
                                 <span>hours</span>
                             </li>
                             <li>
@@ -170,6 +170,17 @@
                                 <label id="volunteers-needed">Number of volunteers needed?</label>
                                 <input type="number" id="volunteers-needed"/>
                             </li>
+                            <li>
+                                <label>What category best decribes this event?</label>
+                                <select>
+                                    <option>Neighborhood cleanup</option>
+                                    <option>Tutoring</option>
+                                    <option>Helping eldery</option>
+                                    <option>Fundraising</option>
+                                    <option>I have no idea</option>
+                                    <option>Need to find more options</option>
+                                </select>
+                            </li>
                             <li>   
                                 <label for="event-photo">Photo</label>
                                 <input type="file" style="display: inline-block" id="event-photo"/>
@@ -190,22 +201,28 @@
             
             <div class = "container">
                 <button class="search-options">By Location</button>
-                    <div class="expand-search">
-                        <input type="text" id="desired-location" placeholder="Search for a city..."/>
-                        <a id="search-btn">Search</a>
-                    </div>
+                <div class="expand-search">
+                    <input type="text" id="desired-location" placeholder="Search for a city..."/>
+                    <a id="search-btn">Search</a>
+                </div>
                 
                 <button class="search-options">By Date</button>
-                    <div class="expand-search">
-                        <input type="date" id="desired-date"/>
-                        <a id="search-btn">Search</a>
-                    </div>
+                <div class="expand-search">
+                    <input type="date" id="desired-date"/>
+                    <a id="search-btn">Search</a>
+                </div>
                 
                 <button class="search-options">By Amount of Time</button>
-                    <div class="expand-search">
-                        <!--List of three or four checkbox inputs and on search find the one thats true?-->
-                        <a id="search-btn">Search</a>
-                    </div>
+                <div class="expand-search">
+                    <select>
+                        <option value=2>Less than 2 hours</option>
+                        <option value=4>2 to 4 hours</option>
+                        <option value=6>4 to 6 hours</option>
+                        <!--Will below work in js? Another way to label values?-->
+                        <option value=6.1>Greater than 6 hours</option>
+                    </select>
+                    <a id="search-btn">Search</a>
+                </div>
                 
             <div>
             <h3>All Volunteer Opportunities:</h3>
@@ -220,30 +237,51 @@
             <div class="event-header">
                 <div class="container">
                     <h1><%=model.get('eventName')%></h1>
-                    <h3><%=model.get('eventDescription')%></h3>
                 </div>
             </div>
             <div class="container">
                 <div class="event-pic">
                     <img src="<%=model.get('eventPhoto').url()%>"/>
                 </div>
-                <div id="map-canvas"></div>
-                    <div id="get-directions">
-                        <form action="http://maps.google.com/maps" method="get" target="_blank">
-                           <input type="hidden" name="daddr" value="<%=model.get('eventAddress')%>"/>
-                           <input type="submit" id="get-directions-input" value="Get directions" />
-                        </form>
+                <div class="event-info"> 
+                    <h3>Description:</h3> 
+                    <p><%=model.get('eventDescription')%></p>
+                    <!-- Button trigger modal -->
+                    <button class="btn btn-primary btn-lg" id="volunteer" data-toggle="modal" data-target="#myModal">
+                      Sign me up!
+                    </button>
+                </div>
+                <div class="middle-of-event-page">
+                    <div id="map-canvas"></div>
+                        <div id="get-directions">
+                            <form action="http://maps.google.com/maps" method="get" target="_blank">
+                               <input type="hidden" name="daddr" value="<%=model.get('eventAddress')%>"/>
+                               <input type="submit" id="get-directions-input" value="Get directions" />
+                            </form>
+                        </div>
+                    <div class="remaining-event-info">
+                        <h4>Location: <span><%=model.get('eventAddress')%></span></h4>
+                        <h4>Date:<span><%=model.get('eventDateFull')%></span></h4>
+                        <h4>Sponsored By: <span><%=model.get('eventSponsor')%></span></h4>
+
+                        <h4>How long should plan on staying? <span><%=model.get('eventDuration')%> hours.</span></h4>
+
+                        <h4>Number of volunteers needed: <span><%=model.get('volunteersNeded')%></span></h4>
                     </div>
-                <div class="remaining-event-info">
-                    <span><%=model.get('eventAddress')%></span>
-                    <span><%=model.get('eventDateFull')%></span>
-                    <span><%=model.get('volunteersNeded')%></span>
                 </div>
             </div>
-            <!-- Button trigger modal -->
-            <button class="btn btn-primary btn-lg" id="volunteer" data-toggle="modal" data-target="#myModal">
-              Sign me up!
-            </button>
+            <div class="comment-section">
+                <h3>What people are saying about this event</h3>
+                <div class="add-comment">
+                    <textarea type="text" id="new-comment" placeholder="Share your experience" required></textarea>
+                    <input type="text" id="comment-by" placeholder="Name (optional)">
+                    <button type="button" id="add-comment">Add Comment</button>
+                </div>
+                <div id="no-comments">Be the first to talk about this event!</div>
+                <div class="prev-comments">
+                <!--Append previous comments here, if none, have placeholder saying 'be the first to talk about this event!'-->
+                </div>
+            </div>
 
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -272,18 +310,6 @@
                     </div>
                 </div>
             </div>  
-            <div class="comment-section">
-                <h3>What people are saying about this event</h3>
-                <div class="add-comment">
-                    <textarea type="text" id="new-comment" placeholder="Share your experience" required></textarea>
-                    <input type="text" id="comment-by" placeholder="Name (optional)">
-                    <button type="button" id="add-comment">Add Comment</button>
-                </div>
-                <div id="no-comments">Be the first to talk about this event!</div>
-                <div class="prev-comments">
-                <!--Append previous comments here, if none, have placeholder saying 'be the first to talk about this event!'-->
-                </div>
-            </div>
         </script>
 
         <!-- Comment Template -->

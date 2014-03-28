@@ -46,6 +46,7 @@ var GetHelpView = Backbone.View.extend({
 		var eventDateThumbnail = moment(eventDate).format('MMM Do');
 		var eventDateFull = moment(eventDate).format('MMMM Do YYYY');
 
+		//Still need to set: Category and pledge(or just need pledge to be true on validation?)
 		newEvent.set('eventPhoto', parseFile);
         newEvent.set('eventName', $('#event-name').val());
         newEvent.set('eventDescription', $('#event-description').val());
@@ -55,7 +56,7 @@ var GetHelpView = Backbone.View.extend({
         newEvent.set('eventDateFull', eventDateFull);
         
         newEvent.set('eventStart', $('#start-event').val());
-        newEvent.set('eventEnd', $('#end-event').val());
+        newEvent.set('eventDuration', $('#end-duration').val());
         newEvent.set('volunteersNeeded', $('#volunteers-needed').val());
         newEvent.set('eventSponsor', $('#event-sponsor').val());
         newEvent.set('email', $('#sponsor-email').val());
@@ -64,9 +65,6 @@ var GetHelpView = Backbone.View.extend({
 		var address = $('#event-address').val();
 		
 		//If time, slice out state and add to cityDisplay for thumbnail?
-		// String getState = $('#event-address').val();
-		// String[] parts = getState.split(",");
-		// String state = parts[2];
 
 		geocoder.geocode({'address': address}, function(results, status){
 			if (status == google.maps.GeocoderStatus.OK) {
@@ -80,7 +78,7 @@ var GetHelpView = Backbone.View.extend({
 				newEvent.set('longitude', longitude);
 				newEvent.set('latitude', latitude);
 				newEvent.set('city', city); //To search by city
-				newEvent.set('eventLocation', cityDisplay); //city, (State - maybe) for thubnail
+				newEvent.set('eventLocation', cityDisplay); //city,(State) for thumbnail
 				newEvent.set('eventAddress', address);
 			} else {
 				console.log('The Google gods frown upon you!' + status);

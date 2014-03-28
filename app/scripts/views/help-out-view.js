@@ -5,7 +5,7 @@ var HelpOutView = Backbone.View.extend({
 
 	className: 'help-out-view',
 
-	//Putting this in router? i think?
+	//Fix this so only one search option at a time shows up
 	events:{
 		'click .search-options': 'showSearch',
 		'click #search-btn' : 'search'
