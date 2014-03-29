@@ -59,30 +59,94 @@ var Router = Backbone.Router.extend({
 	},
 
 	sortEvents: function(sort){
+		//city:
+		var query = new Parse.Query(EventClass);
+		
+		query.equalTo('city', sort);
 
-			//var city = $('#desired-location').val();
-			//var cityURL = window.location.hash.split(/\//)[3]; //change this?
-
-				var query = new Parse.Query(EventClass);
+		query.find({
+			success: function(results){
+				$('.opportunities').empty();
 				
-				query.equalTo('city', sort);
-
-				query.find({
-					success: function(results){
-						$('.opportunities').empty();
-						if(results.length >0){
-							for(var i=0; i < results.length; i++){
-								new ThumbnailView({model: results[i]});
-							}	
-						} else {
-							$('.opportunities').append('<h3 class="no-results">Sorry, no reults found.</h3>'); //Expand this...?
-						}
-					},
-					error:function(){
-						console.log('Bad Bad stuff!');
-					}
-				});
+				//Fix title so it changes based on search?
+				//$('#changing-header').val(sort + " volunteer opportunities").css("text-transform", "capitalize");
+				
+				if(results.length >0){
+					for(var i=0; i < results.length; i++){
+						new ThumbnailView({model: results[i]});
+					}	
+				} else {
+					$('.opportunities').append('<h3 class="no-results">Sorry, no reults found.</h3>'); //Expand this...?
+				}
+			},
+			error:function(){
+				console.log('Bad Bad stuff!');
+			}
+		});
 			
+
+		//date:
+		var	query = new Parse.Query(EventClass);
+		
+		query.equalTo('eventDate', sort);
+
+		query.find({
+			success: function(results){
+				$('.opportunities').empty();
+				
+				//Fix title so it changes based on search?
+				//$('#changing-header').val(sort + " volunteer opportunities").css("text-transform", "capitalize");
+				
+				if(results.length >0){
+					for(var i=0; i < results.length; i++){
+						new ThumbnailView({model: results[i]});
+					}	
+				} else {
+					$('.opportunities').append('<h3 class="no-results">Sorry, no reults found.</h3>'); //Expand this...?
+				}
+			},
+			error:function(){
+				console.log('Bad Bad stuff!');
+			}
+		});
+
+		//Amount of time: needs fixin
+		var	query = new Parse.Query(EventClass);
+
+		if (sort == 'all') {
+			//display all options
+		} else if (sort == '>6'){
+			var timeframe = 7;
+		} else if (sort == '4-6') {
+			var timeframe = 6
+		} else if (sort == '2-4') {
+			var timeframe = 4
+		} else if (sort == '<2') {
+			var timeframe = 2
+		}
+		
+		query.lessThan('eventDuration', timeframe);
+
+		query.find({
+			success: function(results){
+				$('.opportunities').empty();
+				
+				//Fix title so it changes based on search?
+				//$('#changing-header').val(sort + " volunteer opportunities").css("text-transform", "capitalize");
+				
+				if(results.length >0){
+					for(var i=0; i < results.length; i++){
+						new ThumbnailView({model: results[i]});
+					}	
+				} else {
+					$('.opportunities').append('<h3 class="no-results">Sorry, no reults found.</h3>'); //Expand this...?
+				}
+			},
+			error:function(){
+				console.log('Bad Bad stuff!');
+			}
+		});
+
 	},
 
 	eventDetails: function(eventId){

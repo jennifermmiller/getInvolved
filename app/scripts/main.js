@@ -6,8 +6,7 @@
 	//Have past event stay up for a week or something?
 		//Maybe have upcoming events and past events for people to connect post event?
 	//Look into Bootstrap form validation... add/remove warning class
-	//Fix how comments look, thinking fixed height div where comments are appended and add comment beneath that or at least beneath title?
-console.log('yo!');
+	//Stage 2:  logins, comments w/ reply option
 
 $(document).ready(function(){
 Parse.initialize("BVqqHnDg3xhdBezKMQFxvzdjHx98lJDRJxjCJy9H", "9HXAYhUbtdZsRREtIp9K7YChpvAFAeWsTBZAYkPt");

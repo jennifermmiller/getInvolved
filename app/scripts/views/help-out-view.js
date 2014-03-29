@@ -14,6 +14,7 @@ var HelpOutView = Backbone.View.extend({
 	initialize: function(){
 		$('body').append(this.el);
 
+		//Change to query, so newest event featured 1st?
 		router.events.fetch({
 			success: function(){
 				router.events.each(function(event){
@@ -34,33 +35,29 @@ var HelpOutView = Backbone.View.extend({
 	},
 
 	search: function(){
-		//city
-		if ($('#desired-location').val() !== ''){
-			var city = $('#desired-location').val().toLowerCase();
-			var link = '#/helpOut/' + city;
+		//Need to figure something out with this
+		
+		//city is working
+		// if ($('#desired-location').val() !== ''){
+		// 	var city = $('#desired-location').val().toLowerCase();
+		// 	var link = '#/helpOut/' + city;
 
-			this.$el.find('#search-btn').attr('href', link);
-			$('#desired-location').val('');
-		// } else if ($('#desired-date').val() !== '') {
-		// 	var date = moment.($('#desired-date').val()).format("MMMDoYY");
-		// 	var link = '#/helpOut/events/' + date;
+		// 	this.$el.find('#search-btn').attr('href', link);
+		// 	$('#desired-location').val('');
+		// }
+
+		//date is working
+		// if ($('#desired-date').val() !== '') {
+		// 	var date = $('#desired-date').val();
+		// 	var link = '#/helpOut/' + date;
 
 		// 	this.$el.find('#search-btn').attr('href', link);
 		// 	$('#desired-date').val('');
 		// }
 
-
-
-		// if ($('#desired-location').val() !== '') {
-		// 	var city = $('#desired-location').val().toLowerCase();
-		// 	this.$el.find('#search-btn').attr('href', '#/helpOut/events/' + city);
-
-		// } else if ($('#desired-date').val() !== ''){
-		// 	var date = $('#desired-date').val();
-		// 	this.$el.find('#search-btn').attr('href', '#/helpOut/events/' + date);
-		// } else	if($('#').val() !== '') {
-		// 	//Need to decide how to search by time? <2hrs, 2-4hrs, >4hrs ?
-		// }
-		}
+		//Amount of time...not working:(
+		var amtOfTime= $('#desired-time').val();
+		var link = '#/helpOut/' + amtOfTime;
+		console.log(amtOfTime, link);
 	}
 });

@@ -115,7 +115,7 @@
                 <h2>A Short Signup to get some help:</h2>
             </div>
             <div class="container">
-                <form id="event-details" class="has-error">
+                <form id="event-details">
                     <fieldset>
                         <legend>Essentials</legend>
                         <ul>
@@ -142,11 +142,11 @@
                             </li>
                             <li>
                                 <label for="event-description">Description</label>
-                                <textarea type="text" id="event-description" class="form-control" placeholder="Brief description of event..."></textarea>
+                                <textarea type="text" id="event-description"  placeholder="Brief description of event..."></textarea>
                             </li> 
                         </ul>     
                     </fieldset>
-                    <fieldset class="has-error">
+                    <fieldset>
                         <legend>About You</legend>
                         <ul>
                             <li>
@@ -163,7 +163,7 @@
                             </li>
                         </ul>
                     </fieldset>     
-                    <fieldset class="has-error">
+                    <fieldset>
                         <legend>Extra Details</legend>
                         <ul>
                             <li>
@@ -214,18 +214,19 @@
                 
                 <button class="search-options">By Amount of Time</button>
                 <div class="expand-search">
-                    <select>
-                        <option value=2>Less than 2 hours</option>
-                        <option value=4>2 to 4 hours</option>
-                        <option value=6>4 to 6 hours</option>
+                    <select id="desired-time">
+                        <option value='all'>-Select timeframe-</option>
+                        <option value='<2'>Less than 2 hours</option>
+                        <option value='2-4'>2 to 4 hours</option>
+                        <option value='4-6'>4 to 6 hours</option>
                         <!--Will below work in js? Another way to label values?-->
-                        <option value=6.1>Greater than 6 hours</option>
+                        <option value='>6'>Greater than 6 hours</option>
                     </select>
                     <a id="search-btn">Search</a>
                 </div>
                 
             <div>
-            <h3>All Volunteer Opportunities:</h3>
+            <div id="changing-header"><h3>All Volunteer Opportunities:</h3></div>
                 <!--Grid of thumbnail version of opportunities...split into upcoming and previous?-->
                 <div class="container">
                     <div class="opportunities"></div>
