@@ -1,6 +1,21 @@
-
 // Use Parse.Cloud.define to define as many cloud functions as you want.
-// For example:
+
+//Decrease vonlunteersNeeded by one after someone signs up
+Parse.Cloud.afterSave("VolunteerClass", function(request) {
+  query = new Parse.Query("EventClass");
+  query.get(request.object.get("event").id, {
+    success: function(events) {
+      events.increment("vonlunteersNeeded", -1);
+      events.save();
+    },
+    error: function(error) {
+      console.error("Got an error " + error.code + " : " + error.message);
+    }
+  });
+});
+
+
+//Removing old events:
 Parse.Cloud.job("removePastEvents", function(request, status){
 	Parse.Cloud.useMasterKey();
 

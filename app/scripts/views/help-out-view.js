@@ -14,10 +14,12 @@ var HelpOutView = Backbone.View.extend({
 	initialize: function(){
 		$('body').append(this.el);
 
-		//Change to query, so newest event featured 1st?
-		router.events.fetch({
-			success: function(){
-				router.events.each(function(event){
+		var query = new Parse.Query("EventClass");
+		query.descending("createdAt");
+
+		query.find({
+			success: function(events){
+				_.each(events, function(event){
 					new ThumbnailView({model: event});
 				});
 			}
@@ -38,22 +40,22 @@ var HelpOutView = Backbone.View.extend({
 		//Need to figure something out with this
 		
 		//city is working
-		// if ($('#desired-location').val() !== ''){
-		// 	var city = $('#desired-location').val().toLowerCase();
-		// 	var link = '#/helpOut/' + city;
+		if ($('#desired-location').val() !== ''){
+			var city = $('#desired-location').val().toLowerCase();
+			var link = '#/helpOut/' + city;
 
-		// 	this.$el.find('#search-btn').attr('href', link);
-		// 	$('#desired-location').val('');
-		// }
+			this.$el.find('#search-btn').attr('href', link);
+			$('#desired-location').val('');
+		}
 
 		//date is working
-		// if ($('#desired-date').val() !== '') {
-		// 	var date = $('#desired-date').val();
-		// 	var link = '#/helpOut/' + date;
+		if ($('#desired-date').val() !== '') {
+			var date = $('#desired-date').val();
+			var link = '#/helpOut/' + date;
 
-		// 	this.$el.find('#search-btn').attr('href', link);
-		// 	$('#desired-date').val('');
-		// }
+			this.$el.find('#search-btn').attr('href', link);
+			$('#desired-date').val('');
+		}
 
 		//Amount of time...not working:(
 		var amtOfTime= $('#desired-time').val();

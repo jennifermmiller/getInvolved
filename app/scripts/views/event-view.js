@@ -48,69 +48,77 @@ var EventView = Backbone.View.extend({
 		var volunteerEmail = $('#volunteer-email').val();
 		var volunteerExtra = $('#volunteer-extra').val();
 
+
 		//For now, this is extra...get back to this:
+		// $('.modal-body').on('change', ':checkbox', function(){ 
+		// 	if ($('#email-signup').is(':checked')){
+		// 	   $('#volunteer-location').show();
+		// 			var volunteerLocation = $('#volunteer-location').val();
+		// 			volunteer.set('location', volunteerLocation);
+		// 			console.log('here');
+		// 	} else {
+		// 	    $('#volunteer-location').hide();
+		// 	}
+		// });
+
+		if (volunteerName !== '' && volunteerEmail !== '') {
+			volunteer.set('name', volunteerName);
+			volunteer.set('email', volunteerEmail);
+			volunteer.set('extraInfo', volunteerExtra);
+			volunteer.set('parent', this.model);
 		
+			router.volunteers.add(volunteer);
 
+			volunteer.save(null, {
+				success: function(result){
+					//Success/error message...if success, model clear
+					//Email confirmation to volunteer and event sponsor
+					
+					//Decrease volunteers needed by one...cloud function?
+					
+				},
+				error: function(result,error) {
+					console.log('Opps! ' + error + "just happened")
+				}
+			});
 
-		
-
-		volunteer.set('name', volunteerName);
-		volunteer.set('email', volunteerEmail);
-		volunteer.set('extraInfo', volunteerExtra);
-		volunteer.set('parent', this.model);
-	
-
-		router.volunteers.add(volunteer);
-
-		volunteer.save(null, {
-			success: function(){
-				//Success/error message...if success, model clear
-				//Email confirmation to volunteer and event sponsor
-				//Decrease volunteers needed by one
-			},
-			error: function() {
-				console.log('what?! what!')
-			}
-		});
-
-		
+			$('#volunteer-name').val('');
+			$('#volunteer-email').val('');
+			$('#volunteer-extra').val('');
+		}
 	},
 
-	//Again, need validation of input...must have commentText, default author to anonymous
 	addComment: function(){
-		var comment = new CommentClass();
-
 		var commentText = $('#new-comment').val(); 
-		var timeStamp = moment().format('MMM Do YYYY, h:mm a'); //Doing extra work? Just use creaatedAt?
 
-		comment.set('commentContent', commentText);
-		
-		//Clean this up! Put in with validation of commentText?
-		if ($('#comment-by').val() !== '') {
-			var commentAuthor = $('#comment-by').val();
-			comment.set('commentBy', commentAuthor);
-		}
+		if(commentText !== ''){
+			var comment = new CommentClass();
 
-		comment.set('commentedAt', timeStamp);
-		comment.set('parent', this.model);
+			var timeStamp = moment().format('MMM Do YYYY, h:mm a');
 
-		router.comments.add(comment);
-		
-		comment.save(null,{
-			success: function(result){
-				new CommentView({model: result});
-
-				//Fetch comments related to this event?
-
-
-				//Target both input fields and clear at once?
-				//Maybe just a cleay function that can be run in any form to clear
-				$('#new-comment').val(''); 
-				$('#comment-by').val('');
-			},
-			error: function(){
-				console.log('Ha! No one wants to hear from the peanut gallery.');
+			comment.set('commentContent', commentText);
+			
+			if ($('#comment-by').val() !== '') {
+				var commentAuthor = $('#comment-by').val();
+				comment.set('commentBy', commentAuthor);
 			}
-		});
+
+			comment.set('commentedAt', timeStamp);
+			comment.set('parent', this.model);
+
+			router.comments.add(comment);
+			
+			comment.save(null,{
+				success: function(result){
+					new CommentView({model: result});
+
+					$('#new-comment').val(''); 
+					$('#comment-by').val('');
+				},
+				error: function(result, error){
+					console.log('No one wants to hear from the peanut gallery. ' + error);
+				}
+			});
+		}
 	}
 });

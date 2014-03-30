@@ -22,9 +22,12 @@ var GetHelpView = Backbone.View.extend({
 		//need to validate form info...also a placeholder pic in event user doesnt uploaded one
 		//model: error if not correct, success message if form saved
 		//clear form on success
+		$('#event-details').validate();
+
+
 		var newEvent = new EventClass();
 
-		//if($('#event-photo').val() !== []){
+		if($('#event-photo').val() !== []){
 			var fileUploadControl = $('#event-photo')[0];
 			if (fileUploadControl.files.length > 0) {
 			  	var file = fileUploadControl.files[0];
@@ -38,9 +41,10 @@ var GetHelpView = Backbone.View.extend({
 			}, function(error) {
 			  console.log('Oops! Couldnt save your photo');
 			});
-		// } else {
+		} else {
 
-		// }
+		}
+
 
 		var eventDate = $('#event-date').val();
 		var eventDateThumbnail = moment(eventDate).format('MMM Do');
@@ -56,10 +60,10 @@ var GetHelpView = Backbone.View.extend({
         newEvent.set('eventDateFull', eventDateFull);
         
         newEvent.set('eventStart', $('#start-event').val());
-        newEvent.set('eventDuration', $('#event-duration').val());
-        newEvent.set('volunteersNeeded', $('#volunteers-needed').val());
+        newEvent.set('eventDuration', parseInt($('#event-duration').val()));
         newEvent.set('eventSponsor', $('#event-sponsor').val());
         newEvent.set('email', $('#sponsor-email').val());
+        newEvent.set('peopleWanted', parseInt($('#needed-vols').val()));
   
 		var geocoder = new google.maps.Geocoder();
 		var address = $('#event-address').val();

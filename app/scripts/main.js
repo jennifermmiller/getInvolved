@@ -20,29 +20,29 @@ Backbone.history.start();
 ////////Below: Practice with Mandrill, will need to be deleted
 
 // Create a function to log the response from the Mandrill API
-function log(obj) {
-    $('#response').text(JSON.stringify(obj));
-}
+// function log(obj) {
+//     $('#response').text(JSON.stringify(obj));
+// }
 
-// create a new instance of the Mandrill class with your API key
-var m = new mandrill.Mandrill('mgMhu3vLZBIZkYxg8HoqjQ');
+// // create a new instance of the Mandrill class with your API key
+// var m = new mandrill.Mandrill('mgMhu3vLZBIZkYxg8HoqjQ');
 
-// create a variable for the API call parameters
-var params = {
-    "message": {
-        "from_email":"jmiller6128@gmail.comment",
-        "to":[{"email":"jmiller6128@gmail.com"}],
-        "subject": "Sending a text email from the Mandrill API",
-        "text": "Sweet! I'm sending myself emails!"
-    }
-};
+// // create a variable for the API call parameters
+// var params = {
+//     "message": {
+//         "from_email":"jmiller6128@gmail.comment",
+//         "to":[{"email":"jmiller6128@gmail.com"}],
+//         "subject": "Sending a text email from the Mandrill API",
+//         "text": "Sweet! I'm sending myself emails!"
+//     }
+// };
 
-function sendTheMail() {
-// Send the email!
+// function sendTheMail() {
+// // Send the email!
 
-    m(params, function(res) {
-        log(res);
-    }, function(err) {
-        log(err);
-    });
-}
+//     m(params, function(res) {
+//         log(res);
+//     }, function(err) {
+//         log(err);
+//     });
+// }

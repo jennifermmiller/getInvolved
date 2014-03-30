@@ -121,28 +121,28 @@
                         <ul>
                             <li>
                                 <label for="event-name">Name of Event</label>
-                                <input type="text" id="event-name" class="form-control" placeholder=" Neighborhood Street Cleanup..."/>
+                                <input type="text" id="event-name" placeholder=" Neighborhood Street Cleanup..." required/>
                             </li>
                             <li>
                                 <label for="event-address">Location</label>
-                                <input type="text" id="event-address" class="form-control" placeholder="Street Address, City, State, Zip Code"/>
+                                <input type="text" id="event-address" placeholder="Street Address, City, State, Zip Code" required/>
                             </li>    
                             <li>
                                 <label for="event-date">Date</label>
-                                <input type="date" id="event-date" class="form-control"/>
+                                <input type="date" id="event-date" required/>
                             </li>
                             <li>
                                 <label for="start-event">Starts at</label>
-                                <input type="time" id="start-event" class="form-control"/>
+                                <input type="time" id="start-event" maxlength="32" required/>
                             </li>
                             <li>
                                 <label for="event-duration">Duration</label>
-                                <input type="number" id="event-duration" class="form-control"/>
+                                <input type="number" id="event-duration" required/>
                                 <span>hours</span>
                             </li>
                             <li>
                                 <label for="event-description">Description</label>
-                                <textarea type="text" id="event-description"  placeholder="Brief description of event..."></textarea>
+                                <textarea type="text" id="event-description"  placeholder="Brief description of event..." required></textarea>
                             </li> 
                         </ul>     
                     </fieldset>
@@ -151,15 +151,15 @@
                         <ul>
                             <li>
                                 <label for="event-sponsor">Sponsor</label>
-                                <input type="text" id="event-sponsor" class="form-control" placeholder="Your name/organization..."/>
+                                <input type="text" id="event-sponsor" placeholder="Your name/organization..." required/>
                             </li>
                             <li>
                                 <label for="sponsor-email">Sponsors Email</label>
-                                <input type="email" id="sponsor-email" class="form-control" placeholder="me@example.com">
+                                <input type="email" id="sponsor-email" placeholder="me@example.com" required/>
                             </li>
                             <li class="special-li">
-                                <input type="checkbox" id="event-pledge" class="form-control"/>
-                                <label id="event-pledge">I pledge this is a genuine volunteer opportunity</label>
+                                <input type="checkbox" id="event-pledge" required/>
+                                <label for="event-pledge" id="special-label-uno">I pledge this is a genuine volunteer opportunity required</label>
                             </li>
                         </ul>
                     </fieldset>     
@@ -167,11 +167,11 @@
                         <legend>Extra Details</legend>
                         <ul>
                             <li>
-                                <label id="volunteers-needed">Number of volunteers needed?</label>
-                                <input type="number" id="volunteers-needed" class="form-control"/>
+                                <label for="needed-vols">Number of volunteers needed?</label>
+                                <input type="number" id="needed-vols" id="special-label-dos" required/>
                             </li>
                             <li>
-                                <label>What category best decribes this event?</label>
+                                <label for="event-category" id="special-label-tres">What category best decribes this event?</label>
                                 <select>
                                     <option>Neighborhood cleanup</option>
                                     <option>Tutoring</option>
@@ -183,7 +183,7 @@
                             </li>
                             <li>   
                                 <label for="event-photo">Photo</label>
-                                <input type="file" style="display: inline-block" id="event-photo" class="form-control"/>
+                                <input type="file" style="display: inline-block" id="event-photo"/>
                             </li>
                         </ul>
                     </fieldset>
@@ -235,7 +235,7 @@
 
         <!-- Expanded Event Template -->
         <script type="text/template" id="event-template">
-            <div class="event-header">
+            <div class="sub-header">
                 <div class="container">
                     <h1><%=model.get('eventName')%></h1>
                 </div>
@@ -265,13 +265,13 @@
                             </form>
                         </div>
                     <div class="remaining-event-info">
-                        <h4>Location: <span><%=model.get('eventAddress')%></span></h4>
+                        <h4>Location:<span><%=model.get('eventAddress')%></span></h4>
                         <h4>Date:<span><%=model.get('eventDateFull')%></span></h4>
-                        <h4>Sponsored By: <span><%=model.get('eventSponsor')%></span></h4>
+                        <h4>Sponsored By:<span><%=model.get('eventSponsor')%></span></h4>
 
-                        <h4>How long should plan on staying? <span><%=model.get('eventDuration')%> hours.</span></h4>
+                        <h4>Event will last about:<span><%=model.get('eventDuration')%> hours.</span></h4>
 
-                        <h4>Number of volunteers needed: <span><%=model.get('volunteersNeded')%></span></h4>
+                        <h4>Number of volunteers needed:<span><%=model.get('volunteersNeeded')%></span></h4>
                     </div>
                 </div>
             </div>
@@ -375,6 +375,7 @@
         <script src="scripts/views/event-view.js"></script>
         <script src="scripts/views/comment-view.js"></script>
         <script src="scripts/main.js"></script>
+        <script src="scripts/jquery-validation/jquery.validate.js"></script>
         <!-- endbuild -->
 </body>
 </html>

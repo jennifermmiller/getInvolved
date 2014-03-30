@@ -36,6 +36,13 @@ $lt-green: #CCCCBB;
 $md-green: #666655;
 $dk-dreen: #333322;
 
+//3rd idea:
+$purple: #482344;
+$blue: #2b5166;
+$yellow: #fab243;
+$red: #e02130; 
+$green: #429867;
+
 //Mixins:
 @mixin button-generator($width,$height,$border, $background, $border-radius,$color,$font-size){
   width: $width;
@@ -94,33 +101,45 @@ $dk-dreen: #333322;
 // >>>>>>>>>>>>>>>> Start of Jen's Styles >>>>>>>>>>>>>>>
 
 //**************Styles used on multiple pages*************************
-//Header styles:
 
 //Footer's sytles
 .footer{
     height: 60px;
-    background: $dk-blue;
+    background: $purple;
     text-align: center;
     padding-top: 15px;
 }
 
+//Header styles:
 header{
-    background: $dk-blue;
+    background: $blue;
     color: white;
 }
 
+.sub-header{
+    padding: 25px 5px;
+    //background: ;
+    color: $red;
+
+    h1{
+        margin: 0;
+    }
+}
 
 // Basic tumbnail looks:
 a.thumbnails {
     display: inline-block;
     text-decoration: none;
+    box-shadow: 1px 1px 3px gray;
 
     img{
             width: 300px;
             height: 250px;
+            @include border-radius(6px 6px 0 0);
     }
 
     .thumbnail-header{
+        border-top: 1px solid gray;
         background: rgba(3, 3, 3, 0.6);
         color: white;
         position: absolute;
@@ -128,6 +147,7 @@ a.thumbnails {
         width: 300px;
         text-align: left;
         padding: 8px 10px;
+        @include border-radius(6px 6px 0 0);
 
         span:nth-child(2){
             float: right;
@@ -138,6 +158,7 @@ a.thumbnails {
         text-align: left;
         padding: 5px;
         background: white;
+        @include border-radius(0 0 6px 6px);
 
         h4 {
             margin-top: 0;
@@ -151,14 +172,6 @@ a.thumbnails {
     text-align: center;
     
     .home-welcome{
-        .sub-header{
-            padding: 25px 5px;
-            background: $lt-blue;
-
-            h1{
-                margin: 0;
-            }
-        }
 
         .home-focus{
             height: 540px;
@@ -168,8 +181,8 @@ a.thumbnails {
                 padding-top: 135px;
 
                 button{
-                    color: $dk-blue;
-                    @include button-generator(200px, 60px,1px solid $md-brown, $dk-brown, 6px, gray, 20px);
+                    color: $red;
+                    @include button-generator(200px, 60px,1px solid darkgreen, $green, 6px, gray, 20px);
                     //Fix these:
                     // @include text-shadow: $text-shadow;  
                     // @include background-color: $background-color;
@@ -184,11 +197,11 @@ a.thumbnails {
     }
 
     .upcoming-events{
-        background: $beige;
+        background: $yellow;
         padding-bottom: 50px;
 
         .upcoming-header{
-            color: $dk-brown;
+            color: $blue;
             padding-top: 30px;
             margin-bottom: 5px;
 
@@ -219,8 +232,7 @@ a.thumbnails {
         background: $md-green;
         padding: 25px 35px;
         width: 90%;
-        margin-left: 5%;
-        margin-bottom: 60px;
+        margin: 60px 0 60px 5%;
         counter-reset: fieldsets;
         @include border-radius(6px);
 
@@ -268,12 +280,17 @@ a.thumbnails {
                 font-size: 14px;
                 width: 125px;
 
-                &#event-pledge{
-                    width: 320px;
+                &[for="event-pledge"]{
+                    width: 400px;
                 }
 
-                &#volunteers-needed{
+                &[for="needed-vols"]{
                     width: 225px;
+                    margin-right: 15px;
+                }
+
+                &[for="event-category"]{
+                    width: 289px;
                 }
             }
 
@@ -309,7 +326,7 @@ a.thumbnails {
             }
             
             input[type=time]{
-                width: 82px;
+                width: 105px;
             }
             
             input[type=number]{
@@ -318,7 +335,13 @@ a.thumbnails {
 
             input[type=checkbox] {
                 float: left;
-                margin: 10px 15px 0px 108px;
+                width: 30px;
+                height: 30px;
+                margin: 4px 40px 0 60px;
+            }
+
+            select{
+                margin: 5px 0 0 5px;
             }
         }
 
@@ -358,9 +381,10 @@ a.thumbnails {
         .event-pic{
             margin-top: 20px;
             width: 50%;
-
+            
             img{
                 width: 100%;
+                max-height: 375px;
             }
         }
 
@@ -371,7 +395,7 @@ a.thumbnails {
             margin-top: 35px;
             
             p{       
-            max-height: 200px;
+            max-height: 193px; //looks different on ghpages
             overflow: scroll;
             margin-top: 10px;
             }
@@ -390,7 +414,7 @@ a.thumbnails {
         .remaining-event-info{
             text-align: left;
             margin-top: 75px;
-            margin-left: 20px;
+            margin-left: 105px;
 
             h4{
                 font-style: italic;
