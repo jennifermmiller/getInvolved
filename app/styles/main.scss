@@ -7,11 +7,22 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'compass/css3';
 
+//Colors:
+$black: #3b3131;
+$dk-green: #46472b;
+$lt-green: #b5b690;
+$white: #f1f1dc;
+$pink: #8f0853;
+
+$dancing-script: 'Dancing Script', cursive;
+$garamond-script: 'EB Garamond', serif;
+
 /* Space out content a bit */
 body * {
     margin: 0;
     padding: 0;
     vertical-align: top;
+    font-family: $garamond-script;
 }
 
 /*Utilities*/
@@ -20,20 +31,11 @@ body * {
   margin: 0 auto;
 }
 
-//Colors:
-$black: #3b3131;
-$dk-green: #46472b;
-$lt-green: #b5b690;
-$white: #f1f1dc;
-$pink: #8f0853;
-
 //Mixins:
-@mixin button-generator($width,$height,$border, $background, $border-radius,$color,$font-size){
+@mixin button-generator($width, $height, $border, $border-radius, $color, $font-size){
   width: $width;
   height: $height;
-  line-height: $height;
   border: $border;
-  background: $background;
   text-align: center;
   color: $color;
   font-size: $font-size;
@@ -82,8 +84,6 @@ $pink: #8f0853;
    
 }
 
-// >>>>>>>>>>>>>>>> Start of Jen's Styles >>>>>>>>>>>>>>>
-
 //**************Styles used on multiple pages*************************
 
 //Footer's sytles
@@ -98,33 +98,34 @@ $pink: #8f0853;
 //Header styles:
 header{
     background: $black;
-    border-bottom: 1px solid $pink;
+    border-bottom: 1px solid $dk-green;
     height: 60px;
     padding: 10px 0 5px 0;
     
     h3.text-muted{
+        font-family: $dancing-script;
         color: $lt-green;
+        font-size: 30px;
         line-height: inherit;
     }
 
     li a{
+        font-size: 18px;
         color: $lt-green;
     }
 
     .nav li a:hover{
-            color: $white;
-            background: $pink;
-        }
+        color: $white;
+        background: $pink;
+    }
 }
 
 .sub-header{
+    text-align: center;
     padding: 25px 5px;
-    //background: ;
-    //color: $red;
-
-    h1{
-        margin: 0;
-    }
+    background: $white;
+    color: $dk-green;
+    box-shadow: inset 0px -1px 3px $lt-green;
 }
 
 // Basic tumbnail looks:
@@ -132,16 +133,17 @@ a.thumbnails {
     display: inline-block;
     text-decoration: none;
     box-shadow: 1px 1px 3px gray;
+    font-size: 18px;
 
     img{
-            width: 300px;
-            height: 250px;
-            @include border-radius(6px 6px 0 0);
+        width: 300px;
+        height: 250px;
+        @include border-radius(6px 6px 0 0);
     }
 
     .thumbnail-header{
         background: rgba(3, 3, 3, 0.6);
-        color: $lt-green;
+        color: $white;
         position: absolute;
         height: 35px;
         width: 300px;
@@ -162,8 +164,45 @@ a.thumbnails {
         @include border-radius(0 0 6px 6px);
 
         h4 {
+            font-size: 20px;
             margin-top: 0;
         }
+
+        span{
+            font-size: 17px;
+        }
+    }
+}
+
+button,
+#volunteer {
+    @include button-generator(150px, 60px, 1px solid $pink, 32px, $dk-green, 24px);
+    line-height: inherit;
+
+    background: #cc63b0; /* Old browsers */
+    background: -moz-linear-gradient(top,  #cc63b0 0%, #8f0853 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cc63b0), color-stop(100%,#8f0853)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #cc63b0 0%,#8f0853 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #cc63b0 0%,#8f0853 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #cc63b0 0%,#8f0853 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #cc63b0 0%,#8f0853 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc63b0', endColorstr='#8f0853',GradientType=0 ); /* IE6-9 */
+
+
+    &:hover {
+        color: $white;
+        cursor: pointer;
+        border: 1px solid $dk-green;
+
+        background: #46472b; /* Old browsers */
+        background: -moz-linear-gradient(top,  #46472b 0%, #b5b690 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#46472b), color-stop(100%,#b5b690)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #46472b 0%,#b5b690 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #46472b 0%,#b5b690 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #46472b 0%,#b5b690 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #46472b 0%,#b5b690 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46472b', endColorstr='#b5b690',GradientType=0 ); /* IE6-9 */
+
     }
 }
 //***********************End of re-used styles****************************
@@ -177,18 +216,14 @@ a.thumbnails {
         .home-focus{
             height: 540px;
             background: url(../images/makeadifference2.jpg) no-repeat;
+            border-bottom: 1px solid $dk-green;
+            box-shadow: 1px 0 3px $lt-green;
 
             .start-btns{
                 padding-top: 135px;
-
+              
                 button{
-                    color: $pink;
-                    @include button-generator(200px, 60px,1px solid $dk-green, $white, 6px, gray, 20px);
-                    //Fix these:
-                    // @include text-shadow: $text-shadow;  
-                    // @include background-color: $background-color;
-                    // @include box-shadow: $box-shadow;
-
+                    
                     &:first-child{
                     margin-right: 15px;
                     }
@@ -198,16 +233,20 @@ a.thumbnails {
     }
 
     .upcoming-events{
-        background: $lt-green;
+        background: $white;
         padding-bottom: 50px;
 
         .upcoming-header{
-            color: $pink;
-            padding-top: 30px;
+            color: $dk-green;
+            padding: 30px 0 15px;
             margin-bottom: 5px;
 
             h2{
                 margin-bottom: 5px;
+            }
+
+            span{
+                font-size: 18px;
             }
         }
 
@@ -216,6 +255,21 @@ a.thumbnails {
         }
     }
 }
+
+
+//About Page styles:
+.about-site{
+    background: $lt-green;
+
+    p{
+        font-size: 18px;
+        padding-bottom: 15px;
+
+    }
+
+    padding-bottom: 400px; //Probably remove this...way to stick footer to bottom of browser?
+}
+
 
 //getHelp styles:
 .get-help{
@@ -231,10 +285,10 @@ a.thumbnails {
     }
 
     form#event-details {
-        background: $black;
+        background: $lt-green;
         padding: 25px 35px;
         width: 90%;
-        margin: 60px 0 60px 5%;
+        margin: 30px 0 60px 5%;
         counter-reset: fieldsets;
         @include border-radius(6px);
 
@@ -242,15 +296,18 @@ a.thumbnails {
             border: none;
             margin-bottom: 10px;
             counter-increment: fieldsets;
+            padding-bottom: 15px;
 
+        
             &:last-of-type {
-                margin-bottom: 0;
+                padding-bottom: 0;
             }
         }
 
         legend {
-            color: $lt-green;
-            font-size: 18px;
+            font-family: $dancing-script;
+            color: $black;
+            font-size: 24px;
             border: none;
             font-weight: bold;
             padding-bottom: 10px;
@@ -262,7 +319,9 @@ a.thumbnails {
         }
 
         ul li {
+            font-size: 20px;
             background: #b9cf6a;
+            color: $black;
             background: rgba(255,255,255,.3);
             border: 1px solid rgba(255,255,255,.6);
             @include border-radius(5px);
@@ -279,20 +338,25 @@ a.thumbnails {
                 float: left;
                 text-align: right;
                 margin-right: 10px;
-                font-size: 14px;
-                width: 125px;
+                font-size: 20px;
+                width: 145px;
+                color: $dk-green;
 
                 &[for="event-pledge"]{
-                    width: 400px;
+                    width: 525px;
                 }
 
                 &[for="needed-vols"]{
-                    width: 225px;
+                    width: 280px;
                     margin-right: 15px;
                 }
 
                 &[for="event-category"]{
-                    width: 289px;
+                    width: 350px;
+                }
+
+                &[for="event-photo"]{
+                    width: 65px;
                 }
             }
 
@@ -312,6 +376,7 @@ a.thumbnails {
             }
 
             textarea{
+                color: $white; //Why is this not working?!
                 height: 70px;
                 width: 65%;
                 max-width: 65%;
@@ -320,15 +385,16 @@ a.thumbnails {
 
             input:not([type=submit]):focus,
             textarea:focus {
-                background: #eaeaea;
+                background: $dk-green;
+                color: $white;
             }
 
             input[type=date]{
-                width: 145px;
+                width: 180px;
             }
             
             input[type=time]{
-                width: 105px;
+                width: 120px;
             }
             
             input[type=number]{
@@ -346,25 +412,11 @@ a.thumbnails {
                 margin: 5px 0 0 5px;
             }
         }
-
+          //$width, $height, $border, $border-radius, $color, $font-size
         button {
-            background: brown;
-            border: none;
-            @include border-radius (20px);
-            color: #ffffff;
             display: block;
-            font: 18px;
-            letter-spacing: 1px;
-            margin: auto;
-            padding: 7px 25px;
-            text-shadow: 0 1px 1px #000000;
             text-transform: uppercase;
-            margin-top: 25px;
-
-            &:hover {
-                background: #251306;
-                cursor: pointer;
-            }
+            margin-left: 38%;
         }
     }
 }
@@ -392,8 +444,12 @@ input.error {
 //Event View:
 .event-focus{
     text-align: center;
+    color: $black;
 
     .upper-event-page{
+        background: $lt-green;
+        padding-top: 25px;
+
         .event-pic,
         .event-info{
             display: inline-block;
@@ -415,11 +471,12 @@ input.error {
             margin-left: 45px;
             text-align: left;
             margin-top: 35px;
-            
+
             p{       
             max-height: 193px; //looks different on ghpages
             overflow: scroll;
             margin-top: 10px;
+            font-size: 18px;
             }
 
             #volunteer{
@@ -432,11 +489,16 @@ input.error {
     .middle-event-page{
         height: 450px;
         padding: 60px 0;
+        background: $lt-green;
 
         .remaining-event-info{
             text-align: left;
             margin-top: 75px;
             margin-left: 105px;
+
+            h3{
+                margin-bottom: 10px;
+            }
 
             h4{
                 font-style: italic;
@@ -458,43 +520,68 @@ input.error {
         #get-directions-input{
             position: absolute;
             margin: 302px 0 0 555px;
-            @include button-generator(120px, 35px, 1px solid red, pink, 6px, white, 14px)
+          //  @include button-generator(120px, 35px, 1px solid red, pink, 6px, white, 14px)
         }
     }
 
     .comment-section{
         font-size: 16px;
         padding-bottom: 40px;
+        background: $white;
+        font-size: 18px;
+
+        h2{
+            margin: 25px 0 15px;
+        }
 
         .add-comment{
             text-align: center;
-            margin: 10px 0;
+            margin: 10px 0 35px;
+            display: block;
 
             #new-comment{
+                background: $lt-green;
+                color: $dk-green;
                 width: 70%;
-                height: 73px;
+                max-width:70%; 
+                padding-top: 5px;
+                padding-left: 5px;
+                height: 75px;
+                max-height: 75%;
+                border: none;
+                @include border-radius(6px);
             }
 
             #comment-by{
-                width: 30%;
+                background: $lt-green;
+                color: $white;
+                display: block;
+                margin-left: 140px;
                 margin-top: 10px;
+                height: 45px;
+                padding-left: 5px;
+                width: 30%;
+                @include border-radius(6px);
             }
 
             #add-comment{
-                width: 125px;
+                width: 180px;
                 height: 45px;
-                margin-left: 135px;
+                float: right;
+                margin: -40px 140px 0 0;
             }
         }
 
         .prev-comments{
             li{
+                background: $lt-green;
                 list-style: none;
-                border: 1px solid black;
+                border: 1px solid $dk-green;
                 border-radius: 6px;
                 margin-top: 10px;
                 padding: 5px;
                 text-align: left;
+                box-shadow: 1px 1px 1px $dk-green;
 
                 span{
                     margin: 5px;

@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
         <script src="bower_components/modernizr/modernizr.js"></script>
-       
+        <link href="http://fonts.googleapis.com/css?family=Dancing+Script:700|EB+Garamond" rel="stylesheet" type="text/css"/>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
     </head>
@@ -136,7 +136,7 @@
                         </li>
                         <li>
                             <label for="event-duration">Duration</label>
-                            <input type="text" id="event-duration" name=="event-duration" required/>
+                            <input type="number" id="event-duration" name=="event-duration" required/>
                             <span>hours</span>
                         </li>
                         <li>
@@ -252,7 +252,7 @@
                         <h3>Description:</h3> 
                         <p><%=model.get('eventDescription')%></p>
                         <!-- Button trigger modal -->
-                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        <button class="btn btn-primary btn-lg" id="volunteer" data-toggle="modal" data-target="#myModal">
                           Sign me up!
                         </button>
                     </div>
@@ -268,6 +268,7 @@
                             </form>
                         </div>
                     <div class="remaining-event-info">
+                        <h3>More Details:</h3> 
                         <h4>Location:<span><%=model.get('eventAddress')%></span></h4>
                         <h4>Date:<span><%=model.get('eventDateFull')%></span></h4>
                         <h4>Sponsored By:<span><%=model.get('eventSponsor')%></span></h4>
@@ -280,7 +281,7 @@
             </div>
             <div class="comment-section">
                 <div class="container">
-                    <h3>What people are saying about this event</h3>
+                    <h2>What people are saying about this event</h2>
                     <div class="add-comment">
                         <textarea type="text" id="new-comment" placeholder="Share your experience" required></textarea>
                         <input type="text" id="comment-by" placeholder="Name (optional)">
