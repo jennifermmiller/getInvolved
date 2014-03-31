@@ -44,24 +44,11 @@ var EventView = Backbone.View.extend({
 	signMeUp: function(){
 		var volunteer = new VolunteerClass();
 
-		var volunteerName = $('#volunteer-name').val();
-		var volunteerEmail = $('#volunteer-email').val();
-		var volunteerExtra = $('#volunteer-extra').val();
+		if ($('#volunteer-name').val() !== '' && $('#volunteer-email').val() !== '') {
+			var volunteerName = $('#volunteer-name').val();
+			var volunteerEmail = $('#volunteer-email').val();
+			var volunteerExtra = $('#volunteer-extra').val();
 
-
-		//For now, this is extra...get back to this:
-		// $('.modal-body').on('change', ':checkbox', function(){ 
-		// 	if ($('#email-signup').is(':checked')){
-		// 	   $('#volunteer-location').show();
-		// 			var volunteerLocation = $('#volunteer-location').val();
-		// 			volunteer.set('location', volunteerLocation);
-		// 			console.log('here');
-		// 	} else {
-		// 	    $('#volunteer-location').hide();
-		// 	}
-		// });
-
-		if (volunteerName !== '' && volunteerEmail !== '') {
 			volunteer.set('name', volunteerName);
 			volunteer.set('email', volunteerEmail);
 			volunteer.set('extraInfo', volunteerExtra);
@@ -71,10 +58,11 @@ var EventView = Backbone.View.extend({
 
 			volunteer.save(null, {
 				success: function(result){
-					//Success/error message...if success, model clear
+					//Remove modal:
+					//Decrease volunteers needed by one...cloud function?
+					
 					//Email confirmation to volunteer and event sponsor
 					
-					//Decrease volunteers needed by one...cloud function?
 					
 				},
 				error: function(result,error) {
@@ -85,6 +73,8 @@ var EventView = Backbone.View.extend({
 			$('#volunteer-name').val('');
 			$('#volunteer-email').val('');
 			$('#volunteer-extra').val('');
+
+			$('#signup').attr("data-dismiss", "modal");
 		}
 	},
 

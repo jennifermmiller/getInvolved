@@ -28,7 +28,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-
+        
 
 
         <!-- Start of Templates: -->
@@ -90,7 +90,7 @@
             <img src="<%=model.get('eventPhoto').url()%>"/>
             <div class="thumbnail-footer">
                 <h4><%=model.get('eventName')%></h4>
-                <span> Volunteers needed: <%=model.get('volunteersNeeded')%></span>
+                <span> Volunteers needed: <%=model.get('peopleWanted')%></span>
             </div>
         </script>
 
@@ -115,6 +115,10 @@
                 <h2>A Short Signup to get some help:</h2>
             </div>
             <div class="container">
+                <div id="errorContainer">
+                    <p>&nbsp;Please correct the following errors and try again:</p>
+                    <ul />
+                </div>
                 <form id="event-details">
                     <fieldset>
                         <legend>Essentials</legend>
@@ -159,7 +163,7 @@
                             </li>
                             <li class="special-li">
                                 <input type="checkbox" id="event-pledge" required/>
-                                <label for="event-pledge" id="special-label-uno">I pledge this is a genuine volunteer opportunity required</label>
+                                <label for="event-pledge">I pledge this is a genuine volunteer opportunity required</label>
                             </li>
                         </ul>
                     </fieldset>     
@@ -168,10 +172,10 @@
                         <ul>
                             <li>
                                 <label for="needed-vols">Number of volunteers needed?</label>
-                                <input type="number" id="needed-vols" id="special-label-dos" required/>
+                                <input type="number" id="needed-vols" required/>
                             </li>
                             <li>
-                                <label for="event-category" id="special-label-tres">What category best decribes this event?</label>
+                                <label for="event-category">What category best decribes this event?</label>
                                 <select>
                                     <option>Neighborhood cleanup</option>
                                     <option>Tutoring</option>
@@ -188,7 +192,7 @@
                         </ul>
                     </fieldset>
                     <fieldset>  
-                        <button id="submit-help-form">Submit</button>
+                        <button type="submit" id="submit-help-form">Submit</button>
                     </fieldset>
                 </form>         
             </div>
@@ -196,9 +200,9 @@
 
         <!-- HelpOut Template -->
         <script type="text/template" id="help-out-template">
-            <!-- Put this in a subheader container? -->
-            <h3>Search for the right opportunity:</h3>
-            
+            <div class="sub-header">
+                <h3>Search for the right opportunity:</h3>
+            </div>
             <div class = "container">
                 <button class="search-options">By Location</button>
                 <div class="expand-search">
@@ -215,12 +219,11 @@
                 <button class="search-options">By Amount of Time</button>
                 <div class="expand-search">
                     <select id="desired-time">
-                        <option value='all'>-Select timeframe-</option>
-                        <option value='<2'>Less than 2 hours</option>
-                        <option value='2-4'>2 to 4 hours</option>
-                        <option value='4-6'>4 to 6 hours</option>
-                        <!--Will below work in js? Another way to label values?-->
-                        <option value='>6'>Greater than 6 hours</option>
+                        <option value=''>-Select timeframe-</option>
+                        <option value=2>Less than 2 hours</option>
+                        <option value=4>2 to 4 hours</option>
+                        <option value=6>4 to 6 hours</option>
+                        <option value=7>Greater than 6 hours</option>
                     </select>
                     <a id="search-btn">Search</a>
                 </div>
@@ -271,7 +274,7 @@
 
                         <h4>Event will last about:<span><%=model.get('eventDuration')%> hours.</span></h4>
 
-                        <h4>Number of volunteers needed:<span><%=model.get('volunteersNeeded')%></span></h4>
+                        <h4>Number of volunteers needed:<span><%=model.get('peopleWanted')%></span></h4>
                     </div>
                 </div>
             </div>
@@ -292,7 +295,7 @@
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -303,15 +306,16 @@
                             <input type="text" id="volunteer-name" placeholder="Name"/>
                             <input type="email" id="volunteer-email" placeholder="Email"/>
                             <textarea type="text" id="volunteer-extra" placeholder="Questions? Concerns? Limitations?"></textarea>
+                            <!-- Get back to this if get mandrill working:
                             <div class="signup-extras">
                                 <input type="checkbox" id="email-signup"/>
                                 <label id="email-signup">I would like to receive notifications about events near me!</label>
                                 <input type="text" id="volunteer-location" placeholder="City, State">
-                            </div>
+                            </div>-->
                         </div>
                         <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="signup">Im Stoked!</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="signup" data-dismiss="modal">Im Stoked!</button>
                         </div>
                     </div>
                 </div>
@@ -331,11 +335,12 @@
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
         <script src="bower_components/momentjs/moment.js"></script>
+        <script src="scripts/jquery-validation/jquery.validate.js"></script>
+        <script src="scripts/jquery-validation/jquery.validate.min.js"></script>
 
         <!-- endbower -->
         <!-- endbuild -->
         <script src="//www.parsecdn.com/js/parse-1.2.17.min.js"></script>
-    </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -363,6 +368,7 @@
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        
         <script src="scripts/models.js"></script>
         <script src="scripts/router.js"></script>
         <script src="scripts/views/header-view.js"></script>
@@ -375,7 +381,7 @@
         <script src="scripts/views/event-view.js"></script>
         <script src="scripts/views/comment-view.js"></script>
         <script src="scripts/main.js"></script>
-        <script src="scripts/jquery-validation/jquery.validate.js"></script>
+   
         <!-- endbuild -->
 </body>
 </html>

@@ -23,7 +23,7 @@ var GetHelpView = Backbone.View.extend({
 		//model: error if not correct, success message if form saved
 		//clear form on success
 		$('#event-details').validate();
-
+		
 
 		var newEvent = new EventClass();
 

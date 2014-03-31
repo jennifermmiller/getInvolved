@@ -60,6 +60,5 @@ var HelpOutView = Backbone.View.extend({
 		//Amount of time...not working:(
 		var amtOfTime= $('#desired-time').val();
 		var link = '#/helpOut/' + amtOfTime;
-		console.log(amtOfTime, link);
 	}
 });

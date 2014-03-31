@@ -139,7 +139,6 @@ a.thumbnails {
     }
 
     .thumbnail-header{
-        border-top: 1px solid gray;
         background: rgba(3, 3, 3, 0.6);
         color: white;
         position: absolute;
@@ -366,6 +365,26 @@ a.thumbnails {
         }
     }
 }
+
+//Messing w/ validation:
+#errorContainer {
+   display: none;
+   overflow: auto;
+   background-color: #FFDDDD;
+   border: 1px solid #FF2323;
+   padding-top: 1;
+}
+
+#errorContainer label {
+   float: none;
+   width: auto;
+}
+
+input.error {
+   border: 1px solid #FF2323;
+}
+//End
+
 
 //Event View:
 .event-focus{
