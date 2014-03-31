@@ -16,6 +16,8 @@ var GetHelpView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.html(this.createTemplate());
+
+		$('#event-name').focus();
 	},
 
 	submit:function(){
@@ -23,7 +25,7 @@ var GetHelpView = Backbone.View.extend({
 		//model: error if not correct, success message if form saved
 		//clear form on success
 		$('#event-details').validate();
-		
+
 
 		var newEvent = new EventClass();
 

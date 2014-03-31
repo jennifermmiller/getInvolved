@@ -49,12 +49,34 @@ $(function(){
         messages: {
            	"event-name": "Please enter name of event.",
             "event-address": "Please enter the event's location.",
+            "event-date": "Please enter when this event will occur.",
+            "event-start": "Please enter when this event will start.",
+            "event-duration": {
+            	required: "Please enter how long you think this event will run.",
+            	range: "Must be at least one hour."
+            },
+            "event-description": "Please enter a brief description of this event.",
+            "event-sponsor": "Please enter this event's sponsor.",
+            "sponsor-email": "Please enter sponsor's email",
+            "needed-vols":{
+            	required: "Please enter how many volunteers will you need.",
+            	range: "Must need atleast one volunteer."
+            }
+
+
         },
         errorContainer: $('#errorContainer'),
         errorLabelContainer: $('#errorContainer ul'),
         wrapper: 'li'
     });
 });
+
+function validateNumbers(){
+	//Need validate doesnt seem to work for things other than text
+}
+
+
+
 //Things to be fixed down the road
 	//add to about page (see comment above template)
 	//Add type to event form (need to find a database for options)

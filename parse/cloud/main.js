@@ -14,9 +14,6 @@ Parse.Cloud.afterSave("VolunteerClass", function(request) {
   });
 });
 
-{
-	type: ""
-}
 
 //Removing old events:
 Parse.Cloud.job("removePastEvents", function(request, status){

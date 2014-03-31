@@ -21,27 +21,11 @@ body * {
 }
 
 //Colors:
-
-//1st idea:
-$beige: #d1c5b7;
-$md-brown: #856941;
-$dk-brown: #735d41;
-$lt-blue: #0193b7;
-$dk-blue: #063e53;
-
-//2nd idea:
-$deep-blue: #113344;
-$md-blue: #006699;
-$lt-green: #CCCCBB;
-$md-green: #666655;
-$dk-dreen: #333322;
-
-//3rd idea:
-$purple: #482344;
-$blue: #2b5166;
-$yellow: #fab243;
-$red: #e02130; 
-$green: #429867;
+$black: #3b3131;
+$dk-green: #46472b;
+$lt-green: #b5b690;
+$white: #f1f1dc;
+$pink: #8f0853;
 
 //Mixins:
 @mixin button-generator($width,$height,$border, $background, $border-radius,$color,$font-size){
@@ -105,21 +89,38 @@ $green: #429867;
 //Footer's sytles
 .footer{
     height: 60px;
-    background: $purple;
+    color: $lt-green;
+    background: $black;
     text-align: center;
     padding-top: 15px;
 }
 
 //Header styles:
 header{
-    background: $blue;
-    color: white;
+    background: $black;
+    border-bottom: 1px solid $pink;
+    height: 60px;
+    padding: 10px 0 5px 0;
+    
+    h3.text-muted{
+        color: $lt-green;
+        line-height: inherit;
+    }
+
+    li a{
+        color: $lt-green;
+    }
+
+    .nav li a:hover{
+            color: $white;
+            background: $pink;
+        }
 }
 
 .sub-header{
     padding: 25px 5px;
     //background: ;
-    color: $red;
+    //color: $red;
 
     h1{
         margin: 0;
@@ -140,7 +141,7 @@ a.thumbnails {
 
     .thumbnail-header{
         background: rgba(3, 3, 3, 0.6);
-        color: white;
+        color: $lt-green;
         position: absolute;
         height: 35px;
         width: 300px;
@@ -156,7 +157,8 @@ a.thumbnails {
     .thumbnail-footer{
         text-align: left;
         padding: 5px;
-        background: white;
+        background: $lt-green;
+        color: $black;
         @include border-radius(0 0 6px 6px);
 
         h4 {
@@ -180,8 +182,8 @@ a.thumbnails {
                 padding-top: 135px;
 
                 button{
-                    color: $red;
-                    @include button-generator(200px, 60px,1px solid darkgreen, $green, 6px, gray, 20px);
+                    color: $pink;
+                    @include button-generator(200px, 60px,1px solid $dk-green, $white, 6px, gray, 20px);
                     //Fix these:
                     // @include text-shadow: $text-shadow;  
                     // @include background-color: $background-color;
@@ -196,11 +198,11 @@ a.thumbnails {
     }
 
     .upcoming-events{
-        background: $yellow;
+        background: $lt-green;
         padding-bottom: 50px;
 
         .upcoming-header{
-            color: $blue;
+            color: $pink;
             padding-top: 30px;
             margin-bottom: 5px;
 
@@ -217,6 +219,7 @@ a.thumbnails {
 
 //getHelp styles:
 .get-help{
+    background: $white;
     h2{
         text-align: center;
         margin: 0;
@@ -228,7 +231,7 @@ a.thumbnails {
     }
 
     form#event-details {
-        background: $md-green;
+        background: $black;
         padding: 25px 35px;
         width: 90%;
         margin: 60px 0 60px 5%;
@@ -246,7 +249,7 @@ a.thumbnails {
         }
 
         legend {
-            color: beige;
+            color: $lt-green;
             font-size: 18px;
             border: none;
             font-weight: bold;
@@ -294,7 +297,7 @@ a.thumbnails {
             }
 
             input{
-                background: #ffffff;
+                background: $white;
                 border: none;
                 @include border-radius (3px);
                 outline: none;
@@ -521,6 +524,7 @@ input.error {
 
 //Help Out:
 .help-out-view{
+    background: $white;
     h3{
         text-align: center;
         margin-bottom: 20px;

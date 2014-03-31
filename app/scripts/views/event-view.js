@@ -35,6 +35,8 @@ var EventView = Backbone.View.extend({
 		var marker = new google.maps.Marker(markerOptions);
 		marker.setMap(map);
 
+		//Fix this so on signup, number of volunters needed updates:
+		//this.listenTo(this.model, 'change', this.render);
 	},
 
 	render: function(){
@@ -43,8 +45,11 @@ var EventView = Backbone.View.extend({
 
 	signMeUp: function(){
 		var volunteer = new VolunteerClass();
+		var volsNeeded = this.model.get("peopleWanted");
 
-		if ($('#volunteer-name').val() !== '' && $('#volunteer-email').val() !== '') {
+		//Make this neater...may disable modal if vols needed < 1
+		if (volsNeeded > 0 && $('#volunteer-name').val() !== '' && $('#volunteer-email').val() !== '') {
+
 			var volunteerName = $('#volunteer-name').val();
 			var volunteerEmail = $('#volunteer-email').val();
 			var volunteerExtra = $('#volunteer-extra').val();
@@ -56,25 +61,33 @@ var EventView = Backbone.View.extend({
 		
 			router.volunteers.add(volunteer);
 
+			var that = this;
 			volunteer.save(null, {
 				success: function(result){
+					//Decrease volunteers needed by one
+					var query = new Parse.Query("EventClass");
+					query.get(that.model.id, {
+						success: function(result){
+							result.increment("peopleWanted", -1);
+							result.save();
+						}
+					});
+
 					//Remove modal:
-					//Decrease volunteers needed by one...cloud function?
-					
+					//Put a transition on this stuff:
+					$('#myModal').hide();
+					$('.modal-backdrop').hide();  
+
 					//Email confirmation to volunteer and event sponsor
-					
-					
 				},
 				error: function(result,error) {
-					console.log('Opps! ' + error + "just happened")
+					console.log('Opps! ' + error + "just happened");
 				}
 			});
 
 			$('#volunteer-name').val('');
 			$('#volunteer-email').val('');
 			$('#volunteer-extra').val('');
-
-			$('#signup').attr("data-dismiss", "modal");
 		}
 	},
 
