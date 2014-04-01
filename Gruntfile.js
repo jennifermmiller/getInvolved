@@ -333,6 +333,23 @@ module.exports = function (grunt) {
             uglify: true
         },
 
+        cdn: {
+            options: {
+               /** @required - root URL of your CDN (may contains sub-paths as shown below) */
+               cdn: 'https://gloryofthe80s.github.io/task.js/',
+               /** @optional  - if provided both absolute and relative paths will be converted */
+               flatten: true
+               /** @optional  - if provided will be added to the default supporting types */
+               // supportedTypes: { 'phtml': 'html' }
+            },
+            dist: {
+               /** @required  - string (or array of) including grunt glob variables */
+               src: ['./dist/*.html', './dist/styles/{,*/}*{,*/}*.css']
+               /** @optional  - if provided a copy will be stored without modifying original file */
+               // dest: './dist/static/'
+               }
+             },
+
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
@@ -398,6 +415,7 @@ module.exports = function (grunt) {
         'modernizr',
         'rev',
         'usemin',
+        'cdn:dist',
         'htmlmin'
     ]);
 
@@ -406,4 +424,6 @@ module.exports = function (grunt) {
         'test',
         'build'
     ]);
+
+    grunt.loadNpmTasks('grunt-cdn');
 };

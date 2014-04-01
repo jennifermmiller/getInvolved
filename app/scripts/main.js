@@ -9,6 +9,7 @@ $(document).ready(function(){
 //Form validation for get help:
 $(function(){
     $('#event-details').validate({
+        if ($('#event-duration').val > 1 && $('#needed-vols'). val < 1) {
         rules: {
             "event-name" : {
             	required: true,
@@ -72,7 +73,7 @@ $(function(){
 });
 
 function validateNumbers(){
-	//Need validate doesnt seem to work for things other than text
+	
 }
 
 
@@ -84,3 +85,11 @@ function validateNumbers(){
 		//Maybe have upcoming events and past events for people to connect post event?
 	//Look into Bootstrap form validation... add/remove warning class
 	//Stage 2:  logins, comments w/ reply option
+
+
+
+
+
+
+
+	
