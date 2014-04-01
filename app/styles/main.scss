@@ -93,6 +93,10 @@ body * {
     background: $black;
     text-align: center;
     padding-top: 15px;
+
+    a{
+        color: $pink;
+    }
 }
 
 //Header styles:
@@ -126,6 +130,10 @@ header{
     background: $white;
     color: $dk-green;
     box-shadow: inset 0px -1px 3px $lt-green;
+}
+
+textarea{
+    border: none;
 }
 
 // Basic tumbnail looks:
@@ -164,6 +172,7 @@ a.thumbnails {
         @include border-radius(0 0 6px 6px);
 
         h4 {
+            font-family: $dancing-script;
             font-size: 20px;
             margin-top: 0;
         }
@@ -176,21 +185,21 @@ a.thumbnails {
 
 button,
 #volunteer {
-    @include button-generator(150px, 60px, 1px solid $pink, 32px, $dk-green, 24px);
+    @include button-generator(150px, 60px, 1px solid $dk-green, 32px, $white, 24px);
     line-height: inherit;
 
-    background: #cc63b0; /* Old browsers */
-    background: -moz-linear-gradient(top,  #cc63b0 0%, #8f0853 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cc63b0), color-stop(100%,#8f0853)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #cc63b0 0%,#8f0853 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #cc63b0 0%,#8f0853 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #cc63b0 0%,#8f0853 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #cc63b0 0%,#8f0853 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc63b0', endColorstr='#8f0853',GradientType=0 ); /* IE6-9 */
+    background: #b5b690; /* Old browsers */
+    background: -moz-linear-gradient(top,  #b5b690 0%, #46472b 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b5b690), color-stop(100%,#46472b)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #b5b690 0%,#46472b 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #b5b690 0%,#46472b 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #b5b690 0%,#46472b 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #b5b690 0%,#46472b 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5b690', endColorstr='#46472b',GradientType=0 ); /* IE6-9 */
 
 
     &:hover {
-        color: $white;
+        color: $pink;
         cursor: pointer;
         border: 1px solid $dk-green;
 
@@ -376,7 +385,8 @@ button,
             }
 
             textarea{
-                color: $white; //Why is this not working?!
+                background: $white; 
+                padding-left: 5px;
                 height: 70px;
                 width: 65%;
                 max-width: 65%;
@@ -412,7 +422,7 @@ button,
                 margin: 5px 0 0 5px;
             }
         }
-          //$width, $height, $border, $border-radius, $color, $font-size
+          
         button {
             display: block;
             text-transform: uppercase;
@@ -445,6 +455,10 @@ input.error {
 .event-focus{
     text-align: center;
     color: $black;
+
+    h3{
+        font-family: $dancing-script;
+    }
 
     .upper-event-page{
         background: $lt-green;
@@ -550,6 +564,12 @@ input.error {
                 max-height: 75%;
                 border: none;
                 @include border-radius(6px);
+            
+                &:focus,
+                textarea:focus {
+                    background: $dk-green;
+                    color: $white;
+                }
             }
 
             #comment-by{
@@ -562,13 +582,19 @@ input.error {
                 padding-left: 5px;
                 width: 30%;
                 @include border-radius(6px);
+
+                &:focus,
+                textarea:focus {
+                    background: $dk-green;
+                    color: $white;
+                }
             }
 
             #add-comment{
                 width: 180px;
                 height: 45px;
                 float: right;
-                margin: -40px 140px 0 0;
+                margin: -44px 140px 0 0;
             }
         }
 
@@ -596,16 +622,42 @@ input.error {
     }
 
     //in signup model:
-    .modal-body{
-        input:not([type=checkbox]), 
-        textarea{
-            width: 45%;  
-            display: block;
-            margin-bottom:10px; 
+    .modal{
+        
+
+        .modal-header{
+            background: $white;
+            border-bottom: 1px solid $lt-green;
         }
-    }
-    #volunteer-location{
-        display: none;
+        
+        .modal-body{
+            font-size: 18px;
+            background: $white;
+            color: $dk-green;
+            box-shadow: 1px 1px 3px $lt-green;
+
+            input, 
+            textarea{
+                background: $lt-green;
+                width: 55%;
+                padding: 5px;
+                display: block;
+                margin-bottom:15px; 
+                @include border-radius (6px);
+
+                &:not([type=submit]):focus {
+                    background: $dk-green;
+                    color: $white;
+                }
+            }
+        }
+        
+        .modal-footer{
+            background: $white;
+            margin-top: 0;
+
+            //button 
+        }
     }
 }
 
