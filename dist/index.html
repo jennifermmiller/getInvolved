@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class=no-js><!--<![endif]--><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>getInvolved</title><meta name=description content=""><meta name=viewport content="width=device-width"><!-- Place favicon.ico and apple-touch-icon.png in the root directory --><link rel=stylesheet href=styles/vendor.css><link rel=stylesheet href=styles/5b35101a.main.css><script src=bower_components/modernizr/modernizr.js></script><script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script><body><!--[if lt IE 10]>
+<!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class=no-js><!--<![endif]--><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>getInvolved</title><meta name=description content=""><meta name=viewport content="width=device-width"><!-- Place favicon.ico and apple-touch-icon.png in the root directory --><link rel=stylesheet href=styles/vendor.css><link rel=stylesheet href=styles/cff227cc.main.css><script src=bower_components/modernizr/modernizr.js></script><link href="http://fonts.googleapis.com/css?family=Dancing+Script:700|EB+Garamond" rel=stylesheet type=text/css><script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script><body><!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]--><!-- Start of Templates: --><!-- Header Template: --><script type=text/template id=header-template><div class="container">
                 <div class="header"> <!--Put this div in a header tag in view template?-->
@@ -10,7 +10,7 @@
                     </ul>
                     <h3 class="text-muted">getInvolved</h3>
                 </div>
-            </div></script><!-- Footer Template: --><script type=text/template id=footer-template><h5>&copy 2014 getInvolved. Designed &amp Developed by <a href="#">Jennifer Miller</a></h5></script><!-- Home Template: --><script type=text/template id=home-template><div class="home-welcome">
+            </div></script><!-- Footer Template: --><script type=text/template id=footer-template><h5>&copy 2014 getInvolved. Designed &amp Developed by <a href="https://github.com/jennifermmiller">Jennifer Miller</a></h5></script><!-- Home Template: --><script type=text/template id=home-template><div class="home-welcome">
                 <div class="sub-header">
                     <div class="container">
                         <h1>People Coming Together to Make a Difference</h1>
@@ -40,7 +40,7 @@
             <img src="<%=model.get('eventPhoto').url()%>"/>
             <div class="thumbnail-footer">
                 <h4><%=model.get('eventName')%></h4>
-                <span> Volunteers needed: <%=model.get('volunteersNeeded')%></span>
+                <span> Volunteers needed: <%=model.get('peopleWanted')%></span>
             </div></script><!-- Add Large btns for getHelp and helpOut? Also, maybe some stock pics of ppl volunteering? --><script type=text/template id=about-template><div class="sub-header"
                 <div class="container">
                     <h3>Mission Statement:</h3>
@@ -54,85 +54,90 @@
             </div></script><!-- GetHelp Template: --><script type=text/template id=get-help-template><div class="sub-header">
                 <h2>A Short Signup to get some help:</h2>
             </div>
+            <form id="event-details">
+                <fieldset>
+                    <legend>Essentials</legend>
+                    <ul>
+                        <li>
+                            <label for="event-name">Name of Event</label>
+                            <input type="text" id="event-name" name="event-name" placeholder=" Neighborhood Street Cleanup..." required/>
+                        </li>
+                        <li>
+                            <label for="event-address">Location</label>
+                            <input type="text" id="event-address" name="event-address" placeholder="Street Address, City, State, Zip Code" required/>
+                        </li>    
+                        <li>
+                            <label for="event-date">Date</label>
+                            <input type="date" id="event-date" name="event-date" required/>
+                        </li>
+                        <li>
+                            <label for="start-event">Starts at</label>
+                            <input type="time" id="start-event" name="start-event" maxlength="32" required/>
+                        </li>
+                        <li>
+                            <label for="event-duration">Duration</label>
+                            <input type="number" id="event-duration" name=="event-duration" required/>
+                            <span>hours</span>
+                        </li>
+                        <li>
+                            <label for="event-description">Description</label>
+                            <textarea type="text" id="event-description" name="event-description" placeholder="Brief description of event..." required></textarea>
+                        </li> 
+                    </ul>     
+                </fieldset>
+                <fieldset>
+                    <legend>About You</legend>
+                    <ul>
+                        <li>
+                            <label for="event-sponsor">Sponsor</label>
+                            <input type="text" id="event-sponsor" name="event-sponsor" placeholder="Your name/organization..." required/>
+                        </li>
+                        <li>
+                            <label for="sponsor-email">Sponsors Email</label>
+                            <input type="email" id="sponsor-email" name="sponsor-email" placeholder="me@example.com" required/>
+                        </li>
+                        <li class="special-li">
+                            <input type="checkbox" id="event-pledge" name="event-pledge" required/>
+                            <label for="event-pledge">I pledge this is a genuine volunteer opportunity required</label>
+                        </li>
+                    </ul>
+                </fieldset>     
+                <fieldset>
+                    <legend>Extra Details</legend>
+                    <ul>
+                        <li>
+                            <label for="needed-vols">Number of volunteers needed?</label>
+                            <input type="number" id="needed-vols" name=="needed-vols"required/>
+                        </li>
+                        <li>
+                            <label for="event-category">What category best decribes this event?</label>
+                            <select id="event-category" name="event-category">
+                                <option>Neighborhood cleanup</option>
+                                <option>Tutoring</option>
+                                <option>Helping eldery</option>
+                                <option>Fundraising</option>
+                                <option>I have no idea</option>
+                                <option>Need to find more options</option>
+                            </select>
+                        </li>
+                        <li>   
+                            <label for="event-photo">Photo</label>
+                            <input type="file" style="display: inline-block" id="event-photo" name="event-photo"/>
+                        </li>
+                    </ul>
+                </fieldset>
+                <fieldset>  
+                    <button type="submit" id="submit-help-form">Submit</button>
+                </fieldset>
+            </form> 
             <div class="container">
-                <form id="event-details">
-                    <fieldset>
-                        <legend>Essentials</legend>
-                        <ul>
-                            <li>
-                                <label for="event-name">Name of Event</label>
-                                <input type="text" id="event-name" class="form-control" placeholder=" Neighborhood Street Cleanup..."/>
-                            </li>
-                            <li>
-                                <label for="event-address">Location</label>
-                                <input type="text" id="event-address" class="form-control" placeholder="Street Address, City, State, Zip Code"/>
-                            </li>    
-                            <li>
-                                <label for="event-date">Date</label>
-                                <input type="date" id="event-date" class="form-control"/>
-                            </li>
-                            <li>
-                                <label for="start-event">Starts at</label>
-                                <input type="time" id="start-event" class="form-control"/>
-                            </li>
-                            <li>
-                                <label for="event-duration">Duration</label>
-                                <input type="number" id="event-duration" class="form-control"/>
-                                <span>hours</span>
-                            </li>
-                            <li>
-                                <label for="event-description">Description</label>
-                                <textarea type="text" id="event-description"  placeholder="Brief description of event..."></textarea>
-                            </li> 
-                        </ul>     
-                    </fieldset>
-                    <fieldset>
-                        <legend>About You</legend>
-                        <ul>
-                            <li>
-                                <label for="event-sponsor">Sponsor</label>
-                                <input type="text" id="event-sponsor" class="form-control" placeholder="Your name/organization..."/>
-                            </li>
-                            <li>
-                                <label for="sponsor-email">Sponsors Email</label>
-                                <input type="email" id="sponsor-email" class="form-control" placeholder="me@example.com">
-                            </li>
-                            <li class="special-li">
-                                <input type="checkbox" id="event-pledge" class="form-control"/>
-                                <label id="event-pledge">I pledge this is a genuine volunteer opportunity</label>
-                            </li>
-                        </ul>
-                    </fieldset>     
-                    <fieldset>
-                        <legend>Extra Details</legend>
-                        <ul>
-                            <li>
-                                <label id="volunteers-needed">Number of volunteers needed?</label>
-                                <input type="number" id="volunteers-needed" class="form-control"/>
-                            </li>
-                            <li>
-                                <label>What category best decribes this event?</label>
-                                <select>
-                                    <option>Neighborhood cleanup</option>
-                                    <option>Tutoring</option>
-                                    <option>Helping eldery</option>
-                                    <option>Fundraising</option>
-                                    <option>I have no idea</option>
-                                    <option>Need to find more options</option>
-                                </select>
-                            </li>
-                            <li>   
-                                <label for="event-photo">Photo</label>
-                                <input type="file" style="display: inline-block" id="event-photo" class="form-control"/>
-                            </li>
-                        </ul>
-                    </fieldset>
-                    <fieldset>  
-                        <button id="submit-help-form">Submit</button>
-                    </fieldset>
-                </form>         
-            </div></script><!-- HelpOut Template --><script type=text/template id=help-out-template><h3>Search for the right opportunity:</h3>
-            
+                <div id="errorContainer">
+                    <p>&nbsp;Please correct the following errors and try again:</p>
+                    <ul />
+                </div>    
+            </div></script><!-- HelpOut Template --><script type=text/template id=help-out-template><div class="sub-header">
+                <h3>Search for the right opportunity:</h3>
+            </div>
             <div class = "container">
                 <button class="search-options">By Location</button>
                 <div class="expand-search">
@@ -149,12 +154,11 @@
                 <button class="search-options">By Amount of Time</button>
                 <div class="expand-search">
                     <select id="desired-time">
-                        <option value='all'>-Select timeframe-</option>
-                        <option value='<2'>Less than 2 hours</option>
-                        <option value='2-4'>2 to 4 hours</option>
-                        <option value='4-6'>4 to 6 hours</option>
-                        <!--Will below work in js? Another way to label values?-->
-                        <option value='>6'>Greater than 6 hours</option>
+                        <option value=''>-Select timeframe-</option>
+                        <option value=2>Less than 2 hours</option>
+                        <option value=4>2 to 4 hours</option>
+                        <option value=6>4 to 6 hours</option>
+                        <option value=7>Greater than 6 hours</option>
                     </select>
                     <a id="search-btn">Search</a>
                 </div>
@@ -164,7 +168,7 @@
                 <!--Grid of thumbnail version of opportunities...split into upcoming and previous?-->
                 <div class="container">
                     <div class="opportunities"></div>
-                </div></script><!-- Expanded Event Template --><script type=text/template id=event-template><div class="event-header">
+                </div></script><!-- Expanded Event Template --><script type=text/template id=event-template><div class="sub-header">
                 <div class="container">
                     <h1><%=model.get('eventName')%></h1>
                 </div>
@@ -194,21 +198,22 @@
                             </form>
                         </div>
                     <div class="remaining-event-info">
-                        <h4>Location: <span><%=model.get('eventAddress')%></span></h4>
+                        <h3>More Details:</h3> 
+                        <h4>Location:<span><%=model.get('eventAddress')%></span></h4>
                         <h4>Date:<span><%=model.get('eventDateFull')%></span></h4>
-                        <h4>Sponsored By: <span><%=model.get('eventSponsor')%></span></h4>
+                        <h4>Sponsored By:<span><%=model.get('eventSponsor')%></span></h4>
 
-                        <h4>How long should plan on staying? <span><%=model.get('eventDuration')%> hours.</span></h4>
+                        <h4>Event will last about:<span><%=model.get('eventDuration')%> hours.</span></h4>
 
-                        <h4>Number of volunteers needed: <span><%=model.get('volunteersNeded')%></span></h4>
+                        <h4>Number of volunteers needed:<span><%=model.get('peopleWanted')%></span></h4>
                     </div>
                 </div>
             </div>
             <div class="comment-section">
                 <div class="container">
-                    <h3>What people are saying about this event</h3>
+                    <h2>What people are saying about this event</h2>
                     <div class="add-comment">
-                        <textarea type="text" id="new-comment" placeholder="Share your experience" required></textarea>
+                        <textarea type="text" id="new-comment" placeholder="Volunteered here before? Have questions? Share your thoughts here..." required></textarea>
                         <input type="text" id="comment-by" placeholder="Name (optional)">
                         <button type="button" id="add-comment">Add Comment</button>
                     </div>
@@ -225,30 +230,31 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Enter your info:</h4>
+                            <span type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</span>
+                            <h4 class="modal-title" id="myModalLabel">Volunteer Information:</h4>
                         </div>
                         <div class="modal-body">
-                            <input type="text" id="volunteer-name" placeholder="Name"/>
-                            <input type="email" id="volunteer-email" placeholder="Email"/>
+                            <input type="text" id="volunteer-name" class="req-field" placeholder="Name"/>
+                            <input type="email" id="volunteer-email" class="req-field"placeholder="Email"/>
                             <textarea type="text" id="volunteer-extra" placeholder="Questions? Concerns? Limitations?"></textarea>
+                            <!-- Get back to this if get mandrill working:
                             <div class="signup-extras">
                                 <input type="checkbox" id="email-signup"/>
                                 <label id="email-signup">I would like to receive notifications about events near me!</label>
                                 <input type="text" id="volunteer-location" placeholder="City, State">
-                            </div>
+                            </div>-->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="signup" data-dismiss="modal">Im Stoked!</button>
+                            <button type="button" class="btn btn-primary" id="signup">Im Stoked!</button>
                         </div>
                     </div>
                 </div>
             </div></script><!-- Comment Template --><script type=text/template id=comment-template><p><%=this.model.get('commentContent')%></p>
             <span><%=this.model.get('commentBy')%></span>
-            <span><%=this.model.get('commentedAt')%></span></script><script src=scripts/991cd396.vendor.js></script><script src=//www.parsecdn.com/js/parse-1.2.17.min.js></script><!-- Google Analytics: change UA-XXXXX-X to be your site's ID. --><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            <span><%=this.model.get('commentedAt')%></span></script><script src=scripts/81206017.vendor.js></script><script src=//www.parsecdn.com/js/parse-1.2.17.min.js></script><!-- Google Analytics: change UA-XXXXX-X to be your site's ID. --><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');</script><script src=scripts/aaf74903.plugins.js></script><script src=scripts/446c3f67.main.js></script>
+            ga('create','UA-XXXXX-X');ga('send','pageview');</script><script src=scripts/aaf74903.plugins.js></script><script src=scripts/3ec05490.main.js></script>
