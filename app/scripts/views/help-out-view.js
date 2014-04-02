@@ -51,23 +51,13 @@ var HelpOutView = Backbone.View.extend({
 		} else if ($('#desired-location').val() !== '' && $('#desired-date').val() === '') {
 			var city = $('#desired-location').val().toLowerCase();
 			var date = 'any';
-		}	
-
+		}
 			var link = '#/helpOut/' + city + '/' + date;
 
 			this.$el.find('#search-btn').attr('href', link);
+			console.log('what the shit');
 			
 			$('#desired-location').val('');
 			$('#desired-date').val('');
-		
-
-		//date is working
-		// if ($('#desired-date').val() !== '') {
-		// 	var date = $('#desired-date').val();
-		// 	var link = '#/helpOut/' + date;
-
-		// 	this.$el.find('#search-btn').attr('href', link);
-		// 	$('#desired-date').val('');
-		// }
 	}
 });

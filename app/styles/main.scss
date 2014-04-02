@@ -114,7 +114,7 @@ header{
     }
 
     ul{
-        padding-top: 7px;
+        padding-top: 14px;
 
         li a{
             font-size: 18px;
@@ -210,10 +210,24 @@ a.thumbnails {
             box-shadow: 1px 0 2px $lt-green;
 
             .start-btns{
-              
-                button:first-child{ 
-                    margin-right: 15px;
-                }
+                padding-top: 40px;
+
+                button{
+                    width: 180px;
+                    padding: 8px;
+                    font-size: 20px;
+                    background: $lt-green;
+                    font-family: $dancing-script;
+                    @include border-radius(6px);
+
+                    &:first-child{ 
+                        margin-right: 15px;
+                    }
+
+                    &:hover{
+                        background: #80815A;
+                    }
+                }  
             }
         }
     }
@@ -277,7 +291,7 @@ a.thumbnails {
             background: $lt-green;
             padding: 25px 35px;
             width: 90%;
-            margin: 30px 0 60px;
+            margin: 30px 0 60px 55px;
             counter-reset: fieldsets;
             @include border-radius(6px);
 
@@ -412,7 +426,7 @@ a.thumbnails {
                 @include border-radius(8px);
 
                 &:hover{
-                    background: $black;
+                    background: #80815A;
                     color: $pink;
                     padding: 11px 17px;
                     font-size: 21px;
@@ -467,7 +481,7 @@ input.error {
             
             img{
                 width: 100%;
-                max-height: 375px;
+                max-height: 325px;
             }
         }
 
@@ -522,7 +536,16 @@ input.error {
 
         #get-directions-input{
             position: absolute;
-            margin: 302px 0 0 555px;
+            margin: 302px 0 0 575px;
+            width: 100px;
+            padding: 5px;
+            @include border-radius(6px);
+            background: $white;
+            color: $black;
+
+            &:hover{
+                background: #E7E7D0;
+            }
         }
 
         #volunteer{
@@ -535,7 +558,7 @@ input.error {
             @include border-radius(8px);
 
             &:hover{
-                background: $black;
+                background: #80815A;
                 color: $pink;
                 box-shadow: -1px -1px $dk-green;
             }
@@ -596,11 +619,20 @@ input.error {
                 }
             }
 
-            #add-comment{
+            #add-comment-btn{
                 width: 180px;
                 height: 45px;
                 float: right;
                 margin: -44px 140px 0 0;
+                background: #80815A;
+                color: $pink;
+                @include border-radius(6px);
+
+                &:hover{
+                    background: #6F7656;
+                    box-shadow: -1px -1px #BDBEA5;
+                    color: $dk-green;
+                }
             }
         }
 
@@ -608,7 +640,7 @@ input.error {
             margin-left: 138px;
 
             li{
-                width: 84%;
+                width: 650px;
                 background: $lt-green;
                 list-style: none;
                 border: 1px solid  #8C8D65;
@@ -689,10 +721,61 @@ input.error {
 .help-out-view{
     background: #E7E7D0;
     padding-bottom: 40px;
+    
+    .search-opts{
+        background: $white;
+        font-size: 20px;
+        box-shadow: inset 0 -1px 2px $lt-green,
+                    inset 0 1px 2px $lt-green;
+        ul{
+            list-style: none;
+            
+            li {
+                margin-bottom: 30px;
+                margin-left: 60px;
+
+                input{
+                    background: rgb(203, 201, 177);
+                    padding: 5px;
+                    height: 44px;
+                    @include border-radius(6px);
+
+                    &:focus{
+                        background: white;
+                    }
+                }
+                
+                label {
+                    padding-top: 5px;
+                }
+
+                label[for="desired-date"]{
+                    margin-left: 25px;
+                }
+
+                a button{
+                    margin-right: 75px;
+                    margin-top: -2px;
+                    width: 120px;
+                    height: 44px;
+                    float: right;
+                    background: #80815A;
+                    color: $dk-green;
+                    @include border-radius(6px);
+
+                    &:hover{
+                        background: #6F7656;
+                        box-shadow: -1px -1px #BDBEA5;
+                        color: $dk-green;
+                    }
+                }
+            }
+        }
+    }
 
     h3{
         text-align: center;
-        margin-bottom: 20px;
+        margin: 20px 0;
     }
 
     .thumbnails{

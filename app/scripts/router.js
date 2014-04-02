@@ -60,6 +60,8 @@ var Router = Backbone.Router.extend({
 		new FooterView();
 	},
 
+	//Fix title so it changes based on search?
+	//$('#changing-header').val(sort + " volunteer opportunities").css("text-transform", "capitalize");				
 	sortEvents: function(location, day){
 		if(location === 'any'){
 			var	query = new Parse.Query(EventClass);
@@ -69,10 +71,7 @@ var Router = Backbone.Router.extend({
 			query.find({
 				success: function(results){
 					$('.opportunities').empty();
-					
-					//Fix title so it changes based on search?
-					//$('#changing-header').val(sort + " volunteer opportunities").css("text-transform", "capitalize");
-					
+				
 					if(results.length >0){
 						for(var i=0; i < results.length; i++){
 							new ThumbnailView({model: results[i]});
@@ -91,9 +90,6 @@ var Router = Backbone.Router.extend({
 			query.find({
 				success: function(results){
 					$('.opportunities').empty();
-					
-					//Fix title so it changes based on search?
-					//$('#changing-header').val(sort + " volunteer opportunities").css("text-transform", "capitalize");
 					
 					if(results.length >0){
 						for(var i=0; i < results.length; i++){
@@ -118,9 +114,6 @@ var Router = Backbone.Router.extend({
 			mainQuery.find({
 				success: function(results){
 					$('.opportunities').empty();
-					
-					//Fix title so it changes based on search?
-					//$('#changing-header').val(sort + " volunteer opportunities").css("text-transform", "capitalize");
 					
 					if(results.length >0){
 						for(var i=0; i < results.length; i++){

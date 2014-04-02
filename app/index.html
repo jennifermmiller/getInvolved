@@ -190,7 +190,7 @@
                     </ul>
                 </fieldset>
                 <fieldset>  
-                    <button type="submit" id="submit-help-form">Submit</button>
+                    <button type="button" id="submit-help-form">Submit</button>
                 </fieldset>
             </form>
             </div> 
@@ -204,39 +204,44 @@
 
         <!-- HelpOut Template -->
         <script type="text/template" id="help-out-template">
-            <div class="sub-header">
-                <h3>Search for the right opportunity:</h3>
+            <div class="search-opts">
+                <div class = "container">
+                    <h3>Search For The Right Opportunity</h3>
+                    <ul>
+                        <li>
+                            <label for="desired-location">By Location</label>
+                            <input type="text" id="desired-location" placeholder="Search for a city..."/>
+                        
+                            <label for="desired-date">By Date</label>
+                            <input type="date" id="desired-date"/>
+                        
+                            <a id="search-btn"><button>Search</button></a> 
+                        </li>
+                        <!--Greatly increases options....go back to this if time
+                        <li>
+                            <label for="desired-category">By Category</label>
+                            <select id="desired-category">
+                                <option value="">-Select a Category-</option>
+                                <option>Neighborhood cleanup</option>
+                                <option>Tutoring</option>
+                                <option>Helping eldery</option>
+                                <option>Fundraising</option>
+                                <option>I have no idea</option>
+                                <option>Need to find more options</option>
+                            </select>
+                        </li> -->
+                    </ul>
+                </div>
             </div>
-            <div class = "container">
-                <ul>
-                    <li>
-                        <label for="desired-location">By Location</label>
-                        <input type="text" id="desired-location" placeholder="Search for a city..."/>
-                    </li>
-                    <li>
-                        <label for="desired-date">By Date</label>
-                        <input type="date" id="desired-date"/>
-                    </li>
-                    <li>
-                        <label for="desired-category">By Category</label>
-                        <select id="desired-category">
-                            <option value="">-Select a Category-</option>
-                            <option>Neighborhood cleanup</option>
-                            <option>Tutoring</option>
-                            <option>Helping eldery</option>
-                            <option>Fundraising</option>
-                            <option>I have no idea</option>
-                            <option>Need to find more options</option>
-                        </select>
-                    </li>
-                </ul>
-                <button type="button" id="search-btn">Search</button> 
+            <div class="all-thubnails">
+                <div class="conatiner"> 
+                    <div id="changing-header"><h3>Upcoming Volunteer Opportunities:</h3></div>
+                    <!--Grid of thumbnail version of opportunities...split into upcoming and previous?-->
+                    <div class="container">
+                        <div class="opportunities"></div>
+                    </div>  
+                </div>
             </div>
-            <div id="changing-header"><h3>Upcoming Volunteer Opportunities:</h3></div>
-                <!--Grid of thumbnail version of opportunities...split into upcoming and previous?-->
-                <div class="container">
-                    <div class="opportunities"></div>
-                </div>  
         </script>
 
         <!-- Expanded Event Template -->
@@ -284,11 +289,11 @@
             </div>
             <div class="comment-section">
                 <div class="container">
-                    <h2>What people are saying about this event</h2>
+                    <h2>What People Are Saying About This Event</h2>
                     <div class="add-comment">
                         <textarea type="text" id="new-comment" placeholder="Volunteered here before? Have questions? Share your thoughts here..." required></textarea>
                         <input type="text" id="comment-by" placeholder="Name (optional)">
-                        <button type="button" id="add-comment">Add Comment</button>
+                        <button type="button" id="add-comment-btn">Add Comment</button>
                     </div>
                     <div class="prev-comments">
                         <ul>
@@ -339,9 +344,7 @@
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
         <script src="bower_components/momentjs/moment.js"></script>
-        <script src="bower_components/jquery.validation/dist/jquery.validate.js"></script>
-        <script src="bower_components/jquery.validation/dist/additional-methods.js"></script>
-
+      
         <!-- endbower -->
         <!-- endbuild -->
         <script src="//www.parsecdn.com/js/parse-1.2.17.min.js"></script>

@@ -1,8 +1,44 @@
 //Removing for now: still would like to search by type, if other stuff is done
-<div class="search-type">By type:
-    <div class="expand-search">
-        <!-- Need to find database-->
-        <a href="#helpOut/events/byType"><button class="search-btn">Search</button></a>
-    </div>
-</div>
 
+search: function(){
+	var desiredLocation = $('#desired-location').val();
+	var desiredDate = $('#desired-date').val();
+	var	desiredCategory = $('#desired-categpry').val();
+	
+	if (desiredLocation !== '' && desiredDate !== '' && desiredCategory !== ''){
+		var city = desiredLocation.toLowerCase();
+		var date = desiredDate;
+		var category = desiredCategory;
+	} else if(desiredLocation === '' && desiredDate !== '' && desiredCategory !== ''){
+		var city = 'any';
+		var date = desiredDate;
+		var category = desiredCategory;
+	} else if (desiredLocation !== '' && desiredDate === '' && desiredCategory !== '') {
+		var city = desiredLocation.toLowerCase();
+		var date = 'any';
+		var date = desiredDate;
+	} else if (desiredLocation !== '' && desiredDate !== '' && desiredCategory === '') {
+		var city = desiredLocation.toLowerCase();
+		var date = desiredDate;
+		var category = 'any';
+	} else if (desiredLocation !== '' && desiredDate === '' && desiredCategory === '') {
+		var city = desiredLocation.toLowerCase();
+		var date = 'any';
+		var category = 'any';
+	} else if (desiredLocation === '' && desiredDate !== '' && desiredCategory === '') {
+		var city = 'any';
+		var date = desiredDate;
+		var category = 'any';
+	} else if (desiredLocation === '' && desiredDate === '' && desiredCategory !== '') {
+		var city = 'any'
+		var date = 'any';
+		var category = desiredCategory;
+	}
+
+		var link = '#/helpOut/' + city + '/' + date + '/' + category;
+
+		this.$el.find('#search-btn').attr('href', link);
+		
+		$('#desired-location').val('');
+		$('#desired-date').val('');
+}

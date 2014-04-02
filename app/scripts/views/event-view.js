@@ -7,7 +7,7 @@ var EventView = Backbone.View.extend({
 
 	events:{
 		'click #signup': 'signMeUp',
-		'click #add-comment': 'addComment'
+		'click #add-comment-btn': 'addComment'
 	},
 
 	initialize: function(){
