@@ -4,8 +4,8 @@ var Router = Backbone.Router.extend({
 		'about': 'aboutPage',
 		'getHelp': 'getHelpPage',
 		'helpOut': 'helpOutPage',
-		'helpOut/:sort': 'sortEvents',
-		'helpOut/events/:eventId': 'eventDetails'
+		'helpOut/:location/:day': 'sortEvents',
+		'helpOut/:eventId': 'eventDetails'
 	},
 
 	initialize: function() {
@@ -60,57 +60,78 @@ var Router = Backbone.Router.extend({
 		new FooterView();
 	},
 
-	sortEvents: function(sort){
-		//city:
-		var query = new Parse.Query(EventClass);
-		query.equalTo('city', sort);
-		query.find({
-			success: function(results){
-				$('.opportunities').empty();
-				
-				//Fix title so it changes based on search?
-				//$('#changing-header').val(sort + " volunteer opportunities").css("text-transform", "capitalize");
-				
-				if(results.length >0){
-					for(var i=0; i < results.length; i++){
-						new ThumbnailView({model: results[i]});
-					}	
-				} else {
-					$('.opportunities').append('<h3 class="no-results">Sorry, no reults found.</h3>'); //Expand this...?
+	sortEvents: function(location, day){
+		if(location === 'any'){
+			var	query = new Parse.Query(EventClass);
+					
+			query.equalTo('eventDate', day);
+
+			query.find({
+				success: function(results){
+					$('.opportunities').empty();
+					
+					//Fix title so it changes based on search?
+					//$('#changing-header').val(sort + " volunteer opportunities").css("text-transform", "capitalize");
+					
+					if(results.length >0){
+						for(var i=0; i < results.length; i++){
+							new ThumbnailView({model: results[i]});
+						}	
+					} else {
+						$('.opportunities').append('<h3 class="no-results">Sorry, no reults found.</h3>'); //Expand this...?
+					}
+				},
+				error:function(){
+					console.log('Bad Bad stuff!');
 				}
-			},
-			error:function(){
-				console.log('Bad Bad stuff!');
-			}
-		});
-			
-
-		//date:
-		var	query = new Parse.Query(EventClass);
-		
-		query.equalTo('eventDate', sort);
-
-		query.find({
-			success: function(results){
-				$('.opportunities').empty();
-				
-				//Fix title so it changes based on search?
-				//$('#changing-header').val(sort + " volunteer opportunities").css("text-transform", "capitalize");
-				
-				if(results.length >0){
-					for(var i=0; i < results.length; i++){
-						new ThumbnailView({model: results[i]});
-					}	
-				} else {
-					$('.opportunities').append('<h3 class="no-results">Sorry, no reults found.</h3>'); //Expand this...?
+			});
+		} else if (day === 'any') {
+			var query = new Parse.Query("EventClass");
+			query.equalTo('city', location);
+			query.find({
+				success: function(results){
+					$('.opportunities').empty();
+					
+					//Fix title so it changes based on search?
+					//$('#changing-header').val(sort + " volunteer opportunities").css("text-transform", "capitalize");
+					
+					if(results.length >0){
+						for(var i=0; i < results.length; i++){
+							new ThumbnailView({model: results[i]});
+						}	
+					} else {
+						$('.opportunities').append('<h3 class="no-results">Sorry, no reults found.</h3>'); //Expand this...?
+					}
+				},
+				error:function(){
+					console.log('Bad Bad stuff!');
 				}
-			},
-			error:function(){
-				console.log('Bad Bad stuff!');
-			}
-		});
+			});
+		} else { 
+			var searchLocation = new Parse.Query("EventClass");
+			searchLocation.equalTo('city', location);
 
-		//type of event:
+			var searchDate = new Parse.Query("EventClass");
+			searchDate.equalTo('eventDate', day);
+
+			var mainQuery = Parse.Query.or(searchLocation, searchDate);
+			mainQuery.find({
+				success: function(results){
+					$('.opportunities').empty();
+					
+					//Fix title so it changes based on search?
+					//$('#changing-header').val(sort + " volunteer opportunities").css("text-transform", "capitalize");
+					
+					if(results.length >0){
+						for(var i=0; i < results.length; i++){
+							new ThumbnailView({model: results[i]});
+						}	
+					} else {
+						$('.opportunities').append('<h3 class="no-results">Sorry, no reults found.</h3>'); //Expand this...?
+					}
+				}
+			});
+		}
 	},
 
 	eventDetails: function(eventId){

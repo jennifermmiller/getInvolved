@@ -19,7 +19,7 @@ var ThumbnailView = Backbone.View.extend({
 
 	setHrefAttr: function(){
 		var eventId = this.model.id;
-		var link  = '#/helpOut/events/' + eventId;
+		var link  = '#/helpOut/' + eventId;
 		this.$el.attr({href: link});
 	}
 });

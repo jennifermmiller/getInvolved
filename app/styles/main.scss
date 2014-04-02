@@ -147,6 +147,7 @@ a.thumbnails {
     text-decoration: none;
     box-shadow: 1px 1px 3px gray;
     font-size: 18px;
+    @include border-radius(6px);
 
     img{
         width: 300px;
@@ -187,22 +188,12 @@ a.thumbnails {
             font-size: 17px;
         }
     }
+
+    &:hover{
+        box-shadow: none;
+    }
 }
 
-// /*button,
-// #volunteer {
-//     @include button-generator(150px, 60px, 1px solid $dk-green, 32px, $white, 24px);
-//     line-height: inherit;
-
-//
-//     &:hover {
-//         color: $pink;
-//         cursor: pointer;
-//         border: 1px solid $dk-green;
-
-//         
-//     }
-// }*/
 
 /***********************End of re-used styles****************************/
 
@@ -295,6 +286,11 @@ a.thumbnails {
                 border: none;
                 margin-bottom: 10px;
                 padding-bottom: 15px;
+
+                &:last-child{
+                    margin-bottom: 0;
+                    padding-bottom: 5px;
+                }
             }
 
             legend {
@@ -411,15 +407,15 @@ a.thumbnails {
                 text-transform: uppercase;
                 float: right;
                 background: $pink;
-                @include border-radius(8px);
                 padding: 10px 15px;
                 font-size: 22px;
-                box-shadow: 1px 1px $dk-green;
+                @include border-radius(8px);
 
                 &:hover{
                     background: $black;
                     color: $pink;
-                    box-shadow: -1px -1px $dk-green;
+                    padding: 11px 17px;
+                    font-size: 21px;
                 }
             }
         }
@@ -488,11 +484,6 @@ input.error {
             font-size: 20px;
             line-height: 1.5em;
             }
-
-            #volunteer{
-                margin: 30px 90px;
-                width: 200px;
-            }
         }
     }
 
@@ -503,7 +494,7 @@ input.error {
 
         .remaining-event-info{
             text-align: right;
-            margin: 60px 15px 0 0;
+            margin-top: 60px;
             width: 400px;
             font-size: 20px;
 
@@ -533,6 +524,23 @@ input.error {
             position: absolute;
             margin: 302px 0 0 555px;
         }
+
+        #volunteer{
+            margin-top: 50px;
+            background: $pink;
+            padding: 10px 35px;
+            font-size: 22px;
+            border: 1px solid #535432;
+            box-shadow: 1px 1px $dk-green;
+            @include border-radius(8px);
+
+            &:hover{
+                background: $black;
+                color: $pink;
+                box-shadow: -1px -1px $dk-green;
+            }
+
+        }
     }
 
     .comment-section{
@@ -560,7 +568,7 @@ input.error {
                 height: 75px;
                 max-height: 75%;
                 border: none;
-                border: 1px solid  #8C8D65;
+                border: 1px solid #8C8D65;
                 @include border-radius(6px);
             
                 &:focus,
@@ -624,7 +632,6 @@ input.error {
 
     //in signup model:
     .modal{
-        
 
         .modal-header{
             background: $white;
@@ -656,6 +663,24 @@ input.error {
         .modal-footer{
             background: $white;
             margin-top: 0; 
+
+            button{
+                padding: 5px 10px;
+                font-size: 18px;
+                @include border-radius(8px);
+
+                &#signup{
+                    background: $pink;                   
+                    border: 1px solid #535432;
+
+
+                    &:hover{
+                        background: $black;
+                        color: $pink;
+                        box-shadow: -1px -1px $dk-green;
+                    }
+                }
+            }
         }
     }
 }

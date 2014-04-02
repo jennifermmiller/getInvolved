@@ -42,21 +42,32 @@ var HelpOutView = Backbone.View.extend({
 		//Need to figure something out with this
 		
 		//city is working
-		if ($('#desired-location').val() !== ''){
+		if ($('#desired-location').val() !== '' && $('#desired-date').val() !== ''){
 			var city = $('#desired-location').val().toLowerCase();
-			var link = '#/helpOut/' + city;
+			var date = $('#desired-date').val();
+		} else if($('#desired-location').val() === '' && $('#desired-date').val() !== ''){
+			var city = 'any';
+			var date = $('#desired-date').val();
+		} else if ($('#desired-location').val() !== '' && $('#desired-date').val() === '') {
+			var city = $('#desired-location').val().toLowerCase();
+			var date = 'any';
+		}	
+
+			var link = '#/helpOut/' + city + '/' + date;
 
 			this.$el.find('#search-btn').attr('href', link);
+			
 			$('#desired-location').val('');
-		}
+			$('#desired-date').val('');
+		
 
 		//date is working
-		if ($('#desired-date').val() !== '') {
-			var date = $('#desired-date').val();
-			var link = '#/helpOut/' + date;
+		// if ($('#desired-date').val() !== '') {
+		// 	var date = $('#desired-date').val();
+		// 	var link = '#/helpOut/' + date;
 
-			this.$el.find('#search-btn').attr('href', link);
-			$('#desired-date').val('');
-		}
+		// 	this.$el.find('#search-btn').attr('href', link);
+		// 	$('#desired-date').val('');
+		// }
 	}
 });
