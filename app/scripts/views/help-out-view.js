@@ -15,6 +15,8 @@ var HelpOutView = Backbone.View.extend({
 		$('body').append(this.el);
 
 		var query = new Parse.Query("EventClass");
+		var today = moment().format();
+		query.greaterThan("eventDate", today);
 		query.descending("createdAt");
 
 		query.find({
@@ -56,9 +58,5 @@ var HelpOutView = Backbone.View.extend({
 			this.$el.find('#search-btn').attr('href', link);
 			$('#desired-date').val('');
 		}
-
-		//Amount of time...not working:(
-		var amtOfTime= $('#desired-time').val();
-		var link = '#/helpOut/' + amtOfTime;
 	}
 });

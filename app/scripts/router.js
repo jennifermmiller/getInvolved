@@ -21,11 +21,13 @@ var Router = Backbone.Router.extend({
 		new HomeView();
 
 		var query = new Parse.Query(EventClass);
+		
+		var today = moment().format();
+		query.greaterThan("eventDate", today);
 		query.limit(3);
 		query.ascending('eventDate');
 		query.find({
 			success: function(events){
-				//Clean this up so not using for loop?
 				for(var i=0; i < events.length; i++){
 					new ThumbnailView({model: events[i]});
 				}

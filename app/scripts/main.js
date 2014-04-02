@@ -6,10 +6,12 @@ $(document).ready(function(){
 	Backbone.history.start();
 });
 
+$('#volunteer').on('click')
+
 //Form validation for get help:
+//Not checking numbers  
 $(function(){
     $('#event-details').validate({
-        if ($('#event-duration').val > 1 && $('#needed-vols'). val < 1) {
         rules: {
             "event-name" : {
             	required: true,
@@ -17,14 +19,8 @@ $(function(){
             	maxlength: 32
             },
             "event-address" : "required",
-            "event-date": {
-                required: true,
-               // range: [today - on] somehow no put in previous dates??
-            },
-            "start-event": {
-            	required: true,
-            	date: true
-            },
+            "event-date": "required",
+            "start-event": "required",
             "event-duration": {
             	range: [1,12],
                 required: true
@@ -63,8 +59,6 @@ $(function(){
             	required: "Please enter how many volunteers will you need.",
             	range: "Must need atleast one volunteer."
             }
-
-
         },
         errorContainer: $('#errorContainer'),
         errorLabelContainer: $('#errorContainer ul'),
@@ -72,24 +66,15 @@ $(function(){
     });
 });
 
-function validateNumbers(){
-	
-}
+// function validateNums(){
+//     if ($('#event-duration').val > 1 && $('#needed-vols'). val < 1) {
+// }
 
 
-
-//Things to be fixed down the road
-	//add to about page (see comment above template)
-	//Add type to event form (need to find a database for options)
-	//Have past event stay up for a week or something?
-		//Maybe have upcoming events and past events for people to connect post event?
+//Things to be fixed down the road and stage 2 ideas: 
+    //add to about page (see comment above template)
 	//Look into Bootstrap form validation... add/remove warning class
-	//Stage 2:  logins, comments w/ reply option
-
-
-
-
-
-
-
-	
+    //Focus all inputs on hover...add enter
+    //Add type to event form (need to find a database for options)
+    //Right now, querying to hide past events, would like to have backround function that destroys out-dated models
+	//logins, comments w/ reply option

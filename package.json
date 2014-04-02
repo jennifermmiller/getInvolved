@@ -1,9 +1,7 @@
 {
   "name": "final-project",
   "version": "0.0.0",
-  "dependencies": {
-    "grunt-cdn": "~0.3.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",

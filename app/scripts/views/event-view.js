@@ -48,7 +48,9 @@ var EventView = Backbone.View.extend({
 		var volsNeeded = this.model.get("peopleWanted");
 
 		//Make this neater...may disable modal if vols needed < 1
-		if (volsNeeded > 0 && $('#volunteer-name').val() !== '' && $('#volunteer-email').val() !== '') {
+		if(volsNeeded < 1) {
+			alert("Sorry, this event is full.")
+		} else if ($('#volunteer-name').val() !== '' && $('#volunteer-email').val() !== '') {
 
 			var volunteerName = $('#volunteer-name').val();
 			var volunteerEmail = $('#volunteer-email').val();
