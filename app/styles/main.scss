@@ -10,7 +10,7 @@ $lt-green: #b5b690;
 $white: #f1f1dc;
 $pink: #8f0853;
 
-$dancing-script: 'Dancing Script', cursive;
+$dancing-script: 'Dancing Script', cursive;;
 $garamond-script: 'EB Garamond', serif;
 
 /* Space out content a bit */
@@ -179,7 +179,7 @@ a.thumbnails {
         @include border-radius(0 0 6px 6px);
 
         h4 {
-            font-family: $dancing-script;
+            font-weight: 700;
             font-size: 20px;
             margin-top: 0;
         }
@@ -194,30 +194,48 @@ a.thumbnails {
     }
 }
 
+input{
+    background: white;
+}
 
 /***********************End of re-used styles****************************/
 
 /*Homepage styles:*/
 .homepage-guts{
     text-align: center;
-    
+    p{
+        font-size: 20px;
+        padding-top: 10px;
+    }
     .home-welcome{
+        background: url(/../images/makeadifference440.jpeg) no-repeat rgba(255,255,255, .3);
+     
+        .textbox{
+            padding-top: 30px;
+            height: 440px;
+            font-weight: 700;
+            background: rgba(255,255,255,.3);
+
+            p{
+                font-size: 21px;
+                margin-bottom: 25px;
+            }
+        }
 
         .home-focus{
-            height: 540px;
-            background: url(../images/makeadifference2.jpg) no-repeat;
+            height: 350px;
             border-bottom: 1px solid #9E9F8C;
             box-shadow: 1px 0 2px $lt-green;
+            
 
             .start-btns{
                 padding-top: 40px;
 
                 button{
-                    width: 180px;
+                    width: 200px;
                     padding: 8px;
-                    font-size: 20px;
+                    font-size: 24px;
                     background: $lt-green;
-                    font-family: $dancing-script;
                     @include border-radius(6px);
 
                     &:first-child{ 
@@ -252,7 +270,7 @@ a.thumbnails {
         }
 
         .thumbnails {
-            margin: 10px; 
+            margin: 10px 5px; 
         }
     }
 }
@@ -362,11 +380,11 @@ a.thumbnails {
 
                 input, 
                 textarea {
-                    background: $white;
+                    background: #F9F9F3;
                     border: none;
-                    @include border-radius (3px);
                     outline: none;
                     padding: 5px;
+                    @include border-radius (3px);
                 }
 
                 input{    
@@ -487,9 +505,8 @@ input.error {
 
         .event-info{
             width: 40%;
-            margin-left: 45px;
+            margin: 35px 0 0 45px;
             text-align: left;
-            margin-top: 35px;
 
             p{       
             max-height: 215px;
@@ -582,7 +599,7 @@ input.error {
             display: block;
 
             #new-comment{
-                background: $lt-green;
+                background: white;
                 color: $dk-green;
                 width: 70%;
                 max-width:70%; 
@@ -602,7 +619,7 @@ input.error {
             }
 
             #comment-by{
-                background: $lt-green;
+                background: white;
                 color: $white;
                 display: block;
                 margin-left: 140px;
@@ -678,7 +695,7 @@ input.error {
 
             input, 
             textarea{
-                background: $lt-green;
+                background: white;
                 width: 55%;
                 padding: 5px;
                 display: block;
@@ -735,7 +752,6 @@ input.error {
                 margin-left: 60px;
 
                 input{
-                    background: rgb(203, 201, 177);
                     padding: 5px;
                     height: 44px;
                     @include border-radius(6px);
