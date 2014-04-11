@@ -37,12 +37,6 @@ var EventView = Backbone.View.extend({
 
 		//Fix this so on signup, number of volunters needed updates:
 		//this.listenTo(this.model, 'change', this.render);
-
-		var volsNeeded = this.model.get("peopleWanted");
-		if (volsNeeded < 1) {
-			$('#volunteer').prop("disabled",true);
-		}
-
 	},
 
 	render: function(){
@@ -53,7 +47,10 @@ var EventView = Backbone.View.extend({
 		var volunteer = new VolunteerClass();
 		var volsNeeded = this.model.get("peopleWanted");
 
-		if ($('#volunteer-name').val() !== '' && $('#volunteer-email').val() !== '') {
+		//Make this neater...may disable modal if vols needed < 1
+		if(volsNeeded < 1) {
+			alert("Sorry, this event is full.")
+		} else if ($('#volunteer-name').val() !== '' && $('#volunteer-email').val() !== '') {
 
 			var volunteerName = $('#volunteer-name').val();
 			var volunteerEmail = $('#volunteer-email').val();
@@ -70,7 +67,6 @@ var EventView = Backbone.View.extend({
 			volunteer.save(null, {
 				success: function(result){
 					//Decrease volunteers needed by one
-					//refresh page?
 					var query = new Parse.Query("EventClass");
 					query.get(that.model.id, {
 						success: function(result){
@@ -82,7 +78,7 @@ var EventView = Backbone.View.extend({
 					//Remove modal:
 					//Put a transition on this stuff:
 					$('#myModal').hide();
-					$('.modal-backdrop').hide();
+					$('.modal-backdrop').hide();  
 
 					//Email confirmation to volunteer and event sponsor
 				},

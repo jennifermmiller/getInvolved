@@ -24,7 +24,7 @@ var Router = Backbone.Router.extend({
 		
 		var today = moment().format();
 		query.greaterThan("eventDate", today);
-		query.limit(6);
+		query.limit(3);
 		query.ascending('eventDate');
 		query.find({
 			success: function(events){
