@@ -1,3 +1,7 @@
+if (screen.width <= 480) {
+ document.getElementById("viewport").setAttribute("content", "width=480; initial-scale=0.5");   
+}
+
 $(document).ready(function(){
 	Parse.initialize("BVqqHnDg3xhdBezKMQFxvzdjHx98lJDRJxjCJy9H", "9HXAYhUbtdZsRREtIp9K7YChpvAFAeWsTBZAYkPt");
 

@@ -203,10 +203,12 @@ input{
 /*Homepage styles:*/
 .homepage-guts{
     text-align: center;
+
     p{
         font-size: 20px;
         padding-top: 10px;
     }
+    
     .home-welcome{
         background: url(/../images/makeadifference440.jpeg) no-repeat rgba(255,255,255, .3);
      
@@ -302,8 +304,8 @@ input{
     }
 
     .form-css{
-        margin-left: 20%;
-        width: 840px;
+       // margin-left: 20%;
+        //width: 840px;
    
         form#event-details {
             background: $lt-green;

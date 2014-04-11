@@ -5,7 +5,6 @@ var HelpOutView = Backbone.View.extend({
 
 	className: 'help-out-view',
 
-	//Fix this so only one search option at a time shows up
 	events:{
 		'click .search-options': 'showSearch',
 		'click #search-btn' : 'search'
@@ -39,9 +38,6 @@ var HelpOutView = Backbone.View.extend({
 	},
 
 	search: function(){
-		//Need to figure something out with this
-		
-		//city is working
 		if ($('#desired-location').val() !== '' && $('#desired-date').val() !== ''){
 			var city = $('#desired-location').val().toLowerCase();
 			var date = $('#desired-date').val();
