@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class=no-js><!--<![endif]--><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>getInvolved</title><meta name=description content=""><meta name=viewport content="width=device-width"><!-- Place favicon.ico and apple-touch-icon.png in the root directory --><link rel=stylesheet href=styles/vendor.css><link rel=stylesheet href=styles/f246f775.main.css><script src=bower_components/modernizr/modernizr.js></script><link href="http://fonts.googleapis.com/css?family=Dancing+Script:700|EB+Garamond" rel=stylesheet type=text/css><link href="http://fonts.googleapis.com/css?family=Great+Vibes" rel=stylesheet type=text/css><script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script><body><!--[if lt IE 10]>
+<!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class=no-js><!--<![endif]--><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>getInvolved</title><meta name=description content=""><meta name=viewport content="width=device-width"><!-- Place favicon.ico and apple-touch-icon.png in the root directory --><link rel=stylesheet href=styles/vendor.css><link rel=stylesheet href=styles/49339e67.main.css><script src=bower_components/modernizr/modernizr.js></script><link href="http://fonts.googleapis.com/css?family=Dancing+Script:700|EB+Garamond" rel=stylesheet type=text/css><link href="http://fonts.googleapis.com/css?family=Great+Vibes" rel=stylesheet type=text/css><script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script><body><!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]--><!-- Start of Templates: --><!-- Header Template: --><script type=text/template id=header-template><div class="container">
                 <div class="header"> <!--Put this div in a header tag in view template?-->
@@ -56,7 +56,7 @@
                 <h2>A Short Signup to get some help:</h2>
             </div>
             <div class="form-css container row">
-           <form id="event-details" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+           <form id="event-details" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                <fieldset>
                    <legend>Essentials</legend>
                    <ul>
@@ -189,22 +189,22 @@
             <div class="middle-event-page">
                 <div class="container">
                     <div id="map-canvas"></div>
+                        <div class="remaining-event-info">
+                            <h2>More Details:</h2> 
+                            <h4>Location:<span><%=model.get('eventAddress')%></span></h4>
+                            <h4>Date:<span><%=model.get('eventDateFull')%></span></h4>
+                            <h4>Sponsored By:<span><%=model.get('eventSponsor')%></span></h4>
+
+                            <h4>Event will last about:<span><%=model.get('eventDuration')%> hours.</span></h4>
+
+                            <h4>Number of volunteers needed:<span><%=model.get('peopleWanted')%></span></h4>
+                        </div>
                         <div id="get-directions">
                             <form action="http://maps.google.com/maps" method="get" target="_blank">
                                <input type="hidden" name="daddr" value="<%=model.get('eventAddress')%>"/>
                                <input type="submit" id="get-directions-input" value="Get Directions" />
                             </form>
                         </div>
-                    <div class="remaining-event-info">
-                        <h2>More Details:</h2> 
-                        <h4>Location:<span><%=model.get('eventAddress')%></span></h4>
-                        <h4>Date:<span><%=model.get('eventDateFull')%></span></h4>
-                        <h4>Sponsored By:<span><%=model.get('eventSponsor')%></span></h4>
-
-                        <h4>Event will last about:<span><%=model.get('eventDuration')%> hours.</span></h4>
-
-                        <h4>Number of volunteers needed:<span><%=model.get('peopleWanted')%></span></h4>
-                    </div>
                 </div>
                 <!-- Button trigger modal -->
                 <button class="btn btn-primary btn-lg" id="volunteer" data-toggle="modal" data-target="#myModal">
