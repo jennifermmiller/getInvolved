@@ -801,3 +801,62 @@ input.error {
         margin: 15px 5px;;
     }
 }
+
+//Media queries:
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 480px) {
+    .container{
+        min-width: 320px;
+        padding: 5px 0;
+    }
+
+    .header h3{
+        text-align: center;
+    }
+
+    .nav{
+        display: none;
+    }
+
+    .home-focus{
+        p{
+            font-size: 16px;
+        }
+
+        .start-btns:first-child{
+            margin-bottom: 15px;
+        }
+    }
+
+    .form-css{
+        padding-right: 20px;
+
+        li{
+            label{
+            display: block;
+            width: auto;
+            }
+
+            input{
+                width: 100%
+            }
+        }
+    }
+
+    .search-opts{
+        li label,
+        li input{
+            display: block;
+        }
+        li{
+            margin-bottom: 10px;
+        }
+    }
+
+    .opportunities{
+        margin-left: 20px;
+    }
+}
+
+
