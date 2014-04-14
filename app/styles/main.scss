@@ -207,8 +207,15 @@ a.thumbnails {
     }
     
     .home-welcome{
-        background: url(../images/homepagebkgrd.jpeg) no-repeat;
-        background-size: cover;
+        // background: url(../images/homepagebkgrd.jpeg) no-repeat;
+        // background-size: cover;
+
+        #bkgd{
+            width: 100%;
+            position: absolute;
+            z-index: -1;
+            height: 450px;
+        }
 
         .home-focus{
             background-color: rgba(101, 101, 101, .3);
