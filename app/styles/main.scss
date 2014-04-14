@@ -200,22 +200,26 @@ a.thumbnails {
 /*Homepage styles:*/
 .homepage-guts{
     text-align: center;
-<<<<<<< HEAD
 
     p{
         font-size: 20px;
         padding-top: 10px;
     }
-=======
->>>>>>> parent of 365c5de... changes after class presentation
     
     .home-welcome{
+        background: url(../images/homepagebkgrd.jpeg) no-repeat;
+        background-size: cover;
 
         .home-focus{
-            height: 540px;
-            background: url(../images/makeadifference2.jpg) no-repeat;
+            background-color: rgba(101, 101, 101, .3);
             border-bottom: 1px solid #9E9F8C;
             box-shadow: 1px 0 2px $lt-green;
+            padding: 40px 0;
+            text-shadow: 1px 1px rgb(80, 61, 61);
+
+            p{
+                font-size: 22px;
+            }
 
             .start-btns{
                 padding-top: 40px;
@@ -260,7 +264,7 @@ a.thumbnails {
         }
 
         .thumbnails {
-            margin: 10px; 
+            margin: 15px 5px; 
         }
     }
 }
