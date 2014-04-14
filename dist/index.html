@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class=no-js><!--<![endif]--><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>getInvolved</title><meta name=description content=""><meta name=viewport content="initial-scale=1"><!-- Place favicon.ico and apple-touch-icon.png in the root directory --><link rel=stylesheet href=styles/vendor.css><link rel=stylesheet href=styles/07a3e5eb.main.css><script src=bower_components/modernizr/modernizr.js></script><link href="http://fonts.googleapis.com/css?family=Dancing+Script:700|EB+Garamond" rel=stylesheet type=text/css><link href="http://fonts.googleapis.com/css?family=Great+Vibes" rel=stylesheet type=text/css><script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script><body><!--[if lt IE 10]>
+<!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class=no-js><!--<![endif]--><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>getInvolved</title><meta name=description content=""><meta name=viewport content="initial-scale=1"><!-- Place favicon.ico and apple-touch-icon.png in the root directory --><link rel=stylesheet href=styles/vendor.css><link rel=stylesheet href=styles/1f0fa0c1.main.css><script src=bower_components/modernizr/modernizr.js></script><link href="http://fonts.googleapis.com/css?family=Dancing+Script:700|EB+Garamond" rel=stylesheet type=text/css><link href="http://fonts.googleapis.com/css?family=Great+Vibes" rel=stylesheet type=text/css><script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script><body><!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]--><!-- Start of Templates: --><!-- Header Template: --><script type=text/template id=header-template><div class="container">
                 <div class="header"> <!--Put this div in a header tag in view template?-->
@@ -15,7 +15,7 @@
                 <div class="home-focus">
                     <div class="textbox row">
                         <h1>People Coming Together to Make a Difference</h1>
-                        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-md-offset-3">Do you or your organization need an extra hand? Interested in getting involved in your community without joining a club? This site is an easy and informal way for people to connect with each other and make a difference in their community.</p>
+                        <p class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-md-offset-4">Do you or your organization need an extra hand? Interested in getting involved in your community without joining a club? This site is an easy and informal way for people to connect with each other and make a difference in their community.</p>
                         <div class="start-btns col-lg-6 col-md-6 col-sm-6 col-xs-6 col-md-offset-3">
                             <a href="#getHelp"><button>Get Help</button></a>
                             <a href="#helpOut"><button>Make a Difference</button></a>
@@ -54,91 +54,85 @@
             </div></script><!-- GetHelp Template: --><script type=text/template id=get-help-template><div class="sub-header">
                 <h2>A Short Signup to get some help:</h2>
             </div>
-            <div class="form-css col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
-            <form id="event-details">
-                <fieldset>
-                    <legend>Essentials</legend>
-                    <ul>
-                        <li>
-                            <label for="event-name">Name of Event</label>
-                            <input type="text" id="event-name" name="eventName" placeholder=" Neighborhood Street Cleanup..." required/>
-                        </li>
-                        <li>
-                            <label for="event-address">Location</label>
-                            <input type="text" id="event-address" name="eventAddress" placeholder="Street Address, City, State, Zip Code" required/>
-                        </li>    
-                        <li>
-                            <label for="event-date">Date</label>
-                            <input type="date" id="event-date" name="eventDate" required/>
-                        </li>
-                        <li>
-                            <label for="start-event">Starts at</label>
-                            <input type="time" id="start-event" name="startEvent" maxlength="32" required/>
-                        </li>
-                        <li>
-                            <label for="event-duration">Duration</label>
-                            <input type="number" id="event-duration" name=="eventDuration" required/>
-                            <span>hours</span>
-                        </li>
-                        <li>
-                            <label for="event-description">Description</label>
-                            <textarea type="text" id="event-description" name="eventDescription" placeholder="Brief description of event..." required></textarea>
-                        </li> 
-                    </ul>     
-                </fieldset>
-                <fieldset>
-                    <legend>About You</legend>
-                    <ul>
-                        <li>
-                            <label for="event-sponsor">Sponsor</label>
-                            <input type="text" id="event-sponsor" name="eventSponsor" placeholder="Your name/organization..." required/>
-                        </li>
-                        <li>
-                            <label for="sponsor-email">Sponsors Email</label>
-                            <input type="email" id="sponsor-email" name="sponsorEmail" placeholder="me@example.com"/>
-                        </li>
-                        <li class="special-li">
-                            <input type="checkbox" id="event-pledge" name="eventPledge" required/>
-                            <label for="event-pledge">I pledge this is a genuine volunteer opportunity</label>
-                        </li>
-                    </ul>
-                </fieldset>     
-                <fieldset>
-                    <legend>Extra Details</legend>
-                    <ul>
-                        <li>
-                            <label for="needed-vols">Number of volunteers needed?</label>
-                            <input type="number" id="needed-vols" name=="neededVols"required/>
-                        </li>
-                        <li>
-                            <label for="event-category">What category best decribes this event?</label>
-                            <select id="event-category" name="eventCategory">
-                                <option value="">-Select a Category-</option>
-                                <option>Neighborhood cleanup</option>
-                                <option>Tutoring</option>
-                                <option>Helping eldery</option>
-                                <option>Fundraising</option>
-                                <option>I have no idea</option>
-                                <option>Need to find more options</option>
-                            </select>
-                        </li>
-                        <li>   
-                            <label for="event-photo">Photo</label>
-                            <input type="file" style="display: inline-block" id="event-photo" name="eventPhoto"/>
-                        </li>
-                    </ul>
-                </fieldset>
-                <fieldset>  
-                    <button type="button" id="submit-help-form">Submit</button>
-                </fieldset>
-            </form>
-            </div> 
-            <div class="container">
-                <div id="errorContainer">
-                    <p>&nbsp;Please correct the following errors and try again:</p>
-                    <ul />
-                </div>    
-            </div></script><!-- HelpOut Template --><script type=text/template id=help-out-template><div class="search-opts">
+            <div class="form-css container row">
+           <form id="event-details" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+               <fieldset>
+                   <legend>Essentials</legend>
+                   <ul>
+                       <li>
+                           <label for="event-name">Name of Event</label>
+                           <input type="text" id="event-name" name="eventName" placeholder=" Neighborhood Street Cleanup..."/>
+                       </li>
+                       <li>
+                           <label for="event-address">Location</label>
+                           <input type="text" id="event-address" name="eventAddress" placeholder="Street Address, City, State, Zip Code"/>
+                       </li>    
+                       <li>
+                           <label for="event-date">Date</label>
+                           <input type="date" id="event-date" name="eventDate"/>
+                       </li>
+                       <li>
+                           <label for="start-event">Starts at</label>
+                           <input type="time" id="start-event" name="startEvent" maxlength="32"/>
+                       </li>
+                       <li>
+                           <label for="event-duration">Duration</label>
+                           <input type="number" id="event-duration" name="eventDuration"/>
+                           <span>hours</span>
+                       </li>
+                       <li>
+                           <label for="event-description">Description</label>
+                           <textarea type="text" id="event-description" name="eventDescription" placeholder="Brief description of event..."></textarea>
+                       </li> 
+                   </ul>     
+               </fieldset>
+               <fieldset>
+                   <legend>About You</legend>
+                   <ul>
+                       <li>
+                           <label for="event-sponsor">Sponsor</label>
+                           <input type="text" id="event-sponsor" name="eventSponsor" placeholder="Your name/organization..."/>
+                       </li>
+                       <li>
+                           <label for="sponsor-email">Sponsors Email</label>
+                           <input type="email" id="sponsor-email" name="sponsorEmail" placeholder="me@example.com"/>
+                       </li>
+                       <li class="special-li">
+                           <input type="checkbox" id="event-pledge" name="eventPledge"/>
+                           <label for="event-pledge">I pledge this is a genuine volunteer opportunity</label>
+                       </li>
+                   </ul>
+               </fieldset>     
+               <fieldset>
+                   <legend>Extra Details</legend>
+                   <ul>
+                       <li>
+                           <label for="needed-vols">Number of volunteers needed?</label>
+                           <input type="number" id="needed-vols" name="neededVols"/>
+                       </li>
+                       <li>
+                           <label for="event-category">What category best decribes this event?</label>
+                           <select id="event-category" name="eventCategory">
+                               <option value="">-Select a Category-</option>
+                               <option>Neighborhood cleanup</option>
+                               <option>Tutoring</option>
+                               <option>Helping eldery</option>
+                               <option>Fundraising</option>
+                               <option>I have no idea</option>
+                               <option>Need to find more options</option>
+                           </select>
+                       </li>
+                       <li>   
+                           <label for="event-photo">Photo</label>
+                           <input type="file" style="display: inline-block" id="event-photo" name="eventPhoto"/>
+                       </li>
+                   </ul>
+               </fieldset>
+               <fieldset>  
+                   <button type="button" id="submit-help-form">Submit</button>
+               </fieldset>
+           </form>
+        </div></script><!-- HelpOut Template --><script type=text/template id=help-out-template><div class="search-opts">
                 <div class = "container">
                     <h3>Search For The Right Opportunity</h3>
                     <ul>
@@ -264,4 +258,4 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');</script><script src=scripts/aaf74903.plugins.js></script><script src=scripts/f238c2f6.main.js></script>
+            ga('create','UA-XXXXX-X');ga('send','pageview');</script><script src=scripts/aaf74903.plugins.js></script><script src=scripts/2ca3bbf5.main.js></script>
