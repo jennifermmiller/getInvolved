@@ -804,58 +804,154 @@ input.error {
 
 //Media queries:
 @media only screen 
-and (min-device-width: 320px) 
-and (max-device-width: 480px) {
+and (min-width: 320px) 
+and (max-width: 480px) {
     .container{
         min-width: 320px;
         padding: 5px 0;
     }
 
-    .header h3{
-        text-align: center;
-    }
+    .header {
+        h3{
+            text-align: center;
+        }
 
-    .nav{
-        display: none;
+        ul {
+            display: none;
+        }
     }
 
     .home-focus{
+        h1{
+            margin: 0 35px;
+        }
+
         p{
             font-size: 16px;
         }
 
-        .start-btns:first-child{
+        .start-btns button:first-child{
             margin-bottom: 15px;
         }
     }
 
-    .form-css{
-        padding-right: 20px;
+    .get-help{
+        h2{
+            margin: 0 25px;
+        }
+        .form-css{
+            margin: 0 40px 0 -20px;
 
-        li{
-            label{
-            display: block;
-            width: auto;
-            }
+            li{
+                label{
+                display: block;
+                width: auto;
+                }
 
-            input{
-                width: 100%
+                input{
+                    width: 100%
+                }
             }
         }
     }
 
-    .search-opts{
+    .help-out-view .search-opts{
+        padding: 20px 0;
+
+        h3{
+            margin: 0 10px;
+        }
+
         li label,
         li input{
             display: block;
+            width: 225px;
         }
-        li{
+        
+        ul li{
             margin-bottom: 10px;
+
+            label[for="desired-date"]{
+                margin-left: 0;
+            }
+        }
+
+        #search-btn{
+            button{
+            margin-top: 10px;
+            }
         }
     }
 
     .opportunities{
         margin-left: 20px;
+    }
+
+    .event-focus {
+        .container{
+            .event-pic,
+            .event-info{
+                width: auto;
+            }
+        }
+
+        .middle-event-page{
+            height: auto;
+            padding-bottom: 20px;
+
+            #map-canvas,
+            .remaining-event-info{
+                display: block;
+            }
+
+            #map-canvas{
+                float: none;
+                width: 80%;
+                margin-left: 40px;
+            }
+
+            .remaining-event-info{
+                width: auto;
+                text-align: left;
+                margin-top: 15px;
+                margin-left: 45px;
+            }
+
+            #volunteer{
+                margin-top: 25px;
+            }
+        }
+    }
+
+    .comment-section{
+        .container{
+
+            h2{
+                margin: 0 10px;
+            }
+
+            .add-comment{
+                #comment-by{
+                    width: 70%;
+                    margin-left: 52px;
+                }
+
+                #add-comment-btn{
+                    float: none;
+                    margin: 10px 0 0 135px;
+                }
+            }
+
+            .prev-comments{
+                margin-left: 40px;
+
+                li{
+                    height: auto;
+                    width: 90%;
+                    padding: 5px;
+                }
+            }
+        }
     }
 }
 
