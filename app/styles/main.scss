@@ -106,11 +106,15 @@ header{
     height: 80px;
     padding: 10px 0 5px 0;
     
-    h3.text-muted{
+    h3 a{
         font-family: $dancing-script;
         color: $lt-green;
         font-size: 36px;
         line-height: inherit;
+
+        &:hover{
+            color: $lt-green;
+        }
     }
 
     ul{
@@ -221,7 +225,7 @@ a.thumbnails {
             background-color: rgba(101, 101, 101, .3);
             border-bottom: 1px solid #9E9F8C;
             box-shadow: 1px 0 2px $lt-green;
-            padding: 40px 0;
+            padding: 100px 0;
             text-shadow: 1px 1px rgb(80, 61, 61);
 
             p{
@@ -362,7 +366,7 @@ a.thumbnails {
                     color: $dk-green;
 
                     &[for="event-pledge"]{
-                        width: 445px;
+                        width: auto;
                     }
 
                     &[for="needed-vols"]{
@@ -376,6 +380,21 @@ a.thumbnails {
 
                     &[for="event-photo"]{
                         width: 65px;
+                    }
+
+                    &.valid {
+                        width: 24px;
+                        height: 24px;
+                    //    background: url(assets/img/valid.png) center center no-repeat;
+                        display: inline-block;
+                        text-indent: -9999px;
+                    }
+
+                    &.error {
+                        font-weight: bold;
+                        color: red;
+                        padding: 2px 8px;
+                        margin-top: 2px;
                     }
                 }
 
@@ -547,28 +566,30 @@ input.error {
             }
         }
 
-        #map-canvas{
-            width: 45%;
-            height: 300px;
-            float: right;
-        }
+        .right-side{
+            margin-left: 60px;
 
-        #get-directions-input{
-            position: absolute;
-            margin: 302px 0 0 575px;
-            width: 100px;
-            padding: 5px;
-            @include border-radius(6px);
-            background: $white;
-            color: $black;
+            #map-canvas{
+                height: 300px;    
+            }
 
-            &:hover{
-                background: #E7E7D0;
+            #get-directions-input{
+                float: right;
+                margin-top: 5px;
+                width: 100px;
+                padding: 5px;
+                @include border-radius(6px);
+                background: $white;
+                color: $black;
+
+                &:hover{
+                    background: #E7E7D0;
+                }
             }
         }
 
         #volunteer{
-            margin-top: 50px;
+            margin-top: 15px;
             background: $pink;
             padding: 10px 35px;
             font-size: 22px;
@@ -804,8 +825,8 @@ input.error {
 
 //Media queries:
 @media only screen 
-and (min-width: 320px) 
-and (max-width: 480px) {
+and (min-device-width: 320px) 
+and (max-device-width: 480px) {
     .container{
         min-width: 320px;
         padding: 5px 0;
@@ -920,6 +941,18 @@ and (max-width: 480px) {
             #volunteer{
                 margin-top: 25px;
             }
+
+            #get-directions-input{
+                position: relative;
+                float: right;
+                margin-top: -230px;
+                margin-right: 25px;
+            }
+        }
+
+        .modal .modal-body input,
+        .modal .modal-body textarea{
+            width: 96%;
         }
     }
 
@@ -938,7 +971,7 @@ and (max-width: 480px) {
 
                 #add-comment-btn{
                     float: none;
-                    margin: 10px 0 0 135px;
+                    margin: 10px 0 0 60px;
                 }
             }
 
