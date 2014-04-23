@@ -66,12 +66,12 @@ $(document).ready(function(){
        //     .text('OK!').addClass('valid')
        //     .closest('.control-group').removeClass('error').addClass('success');
        // }
-       highlight: function (element) {
-              $(element).closest('.control-group').removeClass('valid').addClass('error');
-          },
-          unhighlight: function (element) {
-              $(element).closest('.control-group').removeClass('error').addClass('valid');
-          }
+        highlight: function (element) {
+            $(element).closest('.control-group').removeClass('valid').addClass('error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.control-group').removeClass('error').addClass('valid');
+        }
     });
 });
 

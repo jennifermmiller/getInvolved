@@ -42,3 +42,20 @@ search: function(){
 		$('#desired-location').val('');
 		$('#desired-date').val('');
 }
+
+
+
+
+
+
+
+
+<div class="right-side">
+    <div id="map-canvas"></div>
+    <div id="get-directions">
+        <form action="http://maps.google.com/maps" method="get" target="_blank">
+           <input type="hidden" name="daddr" value="<%=model.get('eventAddress')%>"/>
+           <input type="submit" id="get-directions-input" value="Get Directions" />
+        </form>
+    </div>
+</div>  

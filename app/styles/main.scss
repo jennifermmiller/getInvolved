@@ -110,6 +110,7 @@ header{
         font-family: $dancing-script;
         color: $lt-green;
         font-size: 36px;
+        padding-top: 10px;
         line-height: inherit;
 
         &:hover{
@@ -118,7 +119,7 @@ header{
     }
 
     ul{
-        padding-top: 14px;
+        padding-top: 8px;
 
         li a{
             font-size: 18px;
@@ -211,15 +212,9 @@ a.thumbnails {
     }
     
     .home-welcome{
-        // background: url(../images/homepagebkgrd.jpeg) no-repeat;
-        // background-size: cover;
+        background: url(../images/c9bce00c.homepagebkgrd.jpeg) no-repeat; 
+        background-size: cover;
 
-        #bkgd{
-            width: 100%;
-            position: absolute;
-            z-index: -1;
-            height: 450px;
-        }
 
         .home-focus{
             background-color: rgba(101, 101, 101, .3);
@@ -352,6 +347,7 @@ a.thumbnails {
                 padding: 5px 10px;
                 margin-bottom: 3px;
                 @include border-radius(6px);
+               // height: 44px;
 
                 &.special-li{
                    height: 48px;
@@ -362,6 +358,7 @@ a.thumbnails {
                     text-align: right;
                     margin-right: 10px;
                     font-size: 20px;
+                    line-height: 20px;
                     width: 145px;
                     color: $dk-green;
 
@@ -409,6 +406,10 @@ a.thumbnails {
 
                 input{    
                     width: 62%;
+
+                    &#event-duration{
+                        display: inline;
+                    }
                 }
 
                 input[type=text],
@@ -443,10 +444,9 @@ a.thumbnails {
                 }
 
                 input[type=checkbox] {
-                    float: left;
                     width: 30px;
                     height: 30px;
-                    margin: 4px 40px 0 60px;
+                    margin: -2px 40px 0 60px;
                 }
 
                 select{
@@ -825,8 +825,8 @@ input.error {
 
 //Media queries:
 @media only screen 
-and (min-device-width: 320px) 
-and (max-device-width: 480px) {
+and (min-width: 320px) 
+and (max-width: 480px) {
     .container{
         min-width: 320px;
         padding: 5px 0;
@@ -842,7 +842,9 @@ and (max-device-width: 480px) {
         }
     }
 
-    .home-focus{
+    .homepage-guts .home-welcome .home-focus{
+        padding: 50px 0;
+
         h1{
             margin: 0 35px;
         }
